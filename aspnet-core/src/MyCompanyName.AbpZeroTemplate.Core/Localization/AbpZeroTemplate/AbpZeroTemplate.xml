@@ -1,6 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>
+  <texts>    <text name="Subject">Subject</text>
+    <text name="PbSubject">Pb subject</text>
+    <text name="ClassName">Class name</text>
+    <text name="ObjectName">Object name</text>
+    <text name="ChapterName">Chapter name</text>
+    <text name="SectionName">Section name</text>
+    <text name="PbSubjectsHeaderInfo">Pb subjects header info</text>
+    <text name="CreateNewPbSubject">Create new pb subject</text>
+    <text name="EditPbSubject">Edit pb subject</text>
+    <text name="DeletePbSubject">Delete pb subject</text>
+    <text name="PbSubjects">Pb subjects</text>
+    <text name="{0}IsRequired">{0} is required.</text>
+    <text name="View">View</text>
+    <text name="Details">Details</text>
+    <text name="Pick">Pick</text>
+    <text name="True">True</text>
+    <text name="False">False</text>
+    <text name="MinValue">Min</text>
+    <text name="MaxValue">Max</text>
+
     <text name="HomePage">Home page</text>
     <text name="AboutUs">About us</text>
     <text name="Administration">Administration</text>

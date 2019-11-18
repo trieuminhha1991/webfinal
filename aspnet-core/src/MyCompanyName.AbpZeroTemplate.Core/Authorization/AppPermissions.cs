@@ -1,4 +1,4 @@
-﻿namespace MyCompanyName.AbpZeroTemplate.Authorization
+namespace MyCompanyName.AbpZeroTemplate.Authorization
 {
     /// <summary>
     /// Defines string constants for application's permission names.
@@ -6,6 +6,11 @@
     /// </summary>
     public static class AppPermissions
     {
+        public const string Pages_PbSubjects = "Pages.PbSubjects";
+        public const string Pages_PbSubjects_Create = "Pages.PbSubjects.Create";
+        public const string Pages_PbSubjects_Edit = "Pages.PbSubjects.Edit";
+        public const string Pages_PbSubjects_Delete = "Pages.PbSubjects.Delete";
+
         //COMMON PERMISSIONS (FOR BOTH OF TENANTS AND HOST)
 
         public const string Pages = "Pages";

@@ -1,0 +1,48 @@
+<div bsModal #createOrEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createOrEditModal" aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form *ngIf="active" #pbSubjectForm="ngForm" novalidate (ngSubmit)="save()" autocomplete="off">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span *ngIf="pbSubject.id">{{l("EditPbSubject")}}</span>
+                        <span *ngIf="!pbSubject.id">{{l("CreateNewPbSubject")}}</span>
+                    </h4>
+                    <button type="button" class="close" (click)="close()" aria-label="Close" [disabled]="saving">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                 
+
+
+								<div class="form-group">
+									<label for="PbSubject_ClassName">{{l("ClassName")}} *</label>
+									<input type="text" id="PbSubject_ClassName" class="form-control" [(ngModel)]="pbSubject.className" name="ClassName"     required/>
+								</div>
+					
+								<div class="form-group">
+									<label for="PbSubject_ObjectName">{{l("ObjectName")}}</label>
+									<input type="text" id="PbSubject_ObjectName" class="form-control" [(ngModel)]="pbSubject.objectName" name="ObjectName"    />
+								</div>
+					
+								<div class="form-group">
+									<label for="PbSubject_ChapterName">{{l("ChapterName")}}</label>
+									<input type="text" id="PbSubject_ChapterName" class="form-control" [(ngModel)]="pbSubject.chapterName" name="ChapterName"    />
+								</div>
+					
+								<div class="form-group">
+									<label for="PbSubject_SectionName">{{l("SectionName")}}</label>
+									<input type="text" id="PbSubject_SectionName" class="form-control" [(ngModel)]="pbSubject.sectionName" name="SectionName"    />
+								</div>
+					
+
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="saving" type="button" class="btn btn-default" (click)="close()">{{l("Cancel")}}</button>
+                    <button type="submit" class="btn btn-primary blue" [disabled]="!pbSubjectForm.form.valid" [buttonBusy]="saving" [busyText]="l('SavingWithThreeDot')"><i class="fa fa-save"></i> <span>{{l("Save")}}</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

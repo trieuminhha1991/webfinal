@@ -1,4 +1,4 @@
-﻿using Abp.Authorization;
+using Abp.Authorization;
 using Abp.Configuration.Startup;
 using Abp.Localization;
 using Abp.MultiTenancy;
@@ -29,6 +29,13 @@ namespace MyCompanyName.AbpZeroTemplate.Authorization
             //COMMON PERMISSIONS (FOR BOTH OF TENANTS AND HOST)
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
+
+            var pbSubjects = pages.CreateChildPermission(AppPermissions.Pages_PbSubjects, L("PbSubjects"));
+            pbSubjects.CreateChildPermission(AppPermissions.Pages_PbSubjects_Create, L("CreateNewPbSubject"));
+            pbSubjects.CreateChildPermission(AppPermissions.Pages_PbSubjects_Edit, L("EditPbSubject"));
+            pbSubjects.CreateChildPermission(AppPermissions.Pages_PbSubjects_Delete, L("DeletePbSubject"));
+
+
             pages.CreateChildPermission(AppPermissions.Pages_DemoUiComponents, L("DemoUiComponents"));
 
             var administration = pages.CreateChildPermission(AppPermissions.Pages_Administration, L("Administration"));

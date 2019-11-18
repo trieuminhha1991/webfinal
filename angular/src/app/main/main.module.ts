@@ -2,6 +2,15 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppCommonModule } from '@app/shared/common/app-common.module';
+import { PbSubjectsComponent } from './subject/pbSubjects/pbSubjects.component';
+import { ViewPbSubjectModalComponent } from './subject/pbSubjects/view-pbSubject-modal.component';
+import { CreateOrEditPbSubjectModalComponent } from './subject/pbSubjects/create-or-edit-pbSubject-modal.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { PaginatorModule } from 'primeng/paginator';
+import { EditorModule } from 'primeng/editor';
+import { InputMaskModule } from 'primeng/inputmask';import { FileUploadModule } from 'primeng/fileupload';
+import { TableModule } from 'primeng/table';
+
 import { UtilsModule } from '@shared/utils/utils.module';
 import { CountoModule } from 'angular2-counto';
 import { ModalModule, TabsModule, TooltipModule, BsDropdownModule, PopoverModule } from 'ngx-bootstrap';
@@ -16,6 +25,12 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
 
 @NgModule({
     imports: [
+		FileUploadModule,
+		AutoCompleteModule,
+		PaginatorModule,
+		EditorModule,
+		InputMaskModule,		TableModule,
+
         CommonModule,
         FormsModule,
         ModalModule,
@@ -31,6 +46,8 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
         PopoverModule.forRoot()
     ],
     declarations: [
+		PbSubjectsComponent,
+		ViewPbSubjectModalComponent,		CreateOrEditPbSubjectModalComponent,
         DashboardComponent
     ],
     providers: [

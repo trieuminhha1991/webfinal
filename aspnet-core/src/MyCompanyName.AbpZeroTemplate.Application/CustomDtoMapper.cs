@@ -1,3 +1,5 @@
+using MyCompanyName.AbpZeroTemplate.Subject.Dtos;
+using MyCompanyName.AbpZeroTemplate.Subject;
 using Abp.Application.Editions;
 using Abp.Application.Features;
 using Abp.Auditing;
@@ -41,6 +43,8 @@ namespace MyCompanyName.AbpZeroTemplate
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+           configuration.CreateMap<CreateOrEditPbSubjectDto, PbSubject>().ReverseMap();
+           configuration.CreateMap<PbSubjectDto, PbSubject>().ReverseMap();
             //Inputs
             configuration.CreateMap<CheckboxInputType, FeatureInputTypeDto>();
             configuration.CreateMap<SingleLineStringInputType, FeatureInputTypeDto>();

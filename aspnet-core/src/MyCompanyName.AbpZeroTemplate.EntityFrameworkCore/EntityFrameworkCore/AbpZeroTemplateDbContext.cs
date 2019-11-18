@@ -1,4 +1,5 @@
-﻿using Abp.IdentityServer4;
+using MyCompanyName.AbpZeroTemplate.Subject;
+using Abp.IdentityServer4;
 using Abp.Zero.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -16,6 +17,8 @@ namespace MyCompanyName.AbpZeroTemplate.EntityFrameworkCore
 {
     public class AbpZeroTemplateDbContext : AbpZeroDbContext<Tenant, Role, User, AbpZeroTemplateDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<PbSubject> PbSubjects { get; set; }
+
         /* Define an IDbSet for each entity of the application */
 
         public virtual DbSet<BinaryObject> BinaryObjects { get; set; }

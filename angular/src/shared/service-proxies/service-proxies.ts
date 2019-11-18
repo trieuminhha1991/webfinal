@@ -5581,6 +5581,369 @@ export class PayPalPaymentServiceProxy {
 }
 
 @Injectable()
+export class PbSubjectsServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+
+    /**
+     * @param filter (optional) 
+     * @param classNameFilter (optional) 
+     * @param objectNameFilter (optional) 
+     * @param chapterNameFilter (optional) 
+     * @param sectionNameFilter (optional) 
+     * @param sorting (optional) 
+     * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
+     * @return Success
+     */
+    getAll(filter: string | null | undefined, classNameFilter: string | null | undefined, objectNameFilter: string | null | undefined, chapterNameFilter: string | null | undefined, sectionNameFilter: string | null | undefined, sorting: string | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfGetPbSubjectForViewDto> {
+        let url_ = this.baseUrl + "/api/services/app/PbSubjects/GetAll?";
+        if (filter !== undefined)
+            url_ += "Filter=" + encodeURIComponent("" + filter) + "&"; 
+        if (classNameFilter !== undefined)
+            url_ += "ClassNameFilter=" + encodeURIComponent("" + classNameFilter) + "&"; 
+        if (objectNameFilter !== undefined)
+            url_ += "ObjectNameFilter=" + encodeURIComponent("" + objectNameFilter) + "&"; 
+        if (chapterNameFilter !== undefined)
+            url_ += "ChapterNameFilter=" + encodeURIComponent("" + chapterNameFilter) + "&"; 
+        if (sectionNameFilter !== undefined)
+            url_ += "SectionNameFilter=" + encodeURIComponent("" + sectionNameFilter) + "&"; 
+        if (sorting !== undefined)
+            url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetAll(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfGetPbSubjectForViewDto>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfGetPbSubjectForViewDto>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<PagedResultDtoOfGetPbSubjectForViewDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = PagedResultDtoOfGetPbSubjectForViewDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PagedResultDtoOfGetPbSubjectForViewDto>(<any>null);
+    }
+
+    /**
+     * @param id (optional) 
+     * @return Success
+     */
+    getPbSubjectForView(id: number | null | undefined): Observable<GetPbSubjectForViewDto> {
+        let url_ = this.baseUrl + "/api/services/app/PbSubjects/GetPbSubjectForView?";
+        if (id !== undefined)
+            url_ += "id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetPbSubjectForView(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetPbSubjectForView(<any>response_);
+                } catch (e) {
+                    return <Observable<GetPbSubjectForViewDto>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<GetPbSubjectForViewDto>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetPbSubjectForView(response: HttpResponseBase): Observable<GetPbSubjectForViewDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = GetPbSubjectForViewDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<GetPbSubjectForViewDto>(<any>null);
+    }
+
+    /**
+     * @param id (optional) 
+     * @return Success
+     */
+    getPbSubjectForEdit(id: number | null | undefined): Observable<GetPbSubjectForEditOutput> {
+        let url_ = this.baseUrl + "/api/services/app/PbSubjects/GetPbSubjectForEdit?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetPbSubjectForEdit(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetPbSubjectForEdit(<any>response_);
+                } catch (e) {
+                    return <Observable<GetPbSubjectForEditOutput>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<GetPbSubjectForEditOutput>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetPbSubjectForEdit(response: HttpResponseBase): Observable<GetPbSubjectForEditOutput> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = GetPbSubjectForEditOutput.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<GetPbSubjectForEditOutput>(<any>null);
+    }
+
+    /**
+     * @param input (optional) 
+     * @return Success
+     */
+    createOrEdit(input: CreateOrEditPbSubjectDto | null | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/PbSubjects/CreateOrEdit";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processCreateOrEdit(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreateOrEdit(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<void>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processCreateOrEdit(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(<any>null);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(<any>null);
+    }
+
+    /**
+     * @param id (optional) 
+     * @return Success
+     */
+    delete(id: number | null | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/PbSubjects/Delete?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+            })
+        };
+
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processDelete(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDelete(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<void>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processDelete(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(<any>null);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(<any>null);
+    }
+
+    /**
+     * @param filter (optional) 
+     * @param classNameFilter (optional) 
+     * @param objectNameFilter (optional) 
+     * @param chapterNameFilter (optional) 
+     * @param sectionNameFilter (optional) 
+     * @return Success
+     */
+    getPbSubjectsToExcel(filter: string | null | undefined, classNameFilter: string | null | undefined, objectNameFilter: string | null | undefined, chapterNameFilter: string | null | undefined, sectionNameFilter: string | null | undefined): Observable<FileDto> {
+        let url_ = this.baseUrl + "/api/services/app/PbSubjects/GetPbSubjectsToExcel?";
+        if (filter !== undefined)
+            url_ += "Filter=" + encodeURIComponent("" + filter) + "&"; 
+        if (classNameFilter !== undefined)
+            url_ += "ClassNameFilter=" + encodeURIComponent("" + classNameFilter) + "&"; 
+        if (objectNameFilter !== undefined)
+            url_ += "ObjectNameFilter=" + encodeURIComponent("" + objectNameFilter) + "&"; 
+        if (chapterNameFilter !== undefined)
+            url_ += "ChapterNameFilter=" + encodeURIComponent("" + chapterNameFilter) + "&"; 
+        if (sectionNameFilter !== undefined)
+            url_ += "SectionNameFilter=" + encodeURIComponent("" + sectionNameFilter) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetPbSubjectsToExcel(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetPbSubjectsToExcel(<any>response_);
+                } catch (e) {
+                    return <Observable<FileDto>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<FileDto>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetPbSubjectsToExcel(response: HttpResponseBase): Observable<FileDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = FileDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<FileDto>(<any>null);
+    }
+}
+
+@Injectable()
 export class PermissionServiceProxy {
     private http: HttpClient;
     private baseUrl: string;
@@ -16175,6 +16538,230 @@ export interface IPayPalConfigurationDto {
     clientId: string | undefined;
     demoUsername: string | undefined;
     demoPassword: string | undefined;
+}
+
+export class PagedResultDtoOfGetPbSubjectForViewDto implements IPagedResultDtoOfGetPbSubjectForViewDto {
+    totalCount!: number | undefined;
+    items!: GetPbSubjectForViewDto[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfGetPbSubjectForViewDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (Array.isArray(data["items"])) {
+                this.items = [] as any;
+                for (let item of data["items"])
+                    this.items!.push(GetPbSubjectForViewDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfGetPbSubjectForViewDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfGetPbSubjectForViewDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (Array.isArray(this.items)) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+export interface IPagedResultDtoOfGetPbSubjectForViewDto {
+    totalCount: number | undefined;
+    items: GetPbSubjectForViewDto[] | undefined;
+}
+
+export class GetPbSubjectForViewDto implements IGetPbSubjectForViewDto {
+    pbSubject!: PbSubjectDto | undefined;
+
+    constructor(data?: IGetPbSubjectForViewDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.pbSubject = data["pbSubject"] ? PbSubjectDto.fromJS(data["pbSubject"]) : <any>undefined;
+        }
+    }
+
+    static fromJS(data: any): GetPbSubjectForViewDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetPbSubjectForViewDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["pbSubject"] = this.pbSubject ? this.pbSubject.toJSON() : <any>undefined;
+        return data; 
+    }
+}
+
+export interface IGetPbSubjectForViewDto {
+    pbSubject: PbSubjectDto | undefined;
+}
+
+export class PbSubjectDto implements IPbSubjectDto {
+    className!: string | undefined;
+    objectName!: string | undefined;
+    chapterName!: string | undefined;
+    sectionName!: string | undefined;
+    id!: number | undefined;
+
+    constructor(data?: IPbSubjectDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.className = data["className"];
+            this.objectName = data["objectName"];
+            this.chapterName = data["chapterName"];
+            this.sectionName = data["sectionName"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): PbSubjectDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PbSubjectDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["className"] = this.className;
+        data["objectName"] = this.objectName;
+        data["chapterName"] = this.chapterName;
+        data["sectionName"] = this.sectionName;
+        data["id"] = this.id;
+        return data; 
+    }
+}
+
+export interface IPbSubjectDto {
+    className: string | undefined;
+    objectName: string | undefined;
+    chapterName: string | undefined;
+    sectionName: string | undefined;
+    id: number | undefined;
+}
+
+export class GetPbSubjectForEditOutput implements IGetPbSubjectForEditOutput {
+    pbSubject!: CreateOrEditPbSubjectDto | undefined;
+
+    constructor(data?: IGetPbSubjectForEditOutput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.pbSubject = data["pbSubject"] ? CreateOrEditPbSubjectDto.fromJS(data["pbSubject"]) : <any>undefined;
+        }
+    }
+
+    static fromJS(data: any): GetPbSubjectForEditOutput {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetPbSubjectForEditOutput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["pbSubject"] = this.pbSubject ? this.pbSubject.toJSON() : <any>undefined;
+        return data; 
+    }
+}
+
+export interface IGetPbSubjectForEditOutput {
+    pbSubject: CreateOrEditPbSubjectDto | undefined;
+}
+
+export class CreateOrEditPbSubjectDto implements ICreateOrEditPbSubjectDto {
+    className!: string;
+    objectName!: string | undefined;
+    chapterName!: string | undefined;
+    sectionName!: string | undefined;
+    id!: number | undefined;
+
+    constructor(data?: ICreateOrEditPbSubjectDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.className = data["className"];
+            this.objectName = data["objectName"];
+            this.chapterName = data["chapterName"];
+            this.sectionName = data["sectionName"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): CreateOrEditPbSubjectDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new CreateOrEditPbSubjectDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["className"] = this.className;
+        data["objectName"] = this.objectName;
+        data["chapterName"] = this.chapterName;
+        data["sectionName"] = this.sectionName;
+        data["id"] = this.id;
+        return data; 
+    }
+}
+
+export interface ICreateOrEditPbSubjectDto {
+    className: string;
+    objectName: string | undefined;
+    chapterName: string | undefined;
+    sectionName: string | undefined;
+    id: number | undefined;
 }
 
 export class ListResultDtoOfFlatPermissionWithLevelDto implements IListResultDtoOfFlatPermissionWithLevelDto {
