@@ -63,7 +63,6 @@ namespace MyCompanyName.AbpZeroTemplate.Auditing
             var resultCount = await query.CountAsync();
             var results = await query
                 .OrderBy(input.Sorting)
-                .PageBy(input)
                 .ToListAsync();
 
             var auditLogListDtos = ConvertToAuditLogListDtos(results);
@@ -149,7 +148,6 @@ namespace MyCompanyName.AbpZeroTemplate.Auditing
             var resultCount = await query.CountAsync();
             var results = await query
                 .OrderBy(input.Sorting)
-                .PageBy(input)
                 .ToListAsync();
 
             var entityChangeListDtos = ConvertToEntityChangeListDtos(results);
@@ -176,7 +174,6 @@ namespace MyCompanyName.AbpZeroTemplate.Auditing
             var resultCount = await query.CountAsync();
             var results = await query
                 .OrderBy(input.Sorting)
-                .PageBy(input)
                 .ToListAsync();
 
             var entityChangeListDtos = ConvertToEntityChangeListDtos(results);

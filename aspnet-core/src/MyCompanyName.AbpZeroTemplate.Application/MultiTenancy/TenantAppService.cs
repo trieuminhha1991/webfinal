@@ -44,7 +44,7 @@ namespace MyCompanyName.AbpZeroTemplate.MultiTenancy
                 .WhereIf(input.EditionIdSpecified, t => t.EditionId == input.EditionId);
 
             var tenantCount = await query.CountAsync();
-            var tenants = await query.OrderBy(input.Sorting).PageBy(input).ToListAsync();
+            var tenants = await query.OrderBy(input.Sorting).ToListAsync();
 
             return new PagedResultDto<TenantListDto>(
                 tenantCount,

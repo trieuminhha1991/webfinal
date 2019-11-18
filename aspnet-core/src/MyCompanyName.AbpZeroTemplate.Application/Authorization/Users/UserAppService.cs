@@ -103,7 +103,6 @@ namespace MyCompanyName.AbpZeroTemplate.Authorization.Users
 
             var users = await query
                 .OrderBy(input.Sorting)
-                .PageBy(input)
                 .ToListAsync();
 
             var userListDtos = ObjectMapper.Map<List<UserListDto>>(users);

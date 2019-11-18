@@ -75,7 +75,7 @@ namespace MyCompanyName.AbpZeroTemplate.Organizations
                         };
 
             var totalCount = await query.CountAsync();
-            var items = await query.OrderBy(input.Sorting).PageBy(input).ToListAsync();
+            var items = await query.OrderBy(input.Sorting).ToListAsync();
 
             return new PagedResultDto<OrganizationUnitUserListDto>(
                 totalCount,
@@ -100,7 +100,7 @@ namespace MyCompanyName.AbpZeroTemplate.Organizations
                         };
 
             var totalCount = await query.CountAsync();
-            var items = await query.OrderBy(input.Sorting).PageBy(input).ToListAsync();
+            var items = await query.OrderBy(input.Sorting).ToListAsync();
 
             return new PagedResultDto<OrganizationUnitRoleListDto>(
                 totalCount,
@@ -204,7 +204,7 @@ namespace MyCompanyName.AbpZeroTemplate.Organizations
             var users = await query
                 .OrderBy(u => u.Name)
                 .ThenBy(u => u.Surname)
-                .PageBy(input)
+                
                 .ToListAsync();
 
             return new PagedResultDto<NameValueDto>(
@@ -237,7 +237,7 @@ namespace MyCompanyName.AbpZeroTemplate.Organizations
             var roleCount = await query.CountAsync();
             var users = await query
                 .OrderBy(u => u.DisplayName)
-                .PageBy(input)
+                
                 .ToListAsync();
 
             return new PagedResultDto<NameValueDto>(

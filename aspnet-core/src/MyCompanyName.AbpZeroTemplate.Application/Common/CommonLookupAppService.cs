@@ -57,7 +57,6 @@ namespace MyCompanyName.AbpZeroTemplate.Common
                 var users = await query
                     .OrderBy(u => u.Name)
                     .ThenBy(u => u.Surname)
-                    .PageBy(input)
                     .ToListAsync();
 
                 return new PagedResultDto<NameValueDto>(
