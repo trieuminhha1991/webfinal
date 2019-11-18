@@ -1,0 +1,38 @@
+<div bsModal #createOrEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createOrEditModal" aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form *ngIf="active" #pbClassForm="ngForm" novalidate (ngSubmit)="save()" autocomplete="off">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span *ngIf="pbClass.id">{{l("EditPbClass")}}</span>
+                        <span *ngIf="!pbClass.id">{{l("CreateNewPbClass")}}</span>
+                    </h4>
+                    <button type="button" class="close" (click)="close()" aria-label="Close" [disabled]="saving">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                 
+
+
+								<div class="form-group">
+									<label for="PbClass_ClassGroup">{{l("ClassGroup")}} *</label>
+									<input type="text" id="PbClass_ClassGroup" class="form-control" [(ngModel)]="pbClass.classGroup" name="ClassGroup"     required/>
+								</div>
+					
+								<div class="form-group">
+									<label for="PbClass_ClassName">{{l("ClassName")}}</label>
+									<input type="text" id="PbClass_ClassName" class="form-control" [(ngModel)]="pbClass.className" name="ClassName"    />
+								</div>
+					
+
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="saving" type="button" class="btn btn-default" (click)="close()">{{l("Cancel")}}</button>
+                    <button type="submit" class="btn btn-primary blue" [disabled]="!pbClassForm.form.valid" [buttonBusy]="saving" [busyText]="l('SavingWithThreeDot')"><i class="fa fa-save"></i> <span>{{l("Save")}}</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

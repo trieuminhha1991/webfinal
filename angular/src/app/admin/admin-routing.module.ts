@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { PbClassesComponent } from './class/pbClasses/pbClasses.component';
 import { AuditLogsComponent } from './audit-logs/audit-logs.component';
 import { HostDashboardComponent } from './dashboard/host-dashboard.component';
 import { DemoUiComponentsComponent } from './demo-ui-components/demo-ui-components.component';
@@ -24,6 +25,7 @@ import { UsersComponent } from './users/users.component';
             {
                 path: '',
                 children: [
+                    { path: 'class/pbClasses', component: PbClassesComponent, data: { permission: 'Pages.Administration.PbClasses' }  },
                     { path: 'users', component: UsersComponent, data: { permission: 'Pages.Administration.Users' } },
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Administration.Roles' } },
                     { path: 'auditLogs', component: AuditLogsComponent, data: { permission: 'Pages.Administration.AuditLogs' } },

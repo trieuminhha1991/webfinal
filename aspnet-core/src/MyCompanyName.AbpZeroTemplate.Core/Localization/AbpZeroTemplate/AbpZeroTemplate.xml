@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="Subject">Subject</text>
+  <texts>    <text name="ClassGroup">Class group</text>
+    <text name="Class">Class</text>
+    <text name="PbClass">Pb class</text>
+    <text name="PbClassesHeaderInfo">Pb classes header info</text>
+    <text name="CreateNewPbClass">Create new pb class</text>
+    <text name="EditPbClass">Edit pb class</text>
+    <text name="DeletePbClass">Delete pb class</text>
+    <text name="PbClasses">Pb classes</text>
+    <text name="Subject">Subject</text>
     <text name="PbSubject">Pb subject</text>
     <text name="ClassName">Class name</text>
     <text name="ObjectName">Object name</text>

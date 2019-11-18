@@ -11,6 +11,11 @@
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
+ 
+  <ItemGroup>
+    <Compile Remove="Migrations\20191118090357_Added_Class_Table.cs" />
+    <Compile Remove="Migrations\20191118090357_Added_Class_Table.Designer.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />

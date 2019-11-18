@@ -2,6 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppCommonModule } from '@app/shared/common/app-common.module';
+import { PbClassesComponent } from './class/pbClasses/pbClasses.component';
+import { ViewPbClassModalComponent } from './class/pbClasses/view-pbClass-modal.component';
+import { CreateOrEditPbClassModalComponent } from './class/pbClasses/create-or-edit-pbClass-modal.component';
+
 import { UtilsModule } from '@shared/utils/utils.module';
 import { AddMemberModalComponent } from 'app/admin/organization-units/add-member-modal.component';
 import { AddRoleModalComponent } from 'app/admin/organization-units/add-role-modal.component';
@@ -122,6 +126,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         DropdownModule
     ],
     declarations: [
+		PbClassesComponent,
+		ViewPbClassModalComponent,		CreateOrEditPbClassModalComponent,
         UsersComponent,
         PermissionComboComponent,
         RoleComboComponent,

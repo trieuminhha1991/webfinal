@@ -40,6 +40,13 @@ namespace MyCompanyName.AbpZeroTemplate.Authorization
 
             var administration = pages.CreateChildPermission(AppPermissions.Pages_Administration, L("Administration"));
 
+            var pbClasses = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbClasses, L("PbClasses"));
+            pbClasses.CreateChildPermission(AppPermissions.Pages_Administration_PbClasses_Create, L("CreateNewPbClass"));
+            pbClasses.CreateChildPermission(AppPermissions.Pages_Administration_PbClasses_Edit, L("EditPbClass"));
+            pbClasses.CreateChildPermission(AppPermissions.Pages_Administration_PbClasses_Delete, L("DeletePbClass"));
+
+
+
             var roles = administration.CreateChildPermission(AppPermissions.Pages_Administration_Roles, L("Roles"));
             roles.CreateChildPermission(AppPermissions.Pages_Administration_Roles_Create, L("CreatingNewRole"));
             roles.CreateChildPermission(AppPermissions.Pages_Administration_Roles_Edit, L("EditingRole"));

@@ -1,3 +1,4 @@
+using MyCompanyName.AbpZeroTemplate.Class;
 using MyCompanyName.AbpZeroTemplate.Subject;
 using Abp.IdentityServer4;
 using Abp.Zero.EntityFrameworkCore;
@@ -17,6 +18,8 @@ namespace MyCompanyName.AbpZeroTemplate.EntityFrameworkCore
 {
     public class AbpZeroTemplateDbContext : AbpZeroDbContext<Tenant, Role, User, AbpZeroTemplateDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<PbClass> PbClasses { get; set; }
+
         public virtual DbSet<PbSubject> PbSubjects { get; set; }
 
         /* Define an IDbSet for each entity of the application */

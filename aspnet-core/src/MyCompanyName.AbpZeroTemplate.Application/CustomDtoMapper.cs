@@ -1,3 +1,5 @@
+using MyCompanyName.AbpZeroTemplate.Class.Dtos;
+using MyCompanyName.AbpZeroTemplate.Class;
 using MyCompanyName.AbpZeroTemplate.Subject.Dtos;
 using MyCompanyName.AbpZeroTemplate.Subject;
 using Abp.Application.Editions;
@@ -43,6 +45,8 @@ namespace MyCompanyName.AbpZeroTemplate
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+           configuration.CreateMap<CreateOrEditPbClassDto, PbClass>().ReverseMap();
+           configuration.CreateMap<PbClassDto, PbClass>().ReverseMap();
            configuration.CreateMap<CreateOrEditPbSubjectDto, PbSubject>().ReverseMap();
            configuration.CreateMap<PbSubjectDto, PbSubject>().ReverseMap();
             //Inputs
