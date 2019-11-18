@@ -91,6 +91,8 @@ namespace MyCompanyName.AbpZeroTemplate.Queries
         {
             return await query
                 .OrderBy(context.GetArgument(Args.Sorting, "Name,Surname"))
+                .PageBy(context.GetArgument<int>(Args.SkipCount),
+                    context.GetArgument(Args.MaxResultCount, AppConsts.DefaultPageSize))
                 .ToListAsync();
         }
 

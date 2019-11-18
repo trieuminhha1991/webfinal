@@ -143,7 +143,7 @@ namespace MyCompanyName.AbpZeroTemplate.MultiTenancy.Payments
                 .Where(sp => sp.TenantId == AbpSession.GetTenantId())
                 .OrderBy(input.Sorting);
 
-            var payments = await query.OrderBy(input.Sorting).ToListAsync();
+            var payments = await query.OrderBy(input.Sorting).PageBy(input).ToListAsync();
             var paymentsCount = query.Count();
 
             return new PagedResultDto<SubscriptionPaymentListDto>(paymentsCount, ObjectMapper.Map<List<SubscriptionPaymentListDto>>(payments));
