@@ -19,10 +19,10 @@
   },
   "Properties": [
     {
-      "Name": "Class",
+      "Name": "ClassName",
       "Type": "string",
-      "MaxLength": 10,
-      "MinLength": 0,
+      "MaxLength": -1,
+      "MinLength": -1,
       "Range": {
         "IsRangeSet": false,
         "MinimumValue": 0,
@@ -38,7 +38,7 @@
       }
     },
     {
-      "Name": "Object",
+      "Name": "ObjectName",
       "Type": "string",
       "MaxLength": -1,
       "MinLength": -1,
@@ -57,7 +57,7 @@
       }
     },
     {
-      "Name": "Chapter",
+      "Name": "ChapterName",
       "Type": "string",
       "MaxLength": -1,
       "MinLength": -1,
@@ -76,7 +76,7 @@
       }
     },
     {
-      "Name": "Section",
+      "Name": "SectionName",
       "Type": "string",
       "MaxLength": -1,
       "MinLength": -1,
