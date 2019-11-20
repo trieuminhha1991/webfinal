@@ -4,33 +4,33 @@ import { finalize } from 'rxjs/operators';
 import { PbEbooksServiceProxy, CreateOrEditPbEbookDto } from '@shared/service-proxies/service-proxies';
 import { AppComponentBase } from '@shared/common/app-component-base';
 import * as moment from 'moment';
-import { PbEbookUserLookupTableModalComponent } from './pbEbook-user-lookup-table-modal.component';
-import { PbEbookPbClassLookupTableModalComponent } from './pbEbook-pbClass-lookup-table-modal.component';
-import { PbEbookPbPlaceLookupTableModalComponent } from './pbEbook-pbPlace-lookup-table-modal.component';
-import { PbEbookPbRankLookupTableModalComponent } from './pbEbook-pbRank-lookup-table-modal.component';
-import { PbEbookPbStatusLookupTableModalComponent } from './pbEbook-pbStatus-lookup-table-modal.component';
-import { PbEbookPbSubjectLookupTableModalComponent } from './pbEbook-pbSubject-lookup-table-modal.component';
-import { PbEbookPbSubjectEducationLookupTableModalComponent } from './pbEbook-pbSubjectEducation-lookup-table-modal.component';
-import { PbEbookPbTypeEbookLookupTableModalComponent } from './pbEbook-pbTypeEbook-lookup-table-modal.component';
-import { PbEbookPbTypeFileLookupTableModalComponent } from './pbEbook-pbTypeFile-lookup-table-modal.component';
+import { ShopUserLookupTableModalComponent } from './pbEbook-user-lookup-table-modal.component';
+import { ShopPbClassLookupTableModalComponent } from './pbEbook-pbClass-lookup-table-modal.component';
+import { ShopPbPlaceLookupTableModalComponent } from './pbEbook-pbPlace-lookup-table-modal.component';
+import { ShopPbRankLookupTableModalComponent } from './pbEbook-pbRank-lookup-table-modal.component';
+import { ShopPbStatusLookupTableModalComponent } from './pbEbook-pbStatus-lookup-table-modal.component';
+import { ShopPbSubjectLookupTableModalComponent } from './pbEbook-pbSubject-lookup-table-modal.component';
+import { ShopPbSubjectEducationLookupTableModalComponent } from './pbEbook-pbSubjectEducation-lookup-table-modal.component';
+import { ShopPbTypeEbookLookupTableModalComponent } from './pbEbook-pbTypeEbook-lookup-table-modal.component';
+import { ShopPbTypeFileLookupTableModalComponent } from './pbEbook-pbTypeFile-lookup-table-modal.component';
 
 
 @Component({
     selector: 'createOrEditPbEbookModal',
     templateUrl: './create-or-edit-pbEbook-modal.component.html'
 })
-export class CreateOrEditPbEbookModalComponent extends AppComponentBase {
+export class CreateOrEditShopModalComponent extends AppComponentBase {
 
     @ViewChild('createOrEditModal', { static: true }) modal: ModalDirective;
-    @ViewChild('pbEbookUserLookupTableModal', { static: true }) pbEbookUserLookupTableModal: PbEbookUserLookupTableModalComponent;
-    @ViewChild('pbEbookPbClassLookupTableModal', { static: true }) pbEbookPbClassLookupTableModal: PbEbookPbClassLookupTableModalComponent;
-    @ViewChild('pbEbookPbPlaceLookupTableModal', { static: true }) pbEbookPbPlaceLookupTableModal: PbEbookPbPlaceLookupTableModalComponent;
-    @ViewChild('pbEbookPbRankLookupTableModal', { static: true }) pbEbookPbRankLookupTableModal: PbEbookPbRankLookupTableModalComponent;
-    @ViewChild('pbEbookPbStatusLookupTableModal', { static: true }) pbEbookPbStatusLookupTableModal: PbEbookPbStatusLookupTableModalComponent;
-    @ViewChild('pbEbookPbSubjectLookupTableModal', { static: true }) pbEbookPbSubjectLookupTableModal: PbEbookPbSubjectLookupTableModalComponent;
-    @ViewChild('pbEbookPbSubjectEducationLookupTableModal', { static: true }) pbEbookPbSubjectEducationLookupTableModal: PbEbookPbSubjectEducationLookupTableModalComponent;
-    @ViewChild('pbEbookPbTypeEbookLookupTableModal', { static: true }) pbEbookPbTypeEbookLookupTableModal: PbEbookPbTypeEbookLookupTableModalComponent;
-    @ViewChild('pbEbookPbTypeFileLookupTableModal', { static: true }) pbEbookPbTypeFileLookupTableModal: PbEbookPbTypeFileLookupTableModalComponent;
+    @ViewChild('pbEbookUserLookupTableModal', { static: true }) pbEbookUserLookupTableModal: ShopUserLookupTableModalComponent;
+    @ViewChild('pbEbookPbClassLookupTableModal', { static: true }) pbEbookPbClassLookupTableModal: ShopPbClassLookupTableModalComponent;
+    @ViewChild('pbEbookPbPlaceLookupTableModal', { static: true }) pbEbookPbPlaceLookupTableModal: ShopPbPlaceLookupTableModalComponent;
+    @ViewChild('pbEbookPbRankLookupTableModal', { static: true }) pbEbookPbRankLookupTableModal: ShopPbRankLookupTableModalComponent;
+    @ViewChild('pbEbookPbStatusLookupTableModal', { static: true }) pbEbookPbStatusLookupTableModal: ShopPbStatusLookupTableModalComponent;
+    @ViewChild('pbEbookPbSubjectLookupTableModal', { static: true }) pbEbookPbSubjectLookupTableModal: ShopPbSubjectLookupTableModalComponent;
+    @ViewChild('pbEbookPbSubjectEducationLookupTableModal', { static: true }) pbEbookPbSubjectEducationLookupTableModal: ShopPbSubjectEducationLookupTableModalComponent;
+    @ViewChild('pbEbookPbTypeEbookLookupTableModal', { static: true }) pbEbookPbTypeEbookLookupTableModal: ShopPbTypeEbookLookupTableModalComponent;
+    @ViewChild('pbEbookPbTypeFileLookupTableModal', { static: true }) pbEbookPbTypeFileLookupTableModal: ShopPbTypeFileLookupTableModalComponent;
 
 
     @Output() modalSave: EventEmitter<any> = new EventEmitter<any>();

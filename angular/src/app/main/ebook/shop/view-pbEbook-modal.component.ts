@@ -7,7 +7,7 @@ import { AppComponentBase } from '@shared/common/app-component-base';
     selector: 'viewPbEbookModal',
     templateUrl: './view-pbEbook-modal.component.html'
 })
-export class ViewPbEbookModalComponent extends AppComponentBase {
+export class ViewShopModalComponent extends AppComponentBase {
 
     @ViewChild('createOrEditModal', { static: true }) modal: ModalDirective;
     @Output() modalSave: EventEmitter<any> = new EventEmitter<any>();

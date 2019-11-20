@@ -1,18 +1,18 @@
 import { Component, ViewChild, Injector, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
-import {PbEbooksServiceProxy, PbEbookPbPlaceLookupTableDto } from '@shared/service-proxies/service-proxies';
+import {PbEbooksServiceProxy, PbEbookPbTypeFileLookupTableDto } from '@shared/service-proxies/service-proxies';
 import { AppComponentBase } from '@shared/common/app-component-base';
 import { Table } from 'primeng/components/table/table';
 import { Paginator } from 'primeng/components/paginator/paginator';
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 
 @Component({
-    selector: 'pbEbookPbPlaceLookupTableModal',
-    styleUrls: ['./pbEbook-pbPlace-lookup-table-modal.component.less'],
+    selector: 'pbEbookPbTypeFileLookupTableModal',
+    styleUrls: ['./pbEbook-pbTypeFile-lookup-table-modal.component.less'],
     encapsulation: ViewEncapsulation.None,
-    templateUrl: './pbEbook-pbPlace-lookup-table-modal.component.html'
+    templateUrl: './pbEbook-pbTypeFile-lookup-table-modal.component.html'
 })
-export class PbEbookPbPlaceLookupTableModalComponent extends AppComponentBase {
+export class ShopPbTypeFileLookupTableModalComponent extends AppComponentBase {
 
     @ViewChild('createOrEditModal', { static: true }) modal: ModalDirective;
     @ViewChild('dataTable', { static: true }) dataTable: Table;
@@ -52,7 +52,7 @@ export class PbEbookPbPlaceLookupTableModalComponent extends AppComponentBase {
 
         this.primengTableHelper.showLoadingIndicator();
 
-        this._pbEbooksServiceProxy.getAllPbPlaceForLookupTable(
+        this._pbEbooksServiceProxy.getAllPbTypeFileForLookupTable(
             this.filterText,
             this.primengTableHelper.getSorting(this.dataTable),
             this.primengTableHelper.getSkipCount(this.paginator, event),
@@ -68,9 +68,9 @@ export class PbEbookPbPlaceLookupTableModalComponent extends AppComponentBase {
         this.paginator.changePage(this.paginator.getPage());
     }
 
-    setAndSave(pbPlace: PbEbookPbPlaceLookupTableDto) {
-        this.id = pbPlace.id;
-        this.displayName = pbPlace.displayName;
+    setAndSave(pbTypeFile: PbEbookPbTypeFileLookupTableDto) {
+        this.id = pbTypeFile.id;
+        this.displayName = pbTypeFile.displayName;
         this.active = false;
         this.modal.hide();
         this.modalSave.emit(null);

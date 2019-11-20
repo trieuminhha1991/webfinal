@@ -4,8 +4,8 @@ import { PbEbooksServiceProxy, PbEbookDto  } from '@shared/service-proxies/servi
 import { NotifyService } from '@abp/notify/notify.service';
 import { AppComponentBase } from '@shared/common/app-component-base';
 import { TokenAuthServiceProxy } from '@shared/service-proxies/service-proxies';
-import { CreateOrEditPbEbookModalComponent } from './create-or-edit-pbEbook-modal.component';
-import { ViewPbEbookModalComponent } from './view-pbEbook-modal.component';
+import { CreateOrEditShopModalComponent } from './create-or-edit-pbEbook-modal.component';
+import { ViewShopModalComponent } from './view-pbEbook-modal.component';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { Table } from 'primeng/components/table/table';
 import { Paginator } from 'primeng/components/paginator/paginator';
@@ -19,10 +19,10 @@ import * as moment from 'moment';
     encapsulation: ViewEncapsulation.None,
     animations: [appModuleAnimation()]
 })
-export class PbEbooksComponent extends AppComponentBase {
+export class ShopComponent extends AppComponentBase {
 
-    @ViewChild('createOrEditPbEbookModal', { static: true }) createOrEditPbEbookModal: CreateOrEditPbEbookModalComponent;
-    @ViewChild('viewPbEbookModalComponent', { static: true }) viewPbEbookModal: ViewPbEbookModalComponent;
+    @ViewChild('createOrEditPbEbookModal', { static: true }) createOrEditPbEbookModal: CreateOrEditShopModalComponent;
+    @ViewChild('viewPbEbookModalComponent', { static: true }) viewPbEbookModal: ViewShopModalComponent;
     @ViewChild('dataTable', { static: true }) dataTable: Table;
     @ViewChild('paginator', { static: true }) paginator: Paginator;
 
