@@ -2,6 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppCommonModule } from '@app/shared/common/app-common.module';
+import { PbPriceUsersComponent } from './priceUser/pbPriceUsers/pbPriceUsers.component';
+import { ViewPbPriceUserModalComponent } from './priceUser/pbPriceUsers/view-pbPriceUser-modal.component';
+import { CreateOrEditPbPriceUserModalComponent } from './priceUser/pbPriceUsers/create-or-edit-pbPriceUser-modal.component';
+import { PbPriceUserUserLookupTableModalComponent } from './priceUser/pbPriceUsers/pbPriceUser-user-lookup-table-modal.component';
+
 import { PbDownloadEbooksComponent } from './downloadEbook/pbDownloadEbooks/pbDownloadEbooks.component';
 import { ViewPbDownloadEbookModalComponent } from './downloadEbook/pbDownloadEbooks/view-pbDownloadEbook-modal.component';
 import { CreateOrEditPbDownloadEbookModalComponent } from './downloadEbook/pbDownloadEbooks/create-or-edit-pbDownloadEbook-modal.component';
@@ -70,6 +75,9 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
         PopoverModule.forRoot()
     ],
     declarations: [
+		PbPriceUsersComponent,
+		ViewPbPriceUserModalComponent,		CreateOrEditPbPriceUserModalComponent,
+    PbPriceUserUserLookupTableModalComponent,
 		PbDownloadEbooksComponent,
 		ViewPbDownloadEbookModalComponent,		CreateOrEditPbDownloadEbookModalComponent,
     PbDownloadEbookPbEbookLookupTableModalComponent,

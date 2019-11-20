@@ -29,6 +29,8 @@ export class AppNavigationService {
             new AppMenuItem('PbOppinions', 'Pages.PbOppinions', 'flaticon-more', '/app/main/oppinion/pbOppinions'),
             
             new AppMenuItem('PbDownloadEbooks', 'Pages.PbDownloadEbooks', 'flaticon-more', '/app/main/downloadEbook/pbDownloadEbooks'),
+            
+            new AppMenuItem('PbPriceUsers', 'Pages.PbPriceUsers', 'flaticon-more', '/app/main/priceUser/pbPriceUsers'),
              new AppMenuItem('Administration', '', 'flaticon-interface-8', '', [
                 new AppMenuItem('OrganizationUnits', 'Pages.Administration.OrganizationUnits', 'flaticon-map', '/app/admin/organization-units'),
                 new AppMenuItem('Roles', 'Pages.Administration.Roles', 'flaticon-suitcase', '/app/admin/roles'),

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="DownloadEbook">Download ebook</text>
+  <texts>    <text name="PriceUser">Price user</text>
+    <text name="PbPriceUser">Pb price user</text>
+    <text name="PbPriceUsersHeaderInfo">Pb price users header info</text>
+    <text name="CreateNewPbPriceUser">Create new pb price user</text>
+    <text name="EditPbPriceUser">Edit pb price user</text>
+    <text name="DeletePbPriceUser">Delete pb price user</text>
+    <text name="PbPriceUsers">Pb price users</text>
+    <text name="DownloadEbook">Download ebook</text>
     <text name="PbDownloadEbook">Pb download ebook</text>
     <text name="Number">Number</text>
     <text name="Month">Month</text>
