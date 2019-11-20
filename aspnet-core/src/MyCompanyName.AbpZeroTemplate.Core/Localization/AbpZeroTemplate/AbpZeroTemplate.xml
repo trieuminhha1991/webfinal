@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="Ebook">Ebook</text>
+  <texts>    <text name="Oppinion">Oppinion</text>
+    <text name="PbOppinion">Pb oppinion</text>
+    <text name="Content">Content</text>
+    <text name="PbOppinionsHeaderInfo">Pb oppinions header info</text>
+    <text name="CreateNewPbOppinion">Create new pb oppinion</text>
+    <text name="EditPbOppinion">Edit pb oppinion</text>
+    <text name="DeletePbOppinion">Delete pb oppinion</text>
+    <text name="PbOppinions">Pb oppinions</text>
+    <text name="PbEbookEbookName">Pb ebook ebook name</text>
+    <text name="PickPbEbook">Pick pb ebook</text>
+    <text name="Ebook">Ebook</text>
     <text name="PbEbook">Pb ebook</text>
     <text name="EbookName">Ebook name</text>
     <text name="EbookDateStart">Ebook date start</text>

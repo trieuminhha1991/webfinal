@@ -1,0 +1,61 @@
+<div bsModal #createOrEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createOrEditModal" aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form *ngIf="active" #pbOppinionForm="ngForm" novalidate (ngSubmit)="save()" autocomplete="off">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span *ngIf="pbOppinion.id">{{l("EditPbOppinion")}}</span>
+                        <span *ngIf="!pbOppinion.id">{{l("CreateNewPbOppinion")}}</span>
+                    </h4>
+                    <button type="button" class="close" (click)="close()" aria-label="Close" [disabled]="saving">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                 
+
+					<div class="form-group m-form__group">
+                        <label for="UserName">{{l("User")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="UserName" name="userName" [(ngModel)]="userName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectUserModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setUserIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbOppinion.userId" [(ngModel)]="pbOppinion.userId" type="text"  hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbEbookEbookName">{{l("PbEbook")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbEbookEbookName" name="pbEbookEbookName" [(ngModel)]="pbEbookEbookName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbEbookModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbEbookIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbOppinion.pbEbookId" [(ngModel)]="pbOppinion.pbEbookId" type="text"  hidden>
+		 
+
+								<div class="form-group">
+									<label for="PbOppinion_Content">{{l("Content")}} *</label>
+									<input type="text" id="PbOppinion_Content" class="form-control" [(ngModel)]="pbOppinion.content" name="Content"     required/>
+								</div>
+					
+
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="saving" type="button" class="btn btn-default" (click)="close()">{{l("Cancel")}}</button>
+                    <button type="submit" class="btn btn-primary blue" [disabled]="!pbOppinionForm.form.valid" [buttonBusy]="saving" [busyText]="l('SavingWithThreeDot')"><i class="fa fa-save"></i> <span>{{l("Save")}}</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+<pbOppinionUserLookupTableModal #pbOppinionUserLookupTableModal (modalSave)="getNewUserId()"></pbOppinionUserLookupTableModal>
+		 <pbOppinionPbEbookLookupTableModal #pbOppinionPbEbookLookupTableModal (modalSave)="getNewPbEbookId()"></pbOppinionPbEbookLookupTableModal>
+		 
+</div>

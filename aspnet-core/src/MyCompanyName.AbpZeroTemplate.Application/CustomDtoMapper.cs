@@ -1,3 +1,5 @@
+using MyCompanyName.AbpZeroTemplate.Oppinion.Dtos;
+using MyCompanyName.AbpZeroTemplate.Oppinion;
 using MyCompanyName.AbpZeroTemplate.Ebook.Dtos;
 using MyCompanyName.AbpZeroTemplate.Ebook;
 using MyCompanyName.AbpZeroTemplate.TypeEbook.Dtos;
@@ -59,6 +61,8 @@ namespace MyCompanyName.AbpZeroTemplate
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+           configuration.CreateMap<CreateOrEditPbOppinionDto, PbOppinion>().ReverseMap();
+           configuration.CreateMap<PbOppinionDto, PbOppinion>().ReverseMap();
            configuration.CreateMap<CreateOrEditPbEbookDto, PbEbook>().ReverseMap();
            configuration.CreateMap<PbEbookDto, PbEbook>().ReverseMap();
            configuration.CreateMap<CreateOrEditPbTypeEbookDto, PbTypeEbook>().ReverseMap();

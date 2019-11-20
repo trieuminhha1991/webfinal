@@ -1,3 +1,4 @@
+using MyCompanyName.AbpZeroTemplate.Oppinion;
 using MyCompanyName.AbpZeroTemplate.Ebook;
 using MyCompanyName.AbpZeroTemplate.TypeEbook;
 using MyCompanyName.AbpZeroTemplate.Place;
@@ -25,6 +26,8 @@ namespace MyCompanyName.AbpZeroTemplate.EntityFrameworkCore
 {
     public class AbpZeroTemplateDbContext : AbpZeroDbContext<Tenant, Role, User, AbpZeroTemplateDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<PbOppinion> PbOppinions { get; set; }
+
         public virtual DbSet<PbEbook> PbEbooks { get; set; }
 
         public virtual DbSet<PbTypeEbook> PbTypeEbooks { get; set; }
