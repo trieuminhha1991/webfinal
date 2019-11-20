@@ -37,7 +37,8 @@ import { CreateOrEditPbSubjectModalComponent } from './subject/pbSubjects/create
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { PaginatorModule } from 'primeng/paginator';
 import { EditorModule } from 'primeng/editor';
-import { InputMaskModule } from 'primeng/inputmask';import { FileUploadModule } from 'primeng/fileupload';
+import { InputMaskModule } from 'primeng/inputmask';
+import { FileUploadModule } from 'primeng/fileupload';
 import { TableModule } from 'primeng/table';
 
 import { UtilsModule } from '@shared/utils/utils.module';
@@ -49,6 +50,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { BsDatepickerModule, BsDatepickerConfig, BsDaterangepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { NgxBootstrapDatePickerConfigService } from 'assets/ngx-bootstrap/ngx-bootstrap-datepicker-config.service';
+import {SidebarModule} from 'primeng/sidebar';
 
 NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
 
@@ -58,8 +60,9 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
 		AutoCompleteModule,
 		PaginatorModule,
 		EditorModule,
-		InputMaskModule,		TableModule,
-
+		InputMaskModule,
+        TableModule,
+        SidebarModule,
         CommonModule,
         FormsModule,
         ModalModule,

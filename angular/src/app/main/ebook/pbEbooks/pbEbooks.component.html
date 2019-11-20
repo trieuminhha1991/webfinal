@@ -14,7 +14,7 @@
         <div class="kt-subheader__toolbar">
             <div class="kt-subheader__wrapper">
 				<button (click)="exportToExcel()" class="btn btn-outline-success"><i class="fa fa-file-excel"></i> {{l("ExportToExcel")}}</button>
-                <button *ngIf="isGranted('Pages.PbEbooks.Create')" (click)="createPbEbook()" 
+                <button *ngIf="isGranted('Pages.PbEbooks.Create')" (click)="createPbEbook()"
 			class="btn btn-primary blue"><i class="fa fa-plus"></i> {{l("CreateNewPbEbook")}}</button>
             </div>
         </div>
@@ -64,7 +64,7 @@
                                         <input class="form-control m-input" id="MaxEbookDateStartFilter" name="MaxEbookDateStartFilter" type="datetime" bsDatepicker  placeholder="{{l('MaxValue')}}" [(ngModel)]="maxEbookDateStartFilter">
 									</div>
                                 </div>
-                            </div>	
+                            </div>
 							<div class="col-md-3">
 								<label for="ProFilterSelect">{{l("Pro")}}</label>
 								<select class="form-control" name="ProFilter" id="ProFilterSelect" [(ngModel)]="proFilter">
@@ -189,6 +189,11 @@
                                 <span class="clickable-item text-muted" *ngIf="advancedFiltersAreShown" (click)="advancedFiltersAreShown=!advancedFiltersAreShown"><i class="fa fa-angle-up"></i> {{l("HideAdvancedFilters")}}</span>
                             </div>
                         </div>
+                        <p-sidebar [(visible)]="advancedFiltersAreShown" [baseZIndex]="10000" [modal]="false" position="top">
+                            <h1 style="font-weight:normal">Left Sidebar</h1>
+                            <button pButton type="button" (click)="visibleSidebar1 = false" label="Save" class="ui-button-success"></button>
+                            <button pButton type="button" (click)="visibleSidebar1 = false" label="Cancel" class="ui-button-secondary"></button>
+                        </p-sidebar>
                     </div>
                 </form>
 
@@ -291,7 +296,7 @@
                                     </th>
 
                                 </tr>
-                            </ng-template>                           
+                            </ng-template>
 							<ng-template pTemplate="body" let-record="$implicit">
                                 <tr>
                                     <td style="width: 130px"
@@ -427,6 +432,6 @@
 
     <createOrEditPbEbookModal #createOrEditPbEbookModal (modalSave)="getPbEbooks()"></createOrEditPbEbookModal>
     <viewPbEbookModal #viewPbEbookModal></viewPbEbookModal>
-    
+
   </div>
 </div>
