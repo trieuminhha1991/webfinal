@@ -30,6 +30,13 @@ namespace MyCompanyName.AbpZeroTemplate.Authorization
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
 
+            var pbDownloadEbooks = pages.CreateChildPermission(AppPermissions.Pages_PbDownloadEbooks, L("PbDownloadEbooks"));
+            pbDownloadEbooks.CreateChildPermission(AppPermissions.Pages_PbDownloadEbooks_Create, L("CreateNewPbDownloadEbook"));
+            pbDownloadEbooks.CreateChildPermission(AppPermissions.Pages_PbDownloadEbooks_Edit, L("EditPbDownloadEbook"));
+            pbDownloadEbooks.CreateChildPermission(AppPermissions.Pages_PbDownloadEbooks_Delete, L("DeletePbDownloadEbook"));
+
+
+
             var pbOppinions = pages.CreateChildPermission(AppPermissions.Pages_PbOppinions, L("PbOppinions"));
             pbOppinions.CreateChildPermission(AppPermissions.Pages_PbOppinions_Create, L("CreateNewPbOppinion"));
             pbOppinions.CreateChildPermission(AppPermissions.Pages_PbOppinions_Edit, L("EditPbOppinion"));

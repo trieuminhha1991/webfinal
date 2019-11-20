@@ -2,6 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppCommonModule } from '@app/shared/common/app-common.module';
+import { PbDownloadEbooksComponent } from './downloadEbook/pbDownloadEbooks/pbDownloadEbooks.component';
+import { ViewPbDownloadEbookModalComponent } from './downloadEbook/pbDownloadEbooks/view-pbDownloadEbook-modal.component';
+import { CreateOrEditPbDownloadEbookModalComponent } from './downloadEbook/pbDownloadEbooks/create-or-edit-pbDownloadEbook-modal.component';
+import { PbDownloadEbookPbEbookLookupTableModalComponent } from './downloadEbook/pbDownloadEbooks/pbDownloadEbook-pbEbook-lookup-table-modal.component';
+
 import { PbOppinionsComponent } from './oppinion/pbOppinions/pbOppinions.component';
 import { ViewPbOppinionModalComponent } from './oppinion/pbOppinions/view-pbOppinion-modal.component';
 import { CreateOrEditPbOppinionModalComponent } from './oppinion/pbOppinions/create-or-edit-pbOppinion-modal.component';
@@ -65,6 +70,9 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
         PopoverModule.forRoot()
     ],
     declarations: [
+		PbDownloadEbooksComponent,
+		ViewPbDownloadEbookModalComponent,		CreateOrEditPbDownloadEbookModalComponent,
+    PbDownloadEbookPbEbookLookupTableModalComponent,
 		PbOppinionsComponent,
 		ViewPbOppinionModalComponent,		CreateOrEditPbOppinionModalComponent,
     PbOppinionUserLookupTableModalComponent,
