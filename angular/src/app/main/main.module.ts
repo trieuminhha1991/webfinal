@@ -51,6 +51,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BsDatepickerModule, BsDatepickerConfig, BsDaterangepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { NgxBootstrapDatePickerConfigService } from 'assets/ngx-bootstrap/ngx-bootstrap-datepicker-config.service';
 import {SidebarModule} from 'primeng/sidebar';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {CardModule} from 'primeng/card';
+import {TabViewModule} from 'primeng/tabview';
 
 NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
 
@@ -62,7 +65,7 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
 		EditorModule,
 		InputMaskModule,
         TableModule,
-        SidebarModule,
+        SidebarModule, ScrollPanelModule, CardModule, TabViewModule,
         CommonModule,
         FormsModule,
         ModalModule,
