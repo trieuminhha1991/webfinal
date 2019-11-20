@@ -1320,6 +1320,56 @@ namespace MyCompanyName.AbpZeroTemplate.Migrations
                     b.ToTable("AbpTenants");
                 });
 
+            modelBuilder.Entity("MyCompanyName.AbpZeroTemplate.Place.PbPlace", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("PlaceGroup")
+                        .IsRequired();
+
+                    b.Property<string>("PlaceName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PbPlaces");
+                });
+
+            modelBuilder.Entity("MyCompanyName.AbpZeroTemplate.Rank.PbRank", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("RankName")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PbRanks");
+                });
+
+            modelBuilder.Entity("MyCompanyName.AbpZeroTemplate.Status.PbStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("StatusName")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PbStatuses");
+                });
+
             modelBuilder.Entity("MyCompanyName.AbpZeroTemplate.Storage.BinaryObject", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1355,6 +1405,54 @@ namespace MyCompanyName.AbpZeroTemplate.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PbSubjects");
+                });
+
+            modelBuilder.Entity("MyCompanyName.AbpZeroTemplate.SubjectEducation.PbSubjectEducation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("SubjectName")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PbSubjectEducations");
+                });
+
+            modelBuilder.Entity("MyCompanyName.AbpZeroTemplate.TypeEbook.PbTypeEbook", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("TypeName")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PbTypeEbooks");
+                });
+
+            modelBuilder.Entity("MyCompanyName.AbpZeroTemplate.TypeFile.PbTypeFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("TypeFileName")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PbTypeFiles");
                 });
 
             modelBuilder.Entity("MyCompanyName.AbpZeroTemplate.Editions.SubscribableEdition", b =>

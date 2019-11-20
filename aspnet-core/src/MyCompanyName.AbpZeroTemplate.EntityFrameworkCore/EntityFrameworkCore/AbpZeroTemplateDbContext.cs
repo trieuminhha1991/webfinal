@@ -1,3 +1,9 @@
+using MyCompanyName.AbpZeroTemplate.TypeEbook;
+using MyCompanyName.AbpZeroTemplate.Place;
+using MyCompanyName.AbpZeroTemplate.SubjectEducation;
+using MyCompanyName.AbpZeroTemplate.Status;
+using MyCompanyName.AbpZeroTemplate.TypeFile;
+using MyCompanyName.AbpZeroTemplate.Rank;
 using MyCompanyName.AbpZeroTemplate.Class;
 using MyCompanyName.AbpZeroTemplate.Subject;
 using Abp.IdentityServer4;
@@ -18,6 +24,18 @@ namespace MyCompanyName.AbpZeroTemplate.EntityFrameworkCore
 {
     public class AbpZeroTemplateDbContext : AbpZeroDbContext<Tenant, Role, User, AbpZeroTemplateDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<PbTypeEbook> PbTypeEbooks { get; set; }
+
+        public virtual DbSet<PbPlace> PbPlaces { get; set; }
+
+        public virtual DbSet<PbSubjectEducation> PbSubjectEducations { get; set; }
+
+        public virtual DbSet<PbStatus> PbStatuses { get; set; }
+
+        public virtual DbSet<PbTypeFile> PbTypeFiles { get; set; }
+
+        public virtual DbSet<PbRank> PbRanks { get; set; }
+
         public virtual DbSet<PbClass> PbClasses { get; set; }
 
         public virtual DbSet<PbSubject> PbSubjects { get; set; }

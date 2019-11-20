@@ -2,6 +2,30 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppCommonModule } from '@app/shared/common/app-common.module';
+import { PbTypeEbooksComponent } from './typeEbook/pbTypeEbooks/pbTypeEbooks.component';
+import { ViewPbTypeEbookModalComponent } from './typeEbook/pbTypeEbooks/view-pbTypeEbook-modal.component';
+import { CreateOrEditPbTypeEbookModalComponent } from './typeEbook/pbTypeEbooks/create-or-edit-pbTypeEbook-modal.component';
+
+import { PbPlacesComponent } from './place/pbPlaces/pbPlaces.component';
+import { ViewPbPlaceModalComponent } from './place/pbPlaces/view-pbPlace-modal.component';
+import { CreateOrEditPbPlaceModalComponent } from './place/pbPlaces/create-or-edit-pbPlace-modal.component';
+
+import { PbSubjectEducationsComponent } from './subjectEducation/pbSubjectEducations/pbSubjectEducations.component';
+import { ViewPbSubjectEducationModalComponent } from './subjectEducation/pbSubjectEducations/view-pbSubjectEducation-modal.component';
+import { CreateOrEditPbSubjectEducationModalComponent } from './subjectEducation/pbSubjectEducations/create-or-edit-pbSubjectEducation-modal.component';
+
+import { PbStatusesComponent } from './status/pbStatuses/pbStatuses.component';
+import { ViewPbStatusModalComponent } from './status/pbStatuses/view-pbStatus-modal.component';
+import { CreateOrEditPbStatusModalComponent } from './status/pbStatuses/create-or-edit-pbStatus-modal.component';
+
+import { PbTypeFilesComponent } from './typeFile/pbTypeFiles/pbTypeFiles.component';
+import { ViewPbTypeFileModalComponent } from './typeFile/pbTypeFiles/view-pbTypeFile-modal.component';
+import { CreateOrEditPbTypeFileModalComponent } from './typeFile/pbTypeFiles/create-or-edit-pbTypeFile-modal.component';
+
+import { PbRanksComponent } from './rank/pbRanks/pbRanks.component';
+import { ViewPbRankModalComponent } from './rank/pbRanks/view-pbRank-modal.component';
+import { CreateOrEditPbRankModalComponent } from './rank/pbRanks/create-or-edit-pbRank-modal.component';
+
 import { PbClassesComponent } from './class/pbClasses/pbClasses.component';
 import { ViewPbClassModalComponent } from './class/pbClasses/view-pbClass-modal.component';
 import { CreateOrEditPbClassModalComponent } from './class/pbClasses/create-or-edit-pbClass-modal.component';
@@ -126,6 +150,18 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         DropdownModule
     ],
     declarations: [
+		PbTypeEbooksComponent,
+		ViewPbTypeEbookModalComponent,		CreateOrEditPbTypeEbookModalComponent,
+		PbPlacesComponent,
+		ViewPbPlaceModalComponent,		CreateOrEditPbPlaceModalComponent,
+		PbSubjectEducationsComponent,
+		ViewPbSubjectEducationModalComponent,		CreateOrEditPbSubjectEducationModalComponent,
+		PbStatusesComponent,
+		ViewPbStatusModalComponent,		CreateOrEditPbStatusModalComponent,
+		PbTypeFilesComponent,
+		ViewPbTypeFileModalComponent,		CreateOrEditPbTypeFileModalComponent,
+		PbRanksComponent,
+		ViewPbRankModalComponent,		CreateOrEditPbRankModalComponent,
 		PbClassesComponent,
 		ViewPbClassModalComponent,		CreateOrEditPbClassModalComponent,
         UsersComponent,

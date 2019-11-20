@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { PbTypeEbooksComponent } from './typeEbook/pbTypeEbooks/pbTypeEbooks.component';
+import { PbPlacesComponent } from './place/pbPlaces/pbPlaces.component';
+import { PbSubjectEducationsComponent } from './subjectEducation/pbSubjectEducations/pbSubjectEducations.component';
+import { PbStatusesComponent } from './status/pbStatuses/pbStatuses.component';
+import { PbTypeFilesComponent } from './typeFile/pbTypeFiles/pbTypeFiles.component';
+import { PbRanksComponent } from './rank/pbRanks/pbRanks.component';
 import { PbClassesComponent } from './class/pbClasses/pbClasses.component';
 import { AuditLogsComponent } from './audit-logs/audit-logs.component';
 import { HostDashboardComponent } from './dashboard/host-dashboard.component';
@@ -25,6 +31,12 @@ import { UsersComponent } from './users/users.component';
             {
                 path: '',
                 children: [
+                    { path: 'typeEbook/pbTypeEbooks', component: PbTypeEbooksComponent, data: { permission: 'Pages.Administration.PbTypeEbooks' }  },
+                    { path: 'place/pbPlaces', component: PbPlacesComponent, data: { permission: 'Pages.Administration.PbPlaces' }  },
+                    { path: 'subjectEducation/pbSubjectEducations', component: PbSubjectEducationsComponent, data: { permission: 'Pages.Administration.PbSubjectEducations' }  },
+                    { path: 'status/pbStatuses', component: PbStatusesComponent, data: { permission: 'Pages.Administration.PbStatuses' }  },
+                    { path: 'typeFile/pbTypeFiles', component: PbTypeFilesComponent, data: { permission: 'Pages.Administration.PbTypeFiles' }  },
+                    { path: 'rank/pbRanks', component: PbRanksComponent, data: { permission: 'Pages.Administration.PbRanks' }  },
                     { path: 'class/pbClasses', component: PbClassesComponent, data: { permission: 'Pages.Administration.PbClasses' }  },
                     { path: 'users', component: UsersComponent, data: { permission: 'Pages.Administration.Users' } },
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Administration.Roles' } },

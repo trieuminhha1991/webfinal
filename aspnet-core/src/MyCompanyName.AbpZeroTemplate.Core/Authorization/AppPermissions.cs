@@ -6,6 +6,36 @@ namespace MyCompanyName.AbpZeroTemplate.Authorization
     /// </summary>
     public static class AppPermissions
     {
+        public const string Pages_Administration_PbTypeEbooks = "Pages.Administration.PbTypeEbooks";
+        public const string Pages_Administration_PbTypeEbooks_Create = "Pages.Administration.PbTypeEbooks.Create";
+        public const string Pages_Administration_PbTypeEbooks_Edit = "Pages.Administration.PbTypeEbooks.Edit";
+        public const string Pages_Administration_PbTypeEbooks_Delete = "Pages.Administration.PbTypeEbooks.Delete";
+
+        public const string Pages_Administration_PbPlaces = "Pages.Administration.PbPlaces";
+        public const string Pages_Administration_PbPlaces_Create = "Pages.Administration.PbPlaces.Create";
+        public const string Pages_Administration_PbPlaces_Edit = "Pages.Administration.PbPlaces.Edit";
+        public const string Pages_Administration_PbPlaces_Delete = "Pages.Administration.PbPlaces.Delete";
+
+        public const string Pages_Administration_PbSubjectEducations = "Pages.Administration.PbSubjectEducations";
+        public const string Pages_Administration_PbSubjectEducations_Create = "Pages.Administration.PbSubjectEducations.Create";
+        public const string Pages_Administration_PbSubjectEducations_Edit = "Pages.Administration.PbSubjectEducations.Edit";
+        public const string Pages_Administration_PbSubjectEducations_Delete = "Pages.Administration.PbSubjectEducations.Delete";
+
+        public const string Pages_Administration_PbStatuses = "Pages.Administration.PbStatuses";
+        public const string Pages_Administration_PbStatuses_Create = "Pages.Administration.PbStatuses.Create";
+        public const string Pages_Administration_PbStatuses_Edit = "Pages.Administration.PbStatuses.Edit";
+        public const string Pages_Administration_PbStatuses_Delete = "Pages.Administration.PbStatuses.Delete";
+
+        public const string Pages_Administration_PbTypeFiles = "Pages.Administration.PbTypeFiles";
+        public const string Pages_Administration_PbTypeFiles_Create = "Pages.Administration.PbTypeFiles.Create";
+        public const string Pages_Administration_PbTypeFiles_Edit = "Pages.Administration.PbTypeFiles.Edit";
+        public const string Pages_Administration_PbTypeFiles_Delete = "Pages.Administration.PbTypeFiles.Delete";
+
+        public const string Pages_Administration_PbRanks = "Pages.Administration.PbRanks";
+        public const string Pages_Administration_PbRanks_Create = "Pages.Administration.PbRanks.Create";
+        public const string Pages_Administration_PbRanks_Edit = "Pages.Administration.PbRanks.Edit";
+        public const string Pages_Administration_PbRanks_Delete = "Pages.Administration.PbRanks.Delete";
+
         public const string Pages_Administration_PbClasses = "Pages.Administration.PbClasses";
         public const string Pages_Administration_PbClasses_Create = "Pages.Administration.PbClasses.Create";
         public const string Pages_Administration_PbClasses_Edit = "Pages.Administration.PbClasses.Edit";

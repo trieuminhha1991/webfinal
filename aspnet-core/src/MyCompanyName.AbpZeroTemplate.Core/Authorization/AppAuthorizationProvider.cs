@@ -40,6 +40,48 @@ namespace MyCompanyName.AbpZeroTemplate.Authorization
 
             var administration = pages.CreateChildPermission(AppPermissions.Pages_Administration, L("Administration"));
 
+            var pbTypeEbooks = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeEbooks, L("PbTypeEbooks"));
+            pbTypeEbooks.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeEbooks_Create, L("CreateNewPbTypeEbook"));
+            pbTypeEbooks.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeEbooks_Edit, L("EditPbTypeEbook"));
+            pbTypeEbooks.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeEbooks_Delete, L("DeletePbTypeEbook"));
+
+
+
+            var pbPlaces = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbPlaces, L("PbPlaces"));
+            pbPlaces.CreateChildPermission(AppPermissions.Pages_Administration_PbPlaces_Create, L("CreateNewPbPlace"));
+            pbPlaces.CreateChildPermission(AppPermissions.Pages_Administration_PbPlaces_Edit, L("EditPbPlace"));
+            pbPlaces.CreateChildPermission(AppPermissions.Pages_Administration_PbPlaces_Delete, L("DeletePbPlace"));
+
+
+
+            var pbSubjectEducations = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbSubjectEducations, L("PbSubjectEducations"));
+            pbSubjectEducations.CreateChildPermission(AppPermissions.Pages_Administration_PbSubjectEducations_Create, L("CreateNewPbSubjectEducation"));
+            pbSubjectEducations.CreateChildPermission(AppPermissions.Pages_Administration_PbSubjectEducations_Edit, L("EditPbSubjectEducation"));
+            pbSubjectEducations.CreateChildPermission(AppPermissions.Pages_Administration_PbSubjectEducations_Delete, L("DeletePbSubjectEducation"));
+
+
+
+            var pbStatuses = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbStatuses, L("PbStatuses"));
+            pbStatuses.CreateChildPermission(AppPermissions.Pages_Administration_PbStatuses_Create, L("CreateNewPbStatus"));
+            pbStatuses.CreateChildPermission(AppPermissions.Pages_Administration_PbStatuses_Edit, L("EditPbStatus"));
+            pbStatuses.CreateChildPermission(AppPermissions.Pages_Administration_PbStatuses_Delete, L("DeletePbStatus"));
+
+
+
+            var pbTypeFiles = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeFiles, L("PbTypeFiles"));
+            pbTypeFiles.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeFiles_Create, L("CreateNewPbTypeFile"));
+            pbTypeFiles.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeFiles_Edit, L("EditPbTypeFile"));
+            pbTypeFiles.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeFiles_Delete, L("DeletePbTypeFile"));
+
+
+
+            var pbRanks = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbRanks, L("PbRanks"));
+            pbRanks.CreateChildPermission(AppPermissions.Pages_Administration_PbRanks_Create, L("CreateNewPbRank"));
+            pbRanks.CreateChildPermission(AppPermissions.Pages_Administration_PbRanks_Edit, L("EditPbRank"));
+            pbRanks.CreateChildPermission(AppPermissions.Pages_Administration_PbRanks_Delete, L("DeletePbRank"));
+
+
+
             var pbClasses = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbClasses, L("PbClasses"));
             pbClasses.CreateChildPermission(AppPermissions.Pages_Administration_PbClasses_Create, L("CreateNewPbClass"));
             pbClasses.CreateChildPermission(AppPermissions.Pages_Administration_PbClasses_Edit, L("EditPbClass"));

@@ -27,6 +27,18 @@ export class AppNavigationService {
                 new AppMenuItem('OrganizationUnits', 'Pages.Administration.OrganizationUnits', 'flaticon-map', '/app/admin/organization-units'),
                 new AppMenuItem('Roles', 'Pages.Administration.Roles', 'flaticon-suitcase', '/app/admin/roles'),
                 new AppMenuItem('Users', 'Pages.Administration.Users', 'flaticon-users', '/app/admin/users'),
+            new AppMenuItem('PbTypeEbooks', 'Pages.Administration.PbTypeEbooks', 'flaticon-more', '/app/admin/typeEbook/pbTypeEbooks'),
+            
+            new AppMenuItem('PbPlaces', 'Pages.Administration.PbPlaces', 'flaticon-more', '/app/admin/place/pbPlaces'),
+            
+            new AppMenuItem('PbSubjectEducations', 'Pages.Administration.PbSubjectEducations', 'flaticon-more', '/app/admin/subjectEducation/pbSubjectEducations'),
+            
+            new AppMenuItem('PbStatuses', 'Pages.Administration.PbStatuses', 'flaticon-more', '/app/admin/status/pbStatuses'),
+            
+            new AppMenuItem('PbTypeFiles', 'Pages.Administration.PbTypeFiles', 'flaticon-more', '/app/admin/typeFile/pbTypeFiles'),
+            
+            new AppMenuItem('PbRanks', 'Pages.Administration.PbRanks', 'flaticon-more', '/app/admin/rank/pbRanks'),
+            
             new AppMenuItem('PbClasses', 'Pages.Administration.PbClasses', 'flaticon-more', '/app/admin/class/pbClasses'),
             
                 new AppMenuItem('Languages', 'Pages.Administration.Languages', 'flaticon-tabs', '/app/admin/languages'),

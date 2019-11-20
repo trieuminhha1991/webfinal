@@ -1,3 +1,15 @@
+using MyCompanyName.AbpZeroTemplate.TypeEbook.Dtos;
+using MyCompanyName.AbpZeroTemplate.TypeEbook;
+using MyCompanyName.AbpZeroTemplate.Place.Dtos;
+using MyCompanyName.AbpZeroTemplate.Place;
+using MyCompanyName.AbpZeroTemplate.SubjectEducation.Dtos;
+using MyCompanyName.AbpZeroTemplate.SubjectEducation;
+using MyCompanyName.AbpZeroTemplate.Status.Dtos;
+using MyCompanyName.AbpZeroTemplate.Status;
+using MyCompanyName.AbpZeroTemplate.TypeFile.Dtos;
+using MyCompanyName.AbpZeroTemplate.TypeFile;
+using MyCompanyName.AbpZeroTemplate.Rank.Dtos;
+using MyCompanyName.AbpZeroTemplate.Rank;
 using MyCompanyName.AbpZeroTemplate.Class.Dtos;
 using MyCompanyName.AbpZeroTemplate.Class;
 using MyCompanyName.AbpZeroTemplate.Subject.Dtos;
@@ -45,6 +57,18 @@ namespace MyCompanyName.AbpZeroTemplate
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+           configuration.CreateMap<CreateOrEditPbTypeEbookDto, PbTypeEbook>().ReverseMap();
+           configuration.CreateMap<PbTypeEbookDto, PbTypeEbook>().ReverseMap();
+           configuration.CreateMap<CreateOrEditPbPlaceDto, PbPlace>().ReverseMap();
+           configuration.CreateMap<PbPlaceDto, PbPlace>().ReverseMap();
+           configuration.CreateMap<CreateOrEditPbSubjectEducationDto, PbSubjectEducation>().ReverseMap();
+           configuration.CreateMap<PbSubjectEducationDto, PbSubjectEducation>().ReverseMap();
+           configuration.CreateMap<CreateOrEditPbStatusDto, PbStatus>().ReverseMap();
+           configuration.CreateMap<PbStatusDto, PbStatus>().ReverseMap();
+           configuration.CreateMap<CreateOrEditPbTypeFileDto, PbTypeFile>().ReverseMap();
+           configuration.CreateMap<PbTypeFileDto, PbTypeFile>().ReverseMap();
+           configuration.CreateMap<CreateOrEditPbRankDto, PbRank>().ReverseMap();
+           configuration.CreateMap<PbRankDto, PbRank>().ReverseMap();
            configuration.CreateMap<CreateOrEditPbClassDto, PbClass>().ReverseMap();
            configuration.CreateMap<PbClassDto, PbClass>().ReverseMap();
            configuration.CreateMap<CreateOrEditPbSubjectDto, PbSubject>().ReverseMap();
