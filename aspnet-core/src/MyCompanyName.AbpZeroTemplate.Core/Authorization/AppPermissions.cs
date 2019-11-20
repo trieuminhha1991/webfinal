@@ -6,6 +6,11 @@ namespace MyCompanyName.AbpZeroTemplate.Authorization
     /// </summary>
     public static class AppPermissions
     {
+        public const string Pages_PbEbooks = "Pages.PbEbooks";
+        public const string Pages_PbEbooks_Create = "Pages.PbEbooks.Create";
+        public const string Pages_PbEbooks_Edit = "Pages.PbEbooks.Edit";
+        public const string Pages_PbEbooks_Delete = "Pages.PbEbooks.Delete";
+
         public const string Pages_Administration_PbTypeEbooks = "Pages.Administration.PbTypeEbooks";
         public const string Pages_Administration_PbTypeEbooks_Create = "Pages.Administration.PbTypeEbooks.Create";
         public const string Pages_Administration_PbTypeEbooks_Edit = "Pages.Administration.PbTypeEbooks.Edit";

@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="TypeEbook">Type ebook</text>
+  <texts>    <text name="Ebook">Ebook</text>
+    <text name="PbEbook">Pb ebook</text>
+    <text name="EbookName">Ebook name</text>
+    <text name="EbookDateStart">Ebook date start</text>
+    <text name="Pro">Pro</text>
+    <text name="NotPro">Not pro</text>
+    <text name="LinkPro">Link pro</text>
+    <text name="EbookPrice">Ebook price</text>
+    <text name="EbookView">Ebook view</text>
+    <text name="EbookLike">Ebook like</text>
+    <text name="EbookDislike">Ebook dislike</text>
+    <text name="Discription">Discription</text>
+    <text name="EbookCover">Ebook cover</text>
+    <text name="PbEbooksHeaderInfo">Pb ebooks header info</text>
+    <text name="CreateNewPbEbook">Create new pb ebook</text>
+    <text name="EditPbEbook">Edit pb ebook</text>
+    <text name="DeletePbEbook">Delete pb ebook</text>
+    <text name="PbEbooks">Pb ebooks</text>
+    <text name="PickUser">Pick user</text>
+    <text name="PbClassClassName">Pb class class name</text>
+    <text name="PickPbClass">Pick pb class</text>
+    <text name="PbPlacePlaceName">Pb place place name</text>
+    <text name="PickPbPlace">Pick pb place</text>
+    <text name="PbRankRankName">Pb rank rank name</text>
+    <text name="PickPbRank">Pick pb rank</text>
+    <text name="PbStatusStatusName">Pb status status name</text>
+    <text name="PickPbStatus">Pick pb status</text>
+    <text name="PbSubjectSectionName">Pb subject section name</text>
+    <text name="PickPbSubject">Pick pb subject</text>
+    <text name="PbSubjectEducationSubjectName">Pb subject education subject name</text>
+    <text name="PickPbSubjectEducation">Pick pb subject education</text>
+    <text name="PbTypeEbookTypeName">Pb type ebook type name</text>
+    <text name="PickPbTypeEbook">Pick pb type ebook</text>
+    <text name="PbTypeFileTypeFileName">Pb type file type file name</text>
+    <text name="PickPbTypeFile">Pick pb type file</text>
+    <text name="EbookDateStartRange">Ebook date start range</text>
+    <text name="TypeEbook">Type ebook</text>
     <text name="PbTypeEbook">Pb type ebook</text>
     <text name="TypeName">Type name</text>
     <text name="PbTypeEbooksHeaderInfo">Pb type ebooks header info</text>

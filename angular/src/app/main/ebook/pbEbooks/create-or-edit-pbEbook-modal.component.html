@@ -1,0 +1,212 @@
+<div bsModal #createOrEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createOrEditModal" aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form *ngIf="active" #pbEbookForm="ngForm" novalidate (ngSubmit)="save()" autocomplete="off">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span *ngIf="pbEbook.id">{{l("EditPbEbook")}}</span>
+                        <span *ngIf="!pbEbook.id">{{l("CreateNewPbEbook")}}</span>
+                    </h4>
+                    <button type="button" class="close" (click)="close()" aria-label="Close" [disabled]="saving">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                 
+
+					<div class="form-group m-form__group">
+                        <label for="UserName">{{l("User")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="UserName" name="userName" [(ngModel)]="userName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectUserModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setUserIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.userId" [(ngModel)]="pbEbook.userId" type="text" required hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbClassClassName">{{l("PbClass")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbClassClassName" name="pbClassClassName" [(ngModel)]="pbClassClassName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbClassModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbClassIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.pbClassId" [(ngModel)]="pbEbook.pbClassId" type="text"  hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbPlacePlaceName">{{l("PbPlace")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbPlacePlaceName" name="pbPlacePlaceName" [(ngModel)]="pbPlacePlaceName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbPlaceModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbPlaceIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.pbPlaceId" [(ngModel)]="pbEbook.pbPlaceId" type="text"  hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbRankRankName">{{l("PbRank")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbRankRankName" name="pbRankRankName" [(ngModel)]="pbRankRankName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbRankModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbRankIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.pbRankId" [(ngModel)]="pbEbook.pbRankId" type="text" required hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbStatusStatusName">{{l("PbStatus")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbStatusStatusName" name="pbStatusStatusName" [(ngModel)]="pbStatusStatusName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbStatusModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbStatusIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.pbStatusId" [(ngModel)]="pbEbook.pbStatusId" type="text" required hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbSubjectSectionName">{{l("PbSubject")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbSubjectSectionName" name="pbSubjectSectionName" [(ngModel)]="pbSubjectSectionName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbSubjectModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbSubjectIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.pbSubjectId" [(ngModel)]="pbEbook.pbSubjectId" type="text"  hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbSubjectEducationSubjectName">{{l("PbSubjectEducation")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbSubjectEducationSubjectName" name="pbSubjectEducationSubjectName" [(ngModel)]="pbSubjectEducationSubjectName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbSubjectEducationModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbSubjectEducationIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.pbSubjectEducationId" [(ngModel)]="pbEbook.pbSubjectEducationId" type="text"  hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbTypeEbookTypeName">{{l("PbTypeEbook")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbTypeEbookTypeName" name="pbTypeEbookTypeName" [(ngModel)]="pbTypeEbookTypeName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbTypeEbookModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbTypeEbookIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.pbTypeEbookId" [(ngModel)]="pbEbook.pbTypeEbookId" type="text" required hidden>
+		 
+					<div class="form-group m-form__group">
+                        <label for="PbTypeFileTypeFileName">{{l("PbTypeFile")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbTypeFileTypeFileName" name="pbTypeFileTypeFileName" [(ngModel)]="pbTypeFileTypeFileName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbTypeFileModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbTypeFileIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbEbook.pbTypeFileId" [(ngModel)]="pbEbook.pbTypeFileId" type="text" required hidden>
+		 
+
+								<div class="form-group">
+									<label for="PbEbook_EbookName">{{l("EbookName")}} *</label>
+									<input type="text" id="PbEbook_EbookName" class="form-control" [(ngModel)]="pbEbook.ebookName" name="EbookName"     required/>
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_Link">{{l("Link")}} *</label>
+									<input type="text" id="PbEbook_Link" class="form-control" [(ngModel)]="pbEbook.link" name="Link"     required/>
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_EbookDateStart">{{l("EbookDateStart")}}</label>
+									 <input class="form-control m-input" type="datetime" bsDatepicker [(ngModel)]="ebookDateStart" id="PbEbook_EbookDateStart" name="PbEbook_EbookDateStart">
+								</div>
+					
+								<br/><div class="m-checkbox-list">
+									<label for="PbEbook_Pro" class="kt-checkbox">
+										<input id="PbEbook_Pro" type="checkbox" name="Pro" [(ngModel)]="pbEbook.pro"> 
+										{{l("Pro")}}
+										<span></span>
+									</label>
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_LinkPro">{{l("LinkPro")}}</label>
+									<input type="text" id="PbEbook_LinkPro" class="form-control" [(ngModel)]="pbEbook.linkPro" name="LinkPro"    />
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_EbookPrice">{{l("EbookPrice")}}</label>
+									<input type="number" id="PbEbook_EbookPrice" class="form-control" [(ngModel)]="pbEbook.ebookPrice" name="EbookPrice"  />
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_EbookView">{{l("EbookView")}}</label>
+									<input type="number" id="PbEbook_EbookView" class="form-control" [(ngModel)]="pbEbook.ebookView" name="EbookView"  />
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_EbookLike">{{l("EbookLike")}}</label>
+									<input type="number" id="PbEbook_EbookLike" class="form-control" [(ngModel)]="pbEbook.ebookLike" name="EbookLike"  />
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_EbookDislike">{{l("EbookDislike")}}</label>
+									<input type="number" id="PbEbook_EbookDislike" class="form-control" [(ngModel)]="pbEbook.ebookDislike" name="EbookDislike"  />
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_Discription">{{l("Discription")}}</label>
+									<input type="text" id="PbEbook_Discription" class="form-control" [(ngModel)]="pbEbook.discription" name="Discription"    />
+								</div>
+					
+								<div class="form-group">
+									<label for="PbEbook_EbookCover">{{l("EbookCover")}}</label>
+									<input type="text" id="PbEbook_EbookCover" class="form-control" [(ngModel)]="pbEbook.ebookCover" name="EbookCover"    />
+								</div>
+					
+
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="saving" type="button" class="btn btn-default" (click)="close()">{{l("Cancel")}}</button>
+                    <button type="submit" class="btn btn-primary blue" [disabled]="!pbEbookForm.form.valid" [buttonBusy]="saving" [busyText]="l('SavingWithThreeDot')"><i class="fa fa-save"></i> <span>{{l("Save")}}</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+<pbEbookUserLookupTableModal #pbEbookUserLookupTableModal (modalSave)="getNewUserId()"></pbEbookUserLookupTableModal>
+		 <pbEbookPbClassLookupTableModal #pbEbookPbClassLookupTableModal (modalSave)="getNewPbClassId()"></pbEbookPbClassLookupTableModal>
+		 <pbEbookPbPlaceLookupTableModal #pbEbookPbPlaceLookupTableModal (modalSave)="getNewPbPlaceId()"></pbEbookPbPlaceLookupTableModal>
+		 <pbEbookPbRankLookupTableModal #pbEbookPbRankLookupTableModal (modalSave)="getNewPbRankId()"></pbEbookPbRankLookupTableModal>
+		 <pbEbookPbStatusLookupTableModal #pbEbookPbStatusLookupTableModal (modalSave)="getNewPbStatusId()"></pbEbookPbStatusLookupTableModal>
+		 <pbEbookPbSubjectLookupTableModal #pbEbookPbSubjectLookupTableModal (modalSave)="getNewPbSubjectId()"></pbEbookPbSubjectLookupTableModal>
+		 <pbEbookPbSubjectEducationLookupTableModal #pbEbookPbSubjectEducationLookupTableModal (modalSave)="getNewPbSubjectEducationId()"></pbEbookPbSubjectEducationLookupTableModal>
+		 <pbEbookPbTypeEbookLookupTableModal #pbEbookPbTypeEbookLookupTableModal (modalSave)="getNewPbTypeEbookId()"></pbEbookPbTypeEbookLookupTableModal>
+		 <pbEbookPbTypeFileLookupTableModal #pbEbookPbTypeFileLookupTableModal (modalSave)="getNewPbTypeFileId()"></pbEbookPbTypeFileLookupTableModal>
+		 
+</div>

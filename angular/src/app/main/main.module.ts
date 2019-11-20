@@ -2,6 +2,19 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppCommonModule } from '@app/shared/common/app-common.module';
+import { PbEbooksComponent } from './ebook/pbEbooks/pbEbooks.component';
+import { ViewPbEbookModalComponent } from './ebook/pbEbooks/view-pbEbook-modal.component';
+import { CreateOrEditPbEbookModalComponent } from './ebook/pbEbooks/create-or-edit-pbEbook-modal.component';
+import { PbEbookUserLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-user-lookup-table-modal.component';
+import { PbEbookPbClassLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-pbClass-lookup-table-modal.component';
+import { PbEbookPbPlaceLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-pbPlace-lookup-table-modal.component';
+import { PbEbookPbRankLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-pbRank-lookup-table-modal.component';
+import { PbEbookPbStatusLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-pbStatus-lookup-table-modal.component';
+import { PbEbookPbSubjectLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-pbSubject-lookup-table-modal.component';
+import { PbEbookPbSubjectEducationLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-pbSubjectEducation-lookup-table-modal.component';
+import { PbEbookPbTypeEbookLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-pbTypeEbook-lookup-table-modal.component';
+import { PbEbookPbTypeFileLookupTableModalComponent } from './ebook/pbEbooks/pbEbook-pbTypeFile-lookup-table-modal.component';
+
 import { PbSubjectsComponent } from './subject/pbSubjects/pbSubjects.component';
 import { ViewPbSubjectModalComponent } from './subject/pbSubjects/view-pbSubject-modal.component';
 import { CreateOrEditPbSubjectModalComponent } from './subject/pbSubjects/create-or-edit-pbSubject-modal.component';
@@ -46,6 +59,17 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
         PopoverModule.forRoot()
     ],
     declarations: [
+		PbEbooksComponent,
+		ViewPbEbookModalComponent,		CreateOrEditPbEbookModalComponent,
+    PbEbookUserLookupTableModalComponent,
+    PbEbookPbClassLookupTableModalComponent,
+    PbEbookPbPlaceLookupTableModalComponent,
+    PbEbookPbRankLookupTableModalComponent,
+    PbEbookPbStatusLookupTableModalComponent,
+    PbEbookPbSubjectLookupTableModalComponent,
+    PbEbookPbSubjectEducationLookupTableModalComponent,
+    PbEbookPbTypeEbookLookupTableModalComponent,
+    PbEbookPbTypeFileLookupTableModalComponent,
 		PbSubjectsComponent,
 		ViewPbSubjectModalComponent,		CreateOrEditPbSubjectModalComponent,
         DashboardComponent
