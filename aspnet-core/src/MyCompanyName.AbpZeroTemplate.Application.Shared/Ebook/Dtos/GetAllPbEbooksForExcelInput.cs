@@ -34,6 +34,9 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook.Dtos
 
 		public string EbookCoverFilter { get; set; }
 
+		public long? MaxBookPageFilter { get; set; }
+		public long? MinBookPageFilter { get; set; }
+
 
 		 public string UserNameFilter { get; set; }
 

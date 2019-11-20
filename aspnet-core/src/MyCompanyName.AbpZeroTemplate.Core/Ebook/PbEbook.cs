@@ -43,6 +43,8 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
 		
 		public virtual string EbookCover { get; set; }
 		
+		public virtual long? BookPage { get; set; }
+		
 
 		public virtual long UserId { get; set; }
 		

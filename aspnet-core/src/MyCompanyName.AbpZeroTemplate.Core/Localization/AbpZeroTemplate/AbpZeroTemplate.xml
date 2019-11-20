@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="PriceUser">Price user</text>
+  <texts>    <text name="BookPage">Book page</text>
+    <text name="PriceUser">Price user</text>
     <text name="PbPriceUser">Pb price user</text>
     <text name="PbPriceUsersHeaderInfo">Pb price users header info</text>
     <text name="CreateNewPbPriceUser">Create new pb price user</text>

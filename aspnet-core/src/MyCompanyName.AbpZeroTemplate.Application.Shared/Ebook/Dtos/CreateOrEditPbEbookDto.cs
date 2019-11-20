@@ -43,6 +43,9 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook.Dtos
 		public string EbookCover { get; set; }
 		
 		
+		public long? BookPage { get; set; }
+		
+		
 		 public long UserId { get; set; }
 		 
 		 		 public int? PbClassId { get; set; }

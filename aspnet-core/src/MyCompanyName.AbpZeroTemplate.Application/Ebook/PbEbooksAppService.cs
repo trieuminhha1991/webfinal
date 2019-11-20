@@ -89,6 +89,8 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
 						.WhereIf(input.MaxEbookDislikeFilter != null, e => e.EbookDislike <= input.MaxEbookDislikeFilter)
 						.WhereIf(!string.IsNullOrWhiteSpace(input.DiscriptionFilter),  e => e.Discription.ToLower() == input.DiscriptionFilter.ToLower().Trim())
 						.WhereIf(!string.IsNullOrWhiteSpace(input.EbookCoverFilter),  e => e.EbookCover.ToLower() == input.EbookCoverFilter.ToLower().Trim())
+						.WhereIf(input.MinBookPageFilter != null, e => e.BookPage >= input.MinBookPageFilter)
+						.WhereIf(input.MaxBookPageFilter != null, e => e.BookPage <= input.MaxBookPageFilter)
 						.WhereIf(!string.IsNullOrWhiteSpace(input.UserNameFilter), e => e.UserFk != null && e.UserFk.Name.ToLower() == input.UserNameFilter.ToLower().Trim())
 						.WhereIf(!string.IsNullOrWhiteSpace(input.PbClassClassNameFilter), e => e.PbClassFk != null && e.PbClassFk.ClassName.ToLower() == input.PbClassClassNameFilter.ToLower().Trim())
 						.WhereIf(!string.IsNullOrWhiteSpace(input.PbPlacePlaceNameFilter), e => e.PbPlaceFk != null && e.PbPlaceFk.PlaceName.ToLower() == input.PbPlacePlaceNameFilter.ToLower().Trim())
@@ -145,6 +147,7 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
                                 EbookDislike = o.EbookDislike,
                                 Discription = o.Discription,
                                 EbookCover = o.EbookCover,
+                                BookPage = o.BookPage,
                                 Id = o.Id
 							},
                          	UserName = s1 == null ? "" : s1.Name.ToString(),
@@ -356,6 +359,8 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
 						.WhereIf(input.MaxEbookDislikeFilter != null, e => e.EbookDislike <= input.MaxEbookDislikeFilter)
 						.WhereIf(!string.IsNullOrWhiteSpace(input.DiscriptionFilter),  e => e.Discription.ToLower() == input.DiscriptionFilter.ToLower().Trim())
 						.WhereIf(!string.IsNullOrWhiteSpace(input.EbookCoverFilter),  e => e.EbookCover.ToLower() == input.EbookCoverFilter.ToLower().Trim())
+						.WhereIf(input.MinBookPageFilter != null, e => e.BookPage >= input.MinBookPageFilter)
+						.WhereIf(input.MaxBookPageFilter != null, e => e.BookPage <= input.MaxBookPageFilter)
 						.WhereIf(!string.IsNullOrWhiteSpace(input.UserNameFilter), e => e.UserFk != null && e.UserFk.Name.ToLower() == input.UserNameFilter.ToLower().Trim())
 						.WhereIf(!string.IsNullOrWhiteSpace(input.PbClassClassNameFilter), e => e.PbClassFk != null && e.PbClassFk.ClassName.ToLower() == input.PbClassClassNameFilter.ToLower().Trim())
 						.WhereIf(!string.IsNullOrWhiteSpace(input.PbPlacePlaceNameFilter), e => e.PbPlaceFk != null && e.PbPlaceFk.PlaceName.ToLower() == input.PbPlacePlaceNameFilter.ToLower().Trim())
@@ -408,6 +413,7 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
                                 EbookDislike = o.EbookDislike,
                                 Discription = o.Discription,
                                 EbookCover = o.EbookCover,
+                                BookPage = o.BookPage,
                                 Id = o.Id
 							},
                          	UserName = s1 == null ? "" : s1.Name.ToString(),

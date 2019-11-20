@@ -15,6 +15,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20191118090357_Added_Class_Table.cs" />
     <Compile Remove="Migrations\20191118090357_Added_Class_Table.Designer.cs" />
+    <Compile Remove="Migrations\20191120101334_Add_Ebook2.cs" />
+    <Compile Remove="Migrations\20191120101334_Add_Ebook2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

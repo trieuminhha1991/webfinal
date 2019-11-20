@@ -1,5 +1,5 @@
 {
-  "IsRegenerate": false,
+  "IsRegenerate": true,
   "MenuPosition": "main",
   "RelativeNamespace": "Ebook",
   "EntityName": "PbEbook",
@@ -59,8 +59,8 @@
     {
       "Name": "EbookDateStart",
       "Type": "DateTime",
-      "MaxLength": 0,
-      "MinLength": 0,
+      "MaxLength": -1,
+      "MinLength": -1,
       "Range": {
         "IsRangeSet": false,
         "MinimumValue": 0,
@@ -78,8 +78,8 @@
     {
       "Name": "Pro",
       "Type": "bool",
-      "MaxLength": 0,
-      "MinLength": 0,
+      "MaxLength": -1,
+      "MinLength": -1,
       "Range": {
         "IsRangeSet": false,
         "MinimumValue": 0,
@@ -116,8 +116,8 @@
     {
       "Name": "EbookPrice",
       "Type": "decimal",
-      "MaxLength": 0,
-      "MinLength": 0,
+      "MaxLength": -1,
+      "MinLength": -1,
       "Range": {
         "IsRangeSet": false,
         "MinimumValue": 0,
@@ -135,8 +135,8 @@
     {
       "Name": "EbookView",
       "Type": "long",
-      "MaxLength": 0,
-      "MinLength": 0,
+      "MaxLength": -1,
+      "MinLength": -1,
       "Range": {
         "IsRangeSet": false,
         "MinimumValue": 0,
@@ -154,8 +154,8 @@
     {
       "Name": "EbookLike",
       "Type": "long",
-      "MaxLength": 0,
-      "MinLength": 0,
+      "MaxLength": -1,
+      "MinLength": -1,
       "Range": {
         "IsRangeSet": false,
         "MinimumValue": 0,
@@ -173,8 +173,8 @@
     {
       "Name": "EbookDislike",
       "Type": "long",
-      "MaxLength": 0,
-      "MinLength": 0,
+      "MaxLength": -1,
+      "MinLength": -1,
       "Range": {
         "IsRangeSet": false,
         "MinimumValue": 0,
@@ -220,6 +220,25 @@
       },
       "Required": false,
       "Nullable": false,
+      "Regex": "",
+      "UserInterface": {
+        "AdvancedFilter": true,
+        "List": true,
+        "CreateOrUpdate": true
+      }
+    },
+    {
+      "Name": "BookPage",
+      "Type": "long",
+      "MaxLength": -1,
+      "MinLength": -1,
+      "Range": {
+        "IsRangeSet": false,
+        "MinimumValue": 0,
+        "MaximumValue": 0
+      },
+      "Required": false,
+      "Nullable": true,
       "Regex": "",
       "UserInterface": {
         "AdvancedFilter": true,
