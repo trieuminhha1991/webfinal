@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { PbLinkProsComponent } from './linkPro/pbLinkPros/pbLinkPros.component';
 import { PbTypeEbooksComponent } from './typeEbook/pbTypeEbooks/pbTypeEbooks.component';
 import { PbPlacesComponent } from './place/pbPlaces/pbPlaces.component';
 import { PbSubjectEducationsComponent } from './subjectEducation/pbSubjectEducations/pbSubjectEducations.component';
@@ -31,6 +32,7 @@ import { UsersComponent } from './users/users.component';
             {
                 path: '',
                 children: [
+                    { path: 'linkPro/pbLinkPros', component: PbLinkProsComponent, data: { permission: 'Pages.Administration.PbLinkPros' }  },
                     { path: 'typeEbook/pbTypeEbooks', component: PbTypeEbooksComponent, data: { permission: 'Pages.Administration.PbTypeEbooks' }  },
                     { path: 'place/pbPlaces', component: PbPlacesComponent, data: { permission: 'Pages.Administration.PbPlaces' }  },
                     { path: 'subjectEducation/pbSubjectEducations', component: PbSubjectEducationsComponent, data: { permission: 'Pages.Administration.PbSubjectEducations' }  },

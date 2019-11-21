@@ -2,6 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppCommonModule } from '@app/shared/common/app-common.module';
+import { PbLinkProsComponent } from './linkPro/pbLinkPros/pbLinkPros.component';
+import { ViewPbLinkProModalComponent } from './linkPro/pbLinkPros/view-pbLinkPro-modal.component';
+import { CreateOrEditPbLinkProModalComponent } from './linkPro/pbLinkPros/create-or-edit-pbLinkPro-modal.component';
+import { PbLinkProPbEbookLookupTableModalComponent } from './linkPro/pbLinkPros/pbLinkPro-pbEbook-lookup-table-modal.component';
+
 import { PbTypeEbooksComponent } from './typeEbook/pbTypeEbooks/pbTypeEbooks.component';
 import { ViewPbTypeEbookModalComponent } from './typeEbook/pbTypeEbooks/view-pbTypeEbook-modal.component';
 import { CreateOrEditPbTypeEbookModalComponent } from './typeEbook/pbTypeEbooks/create-or-edit-pbTypeEbook-modal.component';
@@ -150,6 +155,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         DropdownModule
     ],
     declarations: [
+		PbLinkProsComponent,
+		ViewPbLinkProModalComponent,		CreateOrEditPbLinkProModalComponent,
+    PbLinkProPbEbookLookupTableModalComponent,
 		PbTypeEbooksComponent,
 		ViewPbTypeEbookModalComponent,		CreateOrEditPbTypeEbookModalComponent,
 		PbPlacesComponent,

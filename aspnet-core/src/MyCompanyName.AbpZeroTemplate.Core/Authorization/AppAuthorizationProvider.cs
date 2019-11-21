@@ -68,6 +68,13 @@ namespace MyCompanyName.AbpZeroTemplate.Authorization
 
             var administration = pages.CreateChildPermission(AppPermissions.Pages_Administration, L("Administration"));
 
+            var pbLinkPros = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbLinkPros, L("PbLinkPros"));
+            pbLinkPros.CreateChildPermission(AppPermissions.Pages_Administration_PbLinkPros_Create, L("CreateNewPbLinkPro"));
+            pbLinkPros.CreateChildPermission(AppPermissions.Pages_Administration_PbLinkPros_Edit, L("EditPbLinkPro"));
+            pbLinkPros.CreateChildPermission(AppPermissions.Pages_Administration_PbLinkPros_Delete, L("DeletePbLinkPro"));
+
+
+
             var pbTypeEbooks = administration.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeEbooks, L("PbTypeEbooks"));
             pbTypeEbooks.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeEbooks_Create, L("CreateNewPbTypeEbook"));
             pbTypeEbooks.CreateChildPermission(AppPermissions.Pages_Administration_PbTypeEbooks_Edit, L("EditPbTypeEbook"));

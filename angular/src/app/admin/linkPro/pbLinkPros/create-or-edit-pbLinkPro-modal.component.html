@@ -1,0 +1,47 @@
+<div bsModal #createOrEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createOrEditModal" aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form *ngIf="active" #pbLinkProForm="ngForm" novalidate (ngSubmit)="save()" autocomplete="off">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span *ngIf="pbLinkPro.id">{{l("EditPbLinkPro")}}</span>
+                        <span *ngIf="!pbLinkPro.id">{{l("CreateNewPbLinkPro")}}</span>
+                    </h4>
+                    <button type="button" class="close" (click)="close()" aria-label="Close" [disabled]="saving">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                 
+
+					<div class="form-group m-form__group">
+                        <label for="PbEbookEbookName">{{l("PbEbook")}}</label>
+                        <div class="input-group">
+                            <input class="form-control" id="PbEbookEbookName" name="pbEbookEbookName" [(ngModel)]="pbEbookEbookName" type="text" disabled>     
+                            <div class="input-group-append">
+                                <button class="btn btn-primary blue" (click)="openSelectPbEbookModal()" type="button"><i class="fa fa-search"></i> {{l("Pick")}}</button>
+                            </div> <div class="input-group-prepend">
+                                <button class="btn btn-danger btn-icon" type="button" (click)="setPbEbookIdNull()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="pbLinkPro.pbEbookId" [(ngModel)]="pbLinkPro.pbEbookId" type="text"  hidden>
+		 
+
+								<div class="form-group">
+									<label for="PbLinkPro_LinkName">{{l("LinkName")}} *</label>
+									<input type="text" id="PbLinkPro_LinkName" class="form-control" [(ngModel)]="pbLinkPro.linkName" name="LinkName"     required/>
+								</div>
+					
+
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="saving" type="button" class="btn btn-default" (click)="close()">{{l("Cancel")}}</button>
+                    <button type="submit" class="btn btn-primary blue" [disabled]="!pbLinkProForm.form.valid" [buttonBusy]="saving" [busyText]="l('SavingWithThreeDot')"><i class="fa fa-save"></i> <span>{{l("Save")}}</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+<pbLinkProPbEbookLookupTableModal #pbLinkProPbEbookLookupTableModal (modalSave)="getNewPbEbookId()"></pbLinkProPbEbookLookupTableModal>
+		 
+</div>

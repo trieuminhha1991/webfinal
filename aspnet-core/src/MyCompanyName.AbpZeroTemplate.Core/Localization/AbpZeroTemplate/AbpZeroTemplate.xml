@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="BookPage">Book page</text>
+  <texts>    <text name="PbLinkPro">Pb link pro</text>
+    <text name="LinkName">Link name</text>
+    <text name="PbLinkProsHeaderInfo">Pb link pros header info</text>
+    <text name="CreateNewPbLinkPro">Create new pb link pro</text>
+    <text name="EditPbLinkPro">Edit pb link pro</text>
+    <text name="DeletePbLinkPro">Delete pb link pro</text>
+    <text name="PbLinkPros">Pb link pros</text>
+    <text name="BookPage">Book page</text>
     <text name="PriceUser">Price user</text>
     <text name="PbPriceUser">Pb price user</text>
     <text name="PbPriceUsersHeaderInfo">Pb price users header info</text>

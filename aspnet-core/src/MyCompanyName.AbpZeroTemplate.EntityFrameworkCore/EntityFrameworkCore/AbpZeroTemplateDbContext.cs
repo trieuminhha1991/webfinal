@@ -1,3 +1,4 @@
+using MyCompanyName.AbpZeroTemplate.LinkPro;
 using MyCompanyName.AbpZeroTemplate.PriceUser;
 using MyCompanyName.AbpZeroTemplate.DownloadEbook;
 using MyCompanyName.AbpZeroTemplate.Oppinion;
@@ -28,6 +29,8 @@ namespace MyCompanyName.AbpZeroTemplate.EntityFrameworkCore
 {
     public class AbpZeroTemplateDbContext : AbpZeroDbContext<Tenant, Role, User, AbpZeroTemplateDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<PbLinkPro> PbLinkPros { get; set; }
+
         public virtual DbSet<PbPriceUser> PbPriceUsers { get; set; }
 
         public virtual DbSet<PbDownloadEbook> PbDownloadEbooks { get; set; }
