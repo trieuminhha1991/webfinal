@@ -1,14 +1,19 @@
-import {Component, Injector, ViewChild} from '@angular/core';
-import { AppComponentBase } from '@shared/common/app-component-base';
-import { appModuleAnimation } from '@shared/animations/routerTransition';
-import {LazyLoadEvent} from "@node_modules/primeng/components/common/lazyloadevent";
-import {PbEbooksServiceProxy, GetPbEbookForViewDto, TokenAuthServiceProxy} from '@shared/service-proxies/service-proxies';
-import {NotifyService} from "@abp/notify/notify.service";
-import {ActivatedRoute} from "@angular/router";
-import {FileDownloadService} from "@shared/utils/file-download.service";
-import * as moment from "@node_modules/moment";
+import {Component, Injector, ViewEncapsulation, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {PbEbooksServiceProxy, PbEbookDto} from '@shared/service-proxies/service-proxies';
+import {NotifyService} from '@abp/notify/notify.service';
+import {AppComponentBase} from '@shared/common/app-component-base';
+import {TokenAuthServiceProxy} from '@shared/service-proxies/service-proxies';
+import {appModuleAnimation} from '@shared/animations/routerTransition';
+import {Table} from 'primeng/components/table/table';
 import {Paginator} from 'primeng/components/paginator/paginator';
+import {LazyLoadEvent} from 'primeng/components/common/lazyloadevent';
+import {FileDownloadService} from '@shared/utils/file-download.service';
+import * as _ from 'lodash';
+import * as moment from 'moment';
 import {MenuItem} from 'primeng/components/common/menuitem';
+import {CreateOrEditPbEbookModalComponent} from "@app/main/ebook/pbEbooks/create-or-edit-pbEbook-modal.component";
+import {ViewPbEbookModalComponent} from "@app/main/ebook/pbEbooks/view-pbEbook-modal.component";
 
 
 @Component({
@@ -18,8 +23,11 @@ import {MenuItem} from 'primeng/components/common/menuitem';
     animations: [appModuleAnimation()]
 })
 export class ShopEbookComponent extends AppComponentBase {
+    @ViewChild('createOrEditPbEbookModal', {static: true}) createOrEditPbEbookModal: CreateOrEditPbEbookModalComponent;
+    @ViewChild('viewPbEbookModalComponent', {static: true}) viewPbEbookModal: ViewPbEbookModalComponent;
+    @ViewChild('dataTable', {static: true}) dataTable: Table;
     @ViewChild('paginator', {static: true}) paginator: Paginator;
-    Ebook: GetPbEbookForViewDto[] = [];
+
     advancedFiltersAreShown = false;
     filterText = '';
     ebookNameFilter = '';
@@ -58,7 +66,8 @@ export class ShopEbookComponent extends AppComponentBase {
     pbSubjectEducationSubjectNameFilter = '';
     pbTypeEbookTypeNameFilter = '';
     pbTypeFileTypeFileNameFilter = '';
-    items: MenuItem[];
+
+
     constructor(
         injector: Injector,
         private _pbEbooksServiceProxy: PbEbooksServiceProxy,
@@ -69,14 +78,15 @@ export class ShopEbookComponent extends AppComponentBase {
     ) {
         super(injector);
     }
-    ngOnInit() {
-        this.items = [
-            {label: 'Xem chi tiết', icon: 'pi pi-refresh', command: () => {}},
-            {label: 'Tải vể', icon: 'pi pi-times', command: () => {}},
-            {label: 'Mua', icon: 'pi pi-info', url: 'http://angular.io'}
-        ];
-    }
-    getPbEbooks() {
+
+    getPbEbooks(event?: LazyLoadEvent) {
+        if (this.primengTableHelper.shouldResetPaging(event)) {
+            this.paginator.changePage(0);
+            return;
+        }
+
+        this.primengTableHelper.showLoadingIndicator();
+
         this._pbEbooksServiceProxy.getAll(
             this.filterText,
             this.ebookNameFilter,
@@ -105,11 +115,17 @@ export class ShopEbookComponent extends AppComponentBase {
             this.pbSubjectEducationSubjectNameFilter,
             this.pbTypeEbookTypeNameFilter,
             this.pbTypeFileTypeFileNameFilter,
-            null,
-            10,
-            100
+            this.primengTableHelper.getSorting(this.dataTable),
+            this.primengTableHelper.getSkipCount(this.paginator, event),
+            this.primengTableHelper.getMaxResultCount(this.paginator, event)
         ).subscribe(result => {
-            this.Ebook=result.items;
+            this.primengTableHelper.totalRecordsCount = result.totalCount;
+            this.primengTableHelper.records = result.items;
+            this.primengTableHelper.hideLoadingIndicator();
         });
+    }
+
+    reloadPage(): void {
+        this.paginator.changePage(this.paginator.getPage());
     }
 }

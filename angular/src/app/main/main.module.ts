@@ -61,6 +61,8 @@ import {CardModule} from 'primeng/card';
 import {TabViewModule} from 'primeng/tabview';
 import {ShopEbookComponent} from './ebook/shop-ebook/shop-ebook.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {DataViewModule} from 'primeng/dataview';
+
 NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
 
 @NgModule({
@@ -71,7 +73,7 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
         EditorModule,
         InputMaskModule,
         TableModule,
-        SidebarModule, ScrollPanelModule, CardModule, TabViewModule, SplitButtonModule,
+        SidebarModule, ScrollPanelModule, CardModule, TabViewModule, SplitButtonModule, DataViewModule,
         CommonModule,
         FormsModule,
         ModalModule,
