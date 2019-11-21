@@ -3,6 +3,9 @@
         <div class="kt-subheader kt-grid__item">
             <div [class]="containerClass">
                 <div class="input-group col-md-3 col-sm-12 col-lg-6">
+                    <button (click)="advancedFiltersAreShown=!advancedFiltersAreShown"
+                            class="btn btn-primary"><i class="fa fa-file-excel"></i> Tìm kiếm nâng cao
+                    </button>
                     <input [(ngModel)]="filterText" name="filterText" autoFocus class="form-control m-input"
                            [placeholder]="l('SearchWithThreeDot')" type="text"/>
                     <span class="input-group-btn">
@@ -12,8 +15,9 @@
                 </div>
                 <div class="kt-subheader__toolbar">
                     <div class="kt-subheader__wrapper">
-                        <button (click)="advancedFiltersAreShown=!advancedFiltersAreShown"
-                                class="btn btn-primary"><i class="fa fa-file-excel"></i> Tìm kiếm nâng cao
+                        <button class="btn btn-danger"><i class="fa fa-file-excel"></i> Sắp xếp theo
+                        </button>
+                        <button class="btn btn-warning"><i class="fa fa-file-excel"></i> Chủ đề tài liệu
                         </button>
                     </div>
                 </div>
@@ -140,7 +144,7 @@
                                                 [totalRecords]="totalRecords">
                                         <ng-template let-record="$implicit" pTemplate="listItem">
                                             <div class="col-12 row ">
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <img src="">
                                                     <div class="ui-g">
                                                         <div class="ui-g-12">Tác giả: <b>{{record.UserName}}</b></div>
@@ -150,7 +154,7 @@
                                                         <div class="ui-g-12">Tải về: <b>{{record.Link}}</b></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-9">
                                                     <p-tabView>
                                                         <p-tabPanel header="Mô tả" leftIcon="pi pi-calendar">
 
