@@ -6,6 +6,7 @@ import { PbOppinionsComponent } from './oppinion/pbOppinions/pbOppinions.compone
 import { PbEbooksComponent } from './ebook/pbEbooks/pbEbooks.component';
 import { PbSubjectsComponent } from './subject/pbSubjects/pbSubjects.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {ShopEbookComponent} from './ebook/shop-ebook/shop-ebook.component';
 
 @NgModule({
     imports: [
@@ -17,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
                     { path: 'downloadEbook/pbDownloadEbooks', component: PbDownloadEbooksComponent, data: { permission: 'Pages.PbDownloadEbooks' }  },
                     { path: 'oppinion/pbOppinions', component: PbOppinionsComponent, data: { permission: 'Pages.PbOppinions' }  },
                     { path: 'ebook/pbEbooks', component: PbEbooksComponent, data: { permission: 'Pages.PbEbooks' }  },
+                    { path: 'ebook/shopEbook', component: ShopEbookComponent},
                     { path: 'subject/pbSubjects', component: PbSubjectsComponent, data: { permission: 'Pages.PbSubjects' }  },
                     { path: 'dashboard', component: DashboardComponent, data: { permission: 'Pages.Tenant.Dashboard' } }
                 ]

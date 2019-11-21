@@ -1,9 +1,9 @@
-import { PermissionCheckerService } from '@abp/auth/permission-checker.service';
-import { AppSessionService } from '@shared/common/session/app-session.service';
+import {PermissionCheckerService} from '@abp/auth/permission-checker.service';
+import {AppSessionService} from '@shared/common/session/app-session.service';
 
-import { Injectable } from '@angular/core';
-import { AppMenu } from './app-menu';
-import { AppMenuItem } from './app-menu-item';
+import {Injectable} from '@angular/core';
+import {AppMenu} from './app-menu';
+import {AppMenuItem} from './app-menu-item';
 
 @Injectable()
 export class AppNavigationService {
@@ -21,36 +21,36 @@ export class AppNavigationService {
             new AppMenuItem('Dashboard', 'Pages.Tenant.Dashboard', 'flaticon-line-graph', '/app/main/dashboard'),
             new AppMenuItem('Tenants', 'Pages.Tenants', 'flaticon-list-3', '/app/admin/tenants'),
             new AppMenuItem('Editions', 'Pages.Editions', 'flaticon-app', '/app/admin/editions'),
-           
+
             new AppMenuItem('PbSubjects', 'Pages.PbSubjects', 'flaticon-more', '/app/main/subject/pbSubjects'),
-            
+
             new AppMenuItem('PbEbooks', 'Pages.PbEbooks', 'flaticon-more', '/app/main/ebook/pbEbooks'),
-            
+            new AppMenuItem("ShopBook", null, "flaticon-book", "/app/main/shopEbook"),
             new AppMenuItem('PbOppinions', 'Pages.PbOppinions', 'flaticon-more', '/app/main/oppinion/pbOppinions'),
-            
+
             new AppMenuItem('PbDownloadEbooks', 'Pages.PbDownloadEbooks', 'flaticon-more', '/app/main/downloadEbook/pbDownloadEbooks'),
-            
+
             new AppMenuItem('PbPriceUsers', 'Pages.PbPriceUsers', 'flaticon-more', '/app/main/priceUser/pbPriceUsers'),
-             new AppMenuItem('Administration', '', 'flaticon-interface-8', '', [
+            new AppMenuItem('Administration', '', 'flaticon-interface-8', '', [
                 new AppMenuItem('OrganizationUnits', 'Pages.Administration.OrganizationUnits', 'flaticon-map', '/app/admin/organization-units'),
                 new AppMenuItem('Roles', 'Pages.Administration.Roles', 'flaticon-suitcase', '/app/admin/roles'),
                 new AppMenuItem('Users', 'Pages.Administration.Users', 'flaticon-users', '/app/admin/users'),
-            new AppMenuItem('PbLinkPros', 'Pages.Administration.PbLinkPros', 'flaticon-more', '/app/admin/linkPro/pbLinkPros'),
-            
-            new AppMenuItem('PbTypeEbooks', 'Pages.Administration.PbTypeEbooks', 'flaticon-more', '/app/admin/typeEbook/pbTypeEbooks'),
-            
-            new AppMenuItem('PbPlaces', 'Pages.Administration.PbPlaces', 'flaticon-more', '/app/admin/place/pbPlaces'),
-            
-            new AppMenuItem('PbSubjectEducations', 'Pages.Administration.PbSubjectEducations', 'flaticon-more', '/app/admin/subjectEducation/pbSubjectEducations'),
-            
-            new AppMenuItem('PbStatuses', 'Pages.Administration.PbStatuses', 'flaticon-more', '/app/admin/status/pbStatuses'),
-            
-            new AppMenuItem('PbTypeFiles', 'Pages.Administration.PbTypeFiles', 'flaticon-more', '/app/admin/typeFile/pbTypeFiles'),
-            
-            new AppMenuItem('PbRanks', 'Pages.Administration.PbRanks', 'flaticon-more', '/app/admin/rank/pbRanks'),
-            
-            new AppMenuItem('PbClasses', 'Pages.Administration.PbClasses', 'flaticon-more', '/app/admin/class/pbClasses'),
-            
+                new AppMenuItem('PbLinkPros', 'Pages.Administration.PbLinkPros', 'flaticon-more', '/app/admin/linkPro/pbLinkPros'),
+
+                new AppMenuItem('PbTypeEbooks', 'Pages.Administration.PbTypeEbooks', 'flaticon-more', '/app/admin/typeEbook/pbTypeEbooks'),
+
+                new AppMenuItem('PbPlaces', 'Pages.Administration.PbPlaces', 'flaticon-more', '/app/admin/place/pbPlaces'),
+
+                new AppMenuItem('PbSubjectEducations', 'Pages.Administration.PbSubjectEducations', 'flaticon-more', '/app/admin/subjectEducation/pbSubjectEducations'),
+
+                new AppMenuItem('PbStatuses', 'Pages.Administration.PbStatuses', 'flaticon-more', '/app/admin/status/pbStatuses'),
+
+                new AppMenuItem('PbTypeFiles', 'Pages.Administration.PbTypeFiles', 'flaticon-more', '/app/admin/typeFile/pbTypeFiles'),
+
+                new AppMenuItem('PbRanks', 'Pages.Administration.PbRanks', 'flaticon-more', '/app/admin/rank/pbRanks'),
+
+                new AppMenuItem('PbClasses', 'Pages.Administration.PbClasses', 'flaticon-more', '/app/admin/class/pbClasses'),
+
                 new AppMenuItem('Languages', 'Pages.Administration.Languages', 'flaticon-tabs', '/app/admin/languages'),
                 new AppMenuItem('AuditLogs', 'Pages.Administration.AuditLogs', 'flaticon-folder-1', '/app/admin/auditLogs'),
                 new AppMenuItem('Maintenance', 'Pages.Administration.Host.Maintenance', 'flaticon-lock', '/app/admin/maintenance'),
