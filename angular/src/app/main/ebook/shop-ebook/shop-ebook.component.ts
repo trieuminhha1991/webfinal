@@ -8,6 +8,8 @@ import {ActivatedRoute} from "@angular/router";
 import {FileDownloadService} from "@shared/utils/file-download.service";
 import * as moment from "@node_modules/moment";
 import {Paginator} from 'primeng/components/paginator/paginator';
+import {MenuItem} from 'primeng/components/common/menuitem';
+
 
 @Component({
   selector: 'app-shop-ebook',
@@ -56,6 +58,7 @@ export class ShopEbookComponent extends AppComponentBase {
     pbSubjectEducationSubjectNameFilter = '';
     pbTypeEbookTypeNameFilter = '';
     pbTypeFileTypeFileNameFilter = '';
+    items: MenuItem[];
     constructor(
         injector: Injector,
         private _pbEbooksServiceProxy: PbEbooksServiceProxy,
@@ -65,6 +68,13 @@ export class ShopEbookComponent extends AppComponentBase {
         private _fileDownloadService: FileDownloadService
     ) {
         super(injector);
+    }
+    ngOnInit() {
+        this.items = [
+            {label: 'Xem chi tiết', icon: 'pi pi-refresh', command: () => {}},
+            {label: 'Tải vể', icon: 'pi pi-times', command: () => {}},
+            {label: 'Mua', icon: 'pi pi-info', url: 'http://angular.io'}
+        ];
     }
     getPbEbooks() {
         this._pbEbooksServiceProxy.getAll(

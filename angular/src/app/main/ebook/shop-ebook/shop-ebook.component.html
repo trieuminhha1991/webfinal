@@ -156,26 +156,56 @@
                                 </div>
                             </p-sidebar>
                             <div class="row">
-                                <div *ngFor="let Book of Ebook">
-                                    <div class="col-md-3">
-                                        <p-card header="Advanced Card" subheader="Subheader" [style]="{width: '360px'}"
-                                                styleClass="ui-card-shadow">
-                                            <p-header>
-                                                <img src="Card" src="{{Book.EbookCover}}">
-                                            </p-header>
-                                        </p-card>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <button pButton type="button" label="Xem" icon="pi pi-check"
-                                                style="margin-right: .25em"></button>
-                                        <button pButton type="button" label="Cancel" icon="pi pi-times"
-                                                class="ui-button-secondary"></button>
-                                    </div>
-                                    <div class="col-md-8">
+                                <div class="col-md-3">
+                                    <p-card styleClass="ui-card-shadow">
+                                        <p-header>
+                                            <img src="Card" src="">
+                                        </p-header>
+                                        <p-footer>
+                                            <p-splitButton label="Hành động" icon="pi pi-file"  [model]="items"></p-splitButton>
+                                        </p-footer>
+                                    </p-card>
+                                </div>
+                                <div class="col-md-9">
+                                    <p-tabView>
+                                        <p-tabPanel header="Mô tả" leftIcon="pi pi-calendar">
 
-                                    </div>
+                                        </p-tabPanel>
+                                        <p-tabPanel header="Thuộc tính" leftIcon="pi pi-calendar">
+
+                                        </p-tabPanel>
+                                        <p-tabPanel header="Lượt xem" leftIcon="pi pi-calendar">
+
+                                        </p-tabPanel>
+                                        <p-tabPanel header="Giá" leftIcon="pi pi-calendar">
+
+                                        </p-tabPanel>
+                                        <p-tabPanel header="Review" leftIcon="pi pi-calendar">
+
+                                        </p-tabPanel>
+                                    </p-tabView>
+                                </div>
+                                <div *ngFor="let Book of Ebook">
+
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-2">
+                            <p-tabView>
+                                <p-tabPanel header="Xem nhiều" leftIcon="pi pi-calendar">
+
+                                </p-tabPanel>
+                            </p-tabView>
+                            <p-tabView>
+                                <p-tabPanel header="Tải nhiều" leftIcon="pi pi-calendar">
+
+                                </p-tabPanel>
+                            </p-tabView>
+                            <p-tabView>
+                                <p-tabPanel header="Mới nhất" leftIcon="pi pi-calendar">
+
+                                </p-tabPanel>
+                            </p-tabView>
                         </div>
                     </div>
                 </div>
