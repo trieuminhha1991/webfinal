@@ -16,8 +16,6 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook.Dtos
 
 		public int ProFilter { get; set; }
 
-		public string LinkProFilter { get; set; }
-
 		public decimal? MaxEbookPriceFilter { get; set; }
 		public decimal? MinEbookPriceFilter { get; set; }
 

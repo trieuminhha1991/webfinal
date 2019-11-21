@@ -72,13 +72,12 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
 						.Include( e => e.PbSubjectEducationFk)
 						.Include( e => e.PbTypeEbookFk)
 						.Include( e => e.PbTypeFileFk)
-						.WhereIf(!string.IsNullOrWhiteSpace(input.Filter), e => false  || e.EbookName.Contains(input.Filter) || e.Link.Contains(input.Filter) || e.LinkPro.Contains(input.Filter) || e.Discription.Contains(input.Filter) || e.EbookCover.Contains(input.Filter))
+						.WhereIf(!string.IsNullOrWhiteSpace(input.Filter), e => false  || e.EbookName.Contains(input.Filter) || e.Link.Contains(input.Filter) || e.Discription.Contains(input.Filter) || e.EbookCover.Contains(input.Filter))
 						.WhereIf(!string.IsNullOrWhiteSpace(input.EbookNameFilter),  e => e.EbookName.ToLower() == input.EbookNameFilter.ToLower().Trim())
 						.WhereIf(!string.IsNullOrWhiteSpace(input.LinkFilter),  e => e.Link.ToLower() == input.LinkFilter.ToLower().Trim())
 						.WhereIf(input.MinEbookDateStartFilter != null, e => e.EbookDateStart >= input.MinEbookDateStartFilter)
 						.WhereIf(input.MaxEbookDateStartFilter != null, e => e.EbookDateStart <= input.MaxEbookDateStartFilter)
 						.WhereIf(input.ProFilter > -1,  e => Convert.ToInt32(e.Pro) == input.ProFilter )
-						.WhereIf(!string.IsNullOrWhiteSpace(input.LinkProFilter),  e => e.LinkPro.ToLower() == input.LinkProFilter.ToLower().Trim())
 						.WhereIf(input.MinEbookPriceFilter != null, e => e.EbookPrice >= input.MinEbookPriceFilter)
 						.WhereIf(input.MaxEbookPriceFilter != null, e => e.EbookPrice <= input.MaxEbookPriceFilter)
 						.WhereIf(input.MinEbookViewFilter != null, e => e.EbookView >= input.MinEbookViewFilter)
@@ -140,7 +139,6 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
                                 Link = o.Link,
                                 EbookDateStart = o.EbookDateStart,
                                 Pro = o.Pro,
-                                LinkPro = o.LinkPro,
                                 EbookPrice = o.EbookPrice,
                                 EbookView = o.EbookView,
                                 EbookLike = o.EbookLike,
@@ -342,13 +340,12 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
 						.Include( e => e.PbSubjectEducationFk)
 						.Include( e => e.PbTypeEbookFk)
 						.Include( e => e.PbTypeFileFk)
-						.WhereIf(!string.IsNullOrWhiteSpace(input.Filter), e => false  || e.EbookName.Contains(input.Filter) || e.Link.Contains(input.Filter) || e.LinkPro.Contains(input.Filter) || e.Discription.Contains(input.Filter) || e.EbookCover.Contains(input.Filter))
+						.WhereIf(!string.IsNullOrWhiteSpace(input.Filter), e => false  || e.EbookName.Contains(input.Filter) || e.Link.Contains(input.Filter) || e.Discription.Contains(input.Filter) || e.EbookCover.Contains(input.Filter))
 						.WhereIf(!string.IsNullOrWhiteSpace(input.EbookNameFilter),  e => e.EbookName.ToLower() == input.EbookNameFilter.ToLower().Trim())
 						.WhereIf(!string.IsNullOrWhiteSpace(input.LinkFilter),  e => e.Link.ToLower() == input.LinkFilter.ToLower().Trim())
 						.WhereIf(input.MinEbookDateStartFilter != null, e => e.EbookDateStart >= input.MinEbookDateStartFilter)
 						.WhereIf(input.MaxEbookDateStartFilter != null, e => e.EbookDateStart <= input.MaxEbookDateStartFilter)
 						.WhereIf(input.ProFilter > -1,  e => Convert.ToInt32(e.Pro) == input.ProFilter )
-						.WhereIf(!string.IsNullOrWhiteSpace(input.LinkProFilter),  e => e.LinkPro.ToLower() == input.LinkProFilter.ToLower().Trim())
 						.WhereIf(input.MinEbookPriceFilter != null, e => e.EbookPrice >= input.MinEbookPriceFilter)
 						.WhereIf(input.MaxEbookPriceFilter != null, e => e.EbookPrice <= input.MaxEbookPriceFilter)
 						.WhereIf(input.MinEbookViewFilter != null, e => e.EbookView >= input.MinEbookViewFilter)
@@ -406,7 +403,6 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
                                 Link = o.Link,
                                 EbookDateStart = o.EbookDateStart,
                                 Pro = o.Pro,
-                                LinkPro = o.LinkPro,
                                 EbookPrice = o.EbookPrice,
                                 EbookView = o.EbookView,
                                 EbookLike = o.EbookLike,

@@ -6381,7 +6381,6 @@ export class PbEbooksServiceProxy {
      * @param maxEbookDateStartFilter (optional) 
      * @param minEbookDateStartFilter (optional) 
      * @param proFilter (optional) 
-     * @param linkProFilter (optional) 
      * @param maxEbookPriceFilter (optional) 
      * @param minEbookPriceFilter (optional) 
      * @param maxEbookViewFilter (optional) 
@@ -6408,7 +6407,7 @@ export class PbEbooksServiceProxy {
      * @param maxResultCount (optional) 
      * @return Success
      */
-    getAll(filter: string | null | undefined, ebookNameFilter: string | null | undefined, linkFilter: string | null | undefined, maxEbookDateStartFilter: moment.Moment | null | undefined, minEbookDateStartFilter: moment.Moment | null | undefined, proFilter: number | null | undefined, linkProFilter: string | null | undefined, maxEbookPriceFilter: number | null | undefined, minEbookPriceFilter: number | null | undefined, maxEbookViewFilter: number | null | undefined, minEbookViewFilter: number | null | undefined, maxEbookLikeFilter: number | null | undefined, minEbookLikeFilter: number | null | undefined, maxEbookDislikeFilter: number | null | undefined, minEbookDislikeFilter: number | null | undefined, discriptionFilter: string | null | undefined, ebookCoverFilter: string | null | undefined, maxBookPageFilter: number | null | undefined, minBookPageFilter: number | null | undefined, userNameFilter: string | null | undefined, pbClassClassNameFilter: string | null | undefined, pbPlacePlaceNameFilter: string | null | undefined, pbRankRankNameFilter: string | null | undefined, pbStatusStatusNameFilter: string | null | undefined, pbSubjectSectionNameFilter: string | null | undefined, pbSubjectEducationSubjectNameFilter: string | null | undefined, pbTypeEbookTypeNameFilter: string | null | undefined, pbTypeFileTypeFileNameFilter: string | null | undefined, sorting: string | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfGetPbEbookForViewDto> {
+    getAll(filter: string | null | undefined, ebookNameFilter: string | null | undefined, linkFilter: string | null | undefined, maxEbookDateStartFilter: moment.Moment | null | undefined, minEbookDateStartFilter: moment.Moment | null | undefined, proFilter: number | null | undefined, maxEbookPriceFilter: number | null | undefined, minEbookPriceFilter: number | null | undefined, maxEbookViewFilter: number | null | undefined, minEbookViewFilter: number | null | undefined, maxEbookLikeFilter: number | null | undefined, minEbookLikeFilter: number | null | undefined, maxEbookDislikeFilter: number | null | undefined, minEbookDislikeFilter: number | null | undefined, discriptionFilter: string | null | undefined, ebookCoverFilter: string | null | undefined, maxBookPageFilter: number | null | undefined, minBookPageFilter: number | null | undefined, userNameFilter: string | null | undefined, pbClassClassNameFilter: string | null | undefined, pbPlacePlaceNameFilter: string | null | undefined, pbRankRankNameFilter: string | null | undefined, pbStatusStatusNameFilter: string | null | undefined, pbSubjectSectionNameFilter: string | null | undefined, pbSubjectEducationSubjectNameFilter: string | null | undefined, pbTypeEbookTypeNameFilter: string | null | undefined, pbTypeFileTypeFileNameFilter: string | null | undefined, sorting: string | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfGetPbEbookForViewDto> {
         let url_ = this.baseUrl + "/api/services/app/PbEbooks/GetAll?";
         if (filter !== undefined)
             url_ += "Filter=" + encodeURIComponent("" + filter) + "&"; 
@@ -6422,8 +6421,6 @@ export class PbEbooksServiceProxy {
             url_ += "MinEbookDateStartFilter=" + encodeURIComponent(minEbookDateStartFilter ? "" + minEbookDateStartFilter.toJSON() : "") + "&"; 
         if (proFilter !== undefined)
             url_ += "ProFilter=" + encodeURIComponent("" + proFilter) + "&"; 
-        if (linkProFilter !== undefined)
-            url_ += "LinkProFilter=" + encodeURIComponent("" + linkProFilter) + "&"; 
         if (maxEbookPriceFilter !== undefined)
             url_ += "MaxEbookPriceFilter=" + encodeURIComponent("" + maxEbookPriceFilter) + "&"; 
         if (minEbookPriceFilter !== undefined)
@@ -6735,7 +6732,6 @@ export class PbEbooksServiceProxy {
      * @param maxEbookDateStartFilter (optional) 
      * @param minEbookDateStartFilter (optional) 
      * @param proFilter (optional) 
-     * @param linkProFilter (optional) 
      * @param maxEbookPriceFilter (optional) 
      * @param minEbookPriceFilter (optional) 
      * @param maxEbookViewFilter (optional) 
@@ -6759,7 +6755,7 @@ export class PbEbooksServiceProxy {
      * @param pbTypeFileTypeFileNameFilter (optional) 
      * @return Success
      */
-    getPbEbooksToExcel(filter: string | null | undefined, ebookNameFilter: string | null | undefined, linkFilter: string | null | undefined, maxEbookDateStartFilter: moment.Moment | null | undefined, minEbookDateStartFilter: moment.Moment | null | undefined, proFilter: number | null | undefined, linkProFilter: string | null | undefined, maxEbookPriceFilter: number | null | undefined, minEbookPriceFilter: number | null | undefined, maxEbookViewFilter: number | null | undefined, minEbookViewFilter: number | null | undefined, maxEbookLikeFilter: number | null | undefined, minEbookLikeFilter: number | null | undefined, maxEbookDislikeFilter: number | null | undefined, minEbookDislikeFilter: number | null | undefined, discriptionFilter: string | null | undefined, ebookCoverFilter: string | null | undefined, maxBookPageFilter: number | null | undefined, minBookPageFilter: number | null | undefined, userNameFilter: string | null | undefined, pbClassClassNameFilter: string | null | undefined, pbPlacePlaceNameFilter: string | null | undefined, pbRankRankNameFilter: string | null | undefined, pbStatusStatusNameFilter: string | null | undefined, pbSubjectSectionNameFilter: string | null | undefined, pbSubjectEducationSubjectNameFilter: string | null | undefined, pbTypeEbookTypeNameFilter: string | null | undefined, pbTypeFileTypeFileNameFilter: string | null | undefined): Observable<FileDto> {
+    getPbEbooksToExcel(filter: string | null | undefined, ebookNameFilter: string | null | undefined, linkFilter: string | null | undefined, maxEbookDateStartFilter: moment.Moment | null | undefined, minEbookDateStartFilter: moment.Moment | null | undefined, proFilter: number | null | undefined, maxEbookPriceFilter: number | null | undefined, minEbookPriceFilter: number | null | undefined, maxEbookViewFilter: number | null | undefined, minEbookViewFilter: number | null | undefined, maxEbookLikeFilter: number | null | undefined, minEbookLikeFilter: number | null | undefined, maxEbookDislikeFilter: number | null | undefined, minEbookDislikeFilter: number | null | undefined, discriptionFilter: string | null | undefined, ebookCoverFilter: string | null | undefined, maxBookPageFilter: number | null | undefined, minBookPageFilter: number | null | undefined, userNameFilter: string | null | undefined, pbClassClassNameFilter: string | null | undefined, pbPlacePlaceNameFilter: string | null | undefined, pbRankRankNameFilter: string | null | undefined, pbStatusStatusNameFilter: string | null | undefined, pbSubjectSectionNameFilter: string | null | undefined, pbSubjectEducationSubjectNameFilter: string | null | undefined, pbTypeEbookTypeNameFilter: string | null | undefined, pbTypeFileTypeFileNameFilter: string | null | undefined): Observable<FileDto> {
         let url_ = this.baseUrl + "/api/services/app/PbEbooks/GetPbEbooksToExcel?";
         if (filter !== undefined)
             url_ += "Filter=" + encodeURIComponent("" + filter) + "&"; 
@@ -6773,8 +6769,6 @@ export class PbEbooksServiceProxy {
             url_ += "MinEbookDateStartFilter=" + encodeURIComponent(minEbookDateStartFilter ? "" + minEbookDateStartFilter.toJSON() : "") + "&"; 
         if (proFilter !== undefined)
             url_ += "ProFilter=" + encodeURIComponent("" + proFilter) + "&"; 
-        if (linkProFilter !== undefined)
-            url_ += "LinkProFilter=" + encodeURIComponent("" + linkProFilter) + "&"; 
         if (maxEbookPriceFilter !== undefined)
             url_ += "MaxEbookPriceFilter=" + encodeURIComponent("" + maxEbookPriceFilter) + "&"; 
         if (minEbookPriceFilter !== undefined)
@@ -22063,7 +22057,6 @@ export class PbEbookDto implements IPbEbookDto {
     link!: string | undefined;
     ebookDateStart!: moment.Moment | undefined;
     pro!: boolean | undefined;
-    linkPro!: string | undefined;
     ebookPrice!: number | undefined;
     ebookView!: number | undefined;
     ebookLike!: number | undefined;
@@ -22097,7 +22090,6 @@ export class PbEbookDto implements IPbEbookDto {
             this.link = data["link"];
             this.ebookDateStart = data["ebookDateStart"] ? moment(data["ebookDateStart"].toString()) : <any>undefined;
             this.pro = data["pro"];
-            this.linkPro = data["linkPro"];
             this.ebookPrice = data["ebookPrice"];
             this.ebookView = data["ebookView"];
             this.ebookLike = data["ebookLike"];
@@ -22131,7 +22123,6 @@ export class PbEbookDto implements IPbEbookDto {
         data["link"] = this.link;
         data["ebookDateStart"] = this.ebookDateStart ? this.ebookDateStart.toISOString() : <any>undefined;
         data["pro"] = this.pro;
-        data["linkPro"] = this.linkPro;
         data["ebookPrice"] = this.ebookPrice;
         data["ebookView"] = this.ebookView;
         data["ebookLike"] = this.ebookLike;
@@ -22158,7 +22149,6 @@ export interface IPbEbookDto {
     link: string | undefined;
     ebookDateStart: moment.Moment | undefined;
     pro: boolean | undefined;
-    linkPro: string | undefined;
     ebookPrice: number | undefined;
     ebookView: number | undefined;
     ebookLike: number | undefined;
@@ -22255,7 +22245,6 @@ export class CreateOrEditPbEbookDto implements ICreateOrEditPbEbookDto {
     link!: string;
     ebookDateStart!: moment.Moment | undefined;
     pro!: boolean | undefined;
-    linkPro!: string | undefined;
     ebookPrice!: number | undefined;
     ebookView!: number | undefined;
     ebookLike!: number | undefined;
@@ -22289,7 +22278,6 @@ export class CreateOrEditPbEbookDto implements ICreateOrEditPbEbookDto {
             this.link = data["link"];
             this.ebookDateStart = data["ebookDateStart"] ? moment(data["ebookDateStart"].toString()) : <any>undefined;
             this.pro = data["pro"];
-            this.linkPro = data["linkPro"];
             this.ebookPrice = data["ebookPrice"];
             this.ebookView = data["ebookView"];
             this.ebookLike = data["ebookLike"];
@@ -22323,7 +22311,6 @@ export class CreateOrEditPbEbookDto implements ICreateOrEditPbEbookDto {
         data["link"] = this.link;
         data["ebookDateStart"] = this.ebookDateStart ? this.ebookDateStart.toISOString() : <any>undefined;
         data["pro"] = this.pro;
-        data["linkPro"] = this.linkPro;
         data["ebookPrice"] = this.ebookPrice;
         data["ebookView"] = this.ebookView;
         data["ebookLike"] = this.ebookLike;
@@ -22350,7 +22337,6 @@ export interface ICreateOrEditPbEbookDto {
     link: string;
     ebookDateStart: moment.Moment | undefined;
     pro: boolean | undefined;
-    linkPro: string | undefined;
     ebookPrice: number | undefined;
     ebookView: number | undefined;
     ebookLike: number | undefined;

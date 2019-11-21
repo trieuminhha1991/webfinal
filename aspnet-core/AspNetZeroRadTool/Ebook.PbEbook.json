@@ -95,25 +95,6 @@
       }
     },
     {
-      "Name": "LinkPro",
-      "Type": "string",
-      "MaxLength": -1,
-      "MinLength": -1,
-      "Range": {
-        "IsRangeSet": false,
-        "MinimumValue": 0,
-        "MaximumValue": 0
-      },
-      "Required": false,
-      "Nullable": false,
-      "Regex": "",
-      "UserInterface": {
-        "AdvancedFilter": true,
-        "List": true,
-        "CreateOrUpdate": true
-      }
-    },
-    {
       "Name": "EbookPrice",
       "Type": "decimal",
       "MaxLength": -1,

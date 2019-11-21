@@ -22,9 +22,6 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook.Dtos
 		public bool Pro { get; set; }
 		
 		
-		public string LinkPro { get; set; }
-		
-		
 		public decimal? EbookPrice { get; set; }
 		
 		

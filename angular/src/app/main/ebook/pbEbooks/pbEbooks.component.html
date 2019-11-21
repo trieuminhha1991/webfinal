@@ -73,12 +73,6 @@
 								<option value="1">{{l("True")}}</option>
 								</select>
                             </div>
-							<div class="col-md-3">
-								<div class="form-group">
-									<label for="LinkProFilter">{{l("LinkPro")}}</label>
-									<input type="text" class="form-control" id="LinkProFilter" name="linkProFilter" [(ngModel)]="linkProFilter">
-								</div>
-                            </div>
                             <div class="col-md-3">
                                 <div class="form-group">
 									<label for="MinEbookPriceFilter">{{l("MinMax")}} {{l("EbookPrice")}}</label>
@@ -270,10 +264,6 @@
                                         {{l('Pro')}}
                                         <p-sortIcon field="pbEbook.pro"></p-sortIcon>
                                     </th>
-                                    <th style="width: 150px" pSortableColumn="linkPro">
-                                        {{l('LinkPro')}}
-                                        <p-sortIcon field="pbEbook.linkPro"></p-sortIcon>
-                                    </th>
                                     <th style="width: 150px" pSortableColumn="ebookPrice">
                                         {{l('EbookPrice')}}
                                         <p-sortIcon field="pbEbook.ebookPrice"></p-sortIcon>
@@ -385,10 +375,6 @@
                                         <div *ngIf="record.pbEbook.pro" class="text-center"><i class="fa fa-check-circle kt--font-success" title="True"></i></div>
 										<div *ngIf="!record.pbEbook.pro" class="text-center"><i class="fa fa-times-circle" title="False"></i></div>
                                     </td>
-                                    <td style="width:150px">
-											<span class="ui-column-title"> {{l('LinkPro')}}</span>
-											{{record.pbEbook.linkPro}}
-										</td>
                                     <td style="width:150px">
 											<span class="ui-column-title"> {{l('EbookPrice')}}</span>
 											{{record.pbEbook.ebookPrice}}

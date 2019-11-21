@@ -29,8 +29,6 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
 		
 		public virtual bool Pro { get; set; }
 		
-		public virtual string LinkPro { get; set; }
-		
 		public virtual decimal? EbookPrice { get; set; }
 		
 		public virtual long EbookView { get; set; }
