@@ -155,6 +155,27 @@
                                     </p-scrollPanel>
                                 </div>
                             </p-sidebar>
+                            <div class="row">
+                                <div *ngFor="let Book of Ebook">
+                                    <div class="col-md-3">
+                                        <p-card header="Advanced Card" subheader="Subheader" [style]="{width: '360px'}"
+                                                styleClass="ui-card-shadow">
+                                            <p-header>
+                                                <img src="Card" src="{{Book.EbookCover}}">
+                                            </p-header>
+                                        </p-card>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button pButton type="button" label="Xem" icon="pi pi-check"
+                                                style="margin-right: .25em"></button>
+                                        <button pButton type="button" label="Cancel" icon="pi pi-times"
+                                                class="ui-button-secondary"></button>
+                                    </div>
+                                    <div class="col-md-8">
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
