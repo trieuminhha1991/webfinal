@@ -68,7 +68,7 @@ export class ShopEbookComponent extends AppComponentBase {
     pbTypeEbookTypeNameFilter = '';
     pbTypeFileTypeFileNameFilter = '';
     sortField:string;
-
+    items: MenuItem[];
     constructor(
         injector: Injector,
         private _pbEbooksServiceProxy: PbEbooksServiceProxy,
@@ -84,6 +84,16 @@ export class ShopEbookComponent extends AppComponentBase {
             {label: 'Lượt xem', value: 'EbookView'},
             {label: 'Lượt thích', value: 'EbookLike'},
             {label: 'Mới nhất', value: '!EbookDateStart'}
+        ];
+        this.items = [
+            {label: 'Tải về', icon: 'pi pi-refresh', command: () => {
+                    ;
+                }},
+            {label: 'Xem chi tiết', icon: 'pi pi-times', command: () => {
+                    ;
+                }},
+            {label: 'Mua Pro', icon: 'pi pi-info', command: () => {}},
+            {label: 'Thêm vào bộ sưu tập', icon: 'pi pi-cog', command: () => {}}
         ];
     }
     onSortChange(event) {

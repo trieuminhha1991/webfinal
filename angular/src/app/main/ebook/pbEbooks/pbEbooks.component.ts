@@ -65,7 +65,7 @@ export class PbEbooksComponent extends AppComponentBase {
     pbSubjectEducationSubjectNameFilter = '';
     pbTypeEbookTypeNameFilter = '';
     pbTypeFileTypeFileNameFilter = '';
-    items: MenuItem[];
+
 
     constructor(
         injector: Injector,
@@ -76,18 +76,6 @@ export class PbEbooksComponent extends AppComponentBase {
         private _fileDownloadService: FileDownloadService
     ) {
         super(injector);
-    }
-    ngOnInit() {
-        this.items = [
-            {label: 'Tải về', icon: 'pi pi-refresh', command: () => {
-                    ;
-                }},
-            {label: 'Xem chi tiết', icon: 'pi pi-times', command: () => {
-                    ;
-                }},
-            {label: 'Mua Pro', icon: 'pi pi-info', command: () => {}},
-            {label: 'Thêm vào bộ sưu tập', icon: 'pi pi-cog', command: () => {}}
-        ];
     }
     getPbEbooks(event?: LazyLoadEvent) {
         if (this.primengTableHelper.shouldResetPaging(event)) {

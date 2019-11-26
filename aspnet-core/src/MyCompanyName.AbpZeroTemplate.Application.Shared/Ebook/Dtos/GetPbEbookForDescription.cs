@@ -1,8 +1,9 @@
 ﻿using System;
+using Abp.Application.Services.Dto;
 
 namespace MyCompanyName.AbpZeroTemplate.Ebook.Dtos
 {
-    public class GetPbEbookForDescription
+    public class GetPbEbookForDescription : EntityDto
     {
         public string EbookName { get; set; }
         public string Link { get; set; }
