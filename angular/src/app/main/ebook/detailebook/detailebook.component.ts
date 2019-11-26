@@ -1,7 +1,8 @@
 import { Component, ViewChild, Injector, Output, EventEmitter } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
-import { GetPbEbookForViewDto, PbEbookDto } from '@shared/service-proxies/service-proxies';
+import {GetPbEbookForViewDto, PbEbookDto, PbEbooksServiceProxy} from '@shared/service-proxies/service-proxies';
 import { AppComponentBase } from '@shared/common/app-component-base';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detailebook',
@@ -10,7 +11,6 @@ import { AppComponentBase } from '@shared/common/app-component-base';
 })
 export class DetailebookComponent extends AppComponentBase {
 
-    @ViewChild('createOrEditModal', { static: true }) modal: ModalDirective;
     @Output() modalSave: EventEmitter<any> = new EventEmitter<any>();
 
     active = false;
@@ -20,22 +20,18 @@ export class DetailebookComponent extends AppComponentBase {
 
 
     constructor(
+        private route: ActivatedRoute,
+        private _pbEbooksServiceProxy: PbEbooksServiceProxy,
+        private router: Router,
         injector: Injector
     ) {
         super(injector);
         this.item = new GetPbEbookForViewDto();
         this.item.pbEbook = new PbEbookDto();
     }
-
-    show(item: GetPbEbookForViewDto): void {
-        this.item = item;
-        this.active = true;
-        this.modal.show();
-    }
-
-    close(): void {
-        this.active = false;
-        this.modal.hide();
+    ngOnInit() {
+        const itemId = +this.route.snapshot.params['id'];
+        this.item= this._pbEbooksServiceProxy.getPbEbookForView(itemId)[0];
     }
 
 }
