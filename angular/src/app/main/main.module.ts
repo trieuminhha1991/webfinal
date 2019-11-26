@@ -62,6 +62,7 @@ import {TabViewModule} from 'primeng/tabview';
 import {ShopEbookComponent} from './ebook/shop-ebook/shop-ebook.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {DataViewModule} from 'primeng/dataview';
+import { DetailebookComponent } from './ebook/detailebook/detailebook.component';
 
 NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
 
@@ -114,6 +115,7 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
         ViewPbSubjectModalComponent, CreateOrEditPbSubjectModalComponent,
         DashboardComponent,
         ShopEbookComponent,
+        DetailebookComponent,
     ],
     providers: [
         {provide: BsDatepickerConfig, useFactory: NgxBootstrapDatePickerConfigService.getDatepickerConfig},
