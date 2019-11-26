@@ -212,6 +212,7 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
 
                            select new GetPbEbookForDescription()
                            {
+                               Id = o.Id,
                                EbookName = o.EbookName,
                                Link = o.Link,
                                EbookDateStart = o.EbookDateStart,
