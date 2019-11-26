@@ -1,28 +1,5 @@
 <div [@routerTransition]>
     <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
-        <div class="kt-subheader kt-grid__item">
-            <div [class]="containerClass">
-                <div class="input-group col-md-3 col-sm-12 col-lg-6">
-                    <button (click)="advancedFiltersAreShown=!advancedFiltersAreShown"
-                            class="btn btn-primary"><i class="fa fa-file-excel"></i> Tìm kiếm nâng cao
-                    </button>
-                    <input [(ngModel)]="filterText" name="filterText" autoFocus class="form-control m-input"
-                           [placeholder]="l('SearchWithThreeDot')" type="text"/>
-                    <span class="input-group-btn">
-                        <button (click)="getPbEbooks()" class="btn btn-primary" type="submit"><i
-                            class="flaticon-search-1"></i></button>
-                    </span>
-                </div>
-                <div class="kt-subheader__toolbar">
-                    <div class="kt-subheader__wrapper">
-                        <button class="btn btn-danger"><i class="fa fa-file-excel"></i> Sắp xếp theo
-                        </button>
-                        <button class="btn btn-warning"><i class="fa fa-file-excel"></i> Chủ đề tài liệu
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div [class]="containerClass + ' kt-grid__item kt-grid__item--fluid'">
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__body">
@@ -50,20 +27,12 @@
                                                 <option value="1">{{l("Pro")}}</option>
                                             </select>
                                         </div>
-                                        <div *ngIf="proFilter==1" class="col-md-10">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label
-                                                    for="MinEbookPriceFilter">{{l("MinMax")}}
-                                                    Giá từ</label>
+                                                <label for="MinBookPageFilter">{{l("MinMax")}} {{l("BookPage")}}</label>
                                                 <div class="input-group">
-                                                    <input type="number" class="form-control" id="MinEbookPriceFilter"
-                                                           [(ngModel)]="minEbookPriceFilter"
-                                                           placeholder="{{l('MinValue')}}"
-                                                           name="minEbookPriceFilter"/>
-                                                    <input type="number" class="form-control"
-                                                           [(ngModel)]="maxEbookPriceFilter"
-                                                           placeholder="{{l('MaxValue')}}"
-                                                           name="maxEbookPriceFilter"/>
+                                                    <input type="number" class="form-control" id="MinBookPageFilter" [(ngModel)]="minBookPageFilter" placeholder="{{l('MinValue')}}" name="minBookPageFilter" />
+                                                    <input type="number" class="form-control" [(ngModel)]="maxBookPageFilter" placeholder="{{l('MaxValue')}}" name="maxBookPageFilter" />
                                                 </div>
                                             </div>
                                         </div>
@@ -80,6 +49,12 @@
                                                 <input type="text" class="form-control" id="PbClassClassNameFilter"
                                                        name="pbClassClassNameFilter"
                                                        [(ngModel)]="pbClassClassNameFilter">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="PbRankRankNameFilter">({{l("PbRank")}}) {{l("RankName")}}</label>
+                                                <input type="text" class="form-control" id="PbRankRankNameFilter" name="pbRankRankNameFilter" [(ngModel)]="pbRankRankNameFilter">
                                             </div>
                                         </div>
                                         <div class="col-md-10">
@@ -141,37 +116,56 @@
                                                 [paginator]="false"
                                                 rows="{{primengTableHelper.defaultRecordsCountPerPage}}"
                                                 [lazy]="true"
-                                                [totalRecords]="totalRecords">
-                                        <ng-template let-record="$implicit" pTemplate="listItem">
-                                            <div class="col-12 row ">
-                                                <div class="col-md-3">
-                                                    <img src="">
-                                                    <div class="ui-g">
-                                                        <div class="ui-g-12">Tác giả: <b>{{record.UserName}}</b></div>
-                                                        <div class="ui-g-12">Lượt tải: <b>{{record.EbookView}}</b></div>
-                                                        <div class="ui-g-12">Đánh giá: <b>{{record.PbRankRankName}}</b></div>
-                                                        <div class="ui-g-12">Tải về: <b>{{record.Link}}</b></div>
+                                                [totalRecords]="totalRecords"
+                                                [sortField]="sortField">
+                                        <p-header>
+                                            <div class="ui-helper-clearfix">
+                                                <div class="ui-g">
+                                                    <div class="ui-g-12 ui-md-4">
+                                                        <button
+                                                            (click)="advancedFiltersAreShown=!advancedFiltersAreShown"
+                                                            class="btn btn-primary"><i class="fa fa-file-excel"></i> Tìm kiếm nâng cao
+                                                        </button>
+                                                    </div>
+                                                    <div class="ui-g-6 ui-md-4 filter-container">
+                                                        <div style="position:relative">
+                                                            <input [(ngModel)]="filterText" name="filterText" autoFocus
+                                                                   class="form-control m-input"
+                                                                   [placeholder]="l('SearchWithThreeDot')" type="text"/>
+                                                            <span class="input-group-btn">
+                                                                <button (click)="getPbEbooks()" class="btn btn-primary" type="submit"><i
+                                                                class="flaticon-search-1"></i></button>
+                                                            </span></div>
+                                                    </div>
+                                                    <div class="ui-g-6 ui-md-4" style="text-align:right">
+                                                        <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey"
+                                                                    placeholder="Sort By"
+                                                                    (onChange)="onSortChange($event)"
+                                                                    [style]="{'min-width':'140px'}"></p-dropdown>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-9">
-                                                    <p-tabView>
-                                                        <p-tabPanel header="Mô tả" leftIcon="pi pi-calendar">
-
-                                                        </p-tabPanel>
-                                                        <p-tabPanel header="Thuộc tính" leftIcon="pi pi-calendar">
-
-                                                        </p-tabPanel>
-                                                        <p-tabPanel header="Lượt xem" leftIcon="pi pi-calendar">
-
-                                                        </p-tabPanel>
-                                                        <p-tabPanel header="Giá" leftIcon="pi pi-calendar">
-
-                                                        </p-tabPanel>
-                                                        <p-tabPanel header="Review" leftIcon="pi pi-calendar">
-
-                                                        </p-tabPanel>
-                                                    </p-tabView>
-                                                </div>
+                                            </div>
+                                        </p-header>
+                                        <ng-template let-book pTemplate="gridItem">
+                                            <div style="padding:.5em" class="ui-g-12 ui-md-6">
+                                                <p-card styleClass="ui-card-shadow">
+                                                    <p-header>
+                                                        <img src="Card" src="">
+                                                    </p-header>
+                                                    <p-footer>
+                                                        <p-splitButton label="Hành động" icon="pi pi-file"
+                                                                       [model]="items"></p-splitButton>
+                                                    </p-footer>
+                                                </p-card>
+                                                <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
+                                                    <img src="assets/showcase/images/demo/car/{{car.brand}}.png"
+                                                         width="60">
+                                                    <div class="car-detail">{{car.year}} - {{car.color}}</div>
+                                                    <hr class="ui-widget-content" style="border-top:0">
+                                                    <button pButton type="button" icon="pi pi-search"
+                                                            (click)="selectCar($event, car)"
+                                                            style="margin-top:0"></button>
+                                                </p-panel>
                                             </div>
                                         </ng-template>
                                     </p-dataView>

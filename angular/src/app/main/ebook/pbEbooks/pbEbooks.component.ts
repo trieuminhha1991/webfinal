@@ -13,6 +13,7 @@ import {LazyLoadEvent} from 'primeng/components/common/lazyloadevent';
 import {FileDownloadService} from '@shared/utils/file-download.service';
 import * as _ from 'lodash';
 import * as moment from 'moment';
+import {MenuItem} from 'primeng/components/common/menuitem';
 
 @Component({
     templateUrl: './pbEbooks.component.html',
@@ -64,7 +65,7 @@ export class PbEbooksComponent extends AppComponentBase {
     pbSubjectEducationSubjectNameFilter = '';
     pbTypeEbookTypeNameFilter = '';
     pbTypeFileTypeFileNameFilter = '';
-
+    items: MenuItem[];
 
     constructor(
         injector: Injector,
@@ -76,7 +77,18 @@ export class PbEbooksComponent extends AppComponentBase {
     ) {
         super(injector);
     }
-
+    ngOnInit() {
+        this.items = [
+            {label: 'Tải về', icon: 'pi pi-refresh', command: () => {
+                    ;
+                }},
+            {label: 'Xem chi tiết', icon: 'pi pi-times', command: () => {
+                    ;
+                }},
+            {label: 'Mua Pro', icon: 'pi pi-info', command: () => {}},
+            {label: 'Thêm vào bộ sưu tập', icon: 'pi pi-cog', command: () => {}}
+        ];
+    }
     getPbEbooks(event?: LazyLoadEvent) {
         if (this.primengTableHelper.shouldResetPaging(event)) {
             this.paginator.changePage(0);

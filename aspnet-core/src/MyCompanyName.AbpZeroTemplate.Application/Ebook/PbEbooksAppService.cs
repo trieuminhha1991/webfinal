@@ -166,8 +166,77 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
                 await pbEbooks.ToListAsync()
             );
          }
-		 
-		 public async Task<GetPbEbookForViewDto> GetPbEbookForView(int id)
+        public async Task<PagedResultDto<GetPbEbookForDescription>> GetDesciption(GetAll2PbEbooksInput input)
+        {
+
+            var filteredPbEbooks = _pbEbookRepository.GetAll()
+                        .Include(e => e.UserFk)
+                        .Include(e => e.PbClassFk)
+                        .Include(e => e.PbPlaceFk)
+                        .Include(e => e.PbRankFk)
+                        .Include(e => e.PbStatusFk)
+                        .Include(e => e.PbSubjectFk)
+                        .Include(e => e.PbSubjectEducationFk)
+                        .Include(e => e.PbTypeEbookFk)
+                        .Include(e => e.PbTypeFileFk)
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.Filter), e => false || e.EbookName.Contains(input.Filter) || e.Link.Contains(input.Filter) || e.Discription.Contains(input.Filter) || e.EbookCover.Contains(input.Filter))
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.EbookNameFilter), e => e.EbookName.ToLower() == input.EbookNameFilter.ToLower().Trim())
+                        .WhereIf(input.ProFilter > -1, e => Convert.ToInt32(e.Pro) == input.ProFilter)
+                        .WhereIf(input.MinBookPageFilter != null, e => e.BookPage >= input.MinBookPageFilter)
+                        .WhereIf(input.MaxBookPageFilter != null, e => e.BookPage <= input.MaxBookPageFilter)
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.UserNameFilter), e => e.UserFk != null && e.UserFk.Name.ToLower() == input.UserNameFilter.ToLower().Trim())
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.PbClassClassNameFilter), e => e.PbClassFk != null && e.PbClassFk.ClassName.ToLower() == input.PbClassClassNameFilter.ToLower().Trim())
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.PbRankRankNameFilter), e => e.PbRankFk != null && e.PbRankFk.RankName.ToLower() == input.PbRankRankNameFilter.ToLower().Trim())
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.PbTypeEbookTypeNameFilter), e => e.PbTypeEbookFk != null && e.PbTypeEbookFk.TypeName.ToLower() == input.PbTypeEbookTypeNameFilter.ToLower().Trim())
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.PbTypeFileTypeFileNameFilter), e => e.PbTypeFileFk != null && e.PbTypeFileFk.TypeFileName.ToLower() == input.PbTypeFileTypeFileNameFilter.ToLower().Trim());
+
+            var pagedAndFilteredPbEbooks = filteredPbEbooks
+                .OrderBy(input.Sorting ?? "id asc")
+                .PageBy(input);
+
+            var pbEbooks = from o in pagedAndFilteredPbEbooks
+                           join o1 in _lookup_userRepository.GetAll() on o.UserId equals o1.Id into j1
+                           from s1 in j1.DefaultIfEmpty()
+
+                           join o2 in _lookup_pbClassRepository.GetAll() on o.PbClassId equals o2.Id into j2
+                           from s2 in j2.DefaultIfEmpty()
+
+                           join o4 in _lookup_pbRankRepository.GetAll() on o.PbRankId equals o4.Id into j4
+                           from s4 in j4.DefaultIfEmpty()
+
+                           join o8 in _lookup_pbTypeEbookRepository.GetAll() on o.PbTypeEbookId equals o8.Id into j8
+                           from s8 in j8.DefaultIfEmpty()
+
+                           join o9 in _lookup_pbTypeFileRepository.GetAll() on o.PbTypeFileId equals o9.Id into j9
+                           from s9 in j9.DefaultIfEmpty()
+
+                           select new GetPbEbookForDescription()
+                           {
+                               EbookName = o.EbookName,
+                               Link = o.Link,
+                               EbookDateStart = o.EbookDateStart,
+                               Pro = o.Pro,
+                               EbookPrice = o.EbookPrice,
+                               EbookView = o.EbookView,
+                               EbookLike = o.EbookLike,
+                               EbookDislike = o.EbookDislike,
+                               EbookCover = o.EbookCover,
+                               BookPage = o.BookPage,
+                               UserName = s1 == null ? "" : s1.Name.ToString(),
+                               PbClassClassName = s2 == null ? "" : s2.ClassName.ToString(),
+                               PbRankRankName = s4 == null ? "" : s4.RankName.ToString(),
+                               PbTypeEbookTypeName = s8 == null ? "" : s8.TypeName.ToString(),
+                               PbTypeFileTypeFileName = s9 == null ? "" : s9.TypeFileName.ToString()
+                           };
+
+            var totalCount = await filteredPbEbooks.CountAsync();
+
+            return new PagedResultDto<GetPbEbookForDescription>(
+                totalCount,
+                await pbEbooks.ToListAsync()
+            );
+        }
+        public async Task<GetPbEbookForViewDto> GetPbEbookForView(int id)
          {
             var pbEbook = await _pbEbookRepository.GetAsync(id);
 

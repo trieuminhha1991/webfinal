@@ -5,16 +5,17 @@ import {NotifyService} from '@abp/notify/notify.service';
 import {AppComponentBase} from '@shared/common/app-component-base';
 import {TokenAuthServiceProxy} from '@shared/service-proxies/service-proxies';
 import {appModuleAnimation} from '@shared/animations/routerTransition';
-import {Table} from 'primeng/components/table/table';
 import {Paginator} from 'primeng/components/paginator/paginator';
 import {LazyLoadEvent} from 'primeng/components/common/lazyloadevent';
 import {FileDownloadService} from '@shared/utils/file-download.service';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import {MenuItem} from 'primeng/components/common/menuitem';
-import {CreateOrEditPbEbookModalComponent} from "@app/main/ebook/pbEbooks/create-or-edit-pbEbook-modal.component";
-import {ViewPbEbookModalComponent} from "@app/main/ebook/pbEbooks/view-pbEbook-modal.component";
-
+import {CreateOrEditPbEbookModalComponent} from '@app/main/ebook/pbEbooks/create-or-edit-pbEbook-modal.component';
+import {ViewPbEbookModalComponent} from '@app/main/ebook/pbEbooks/view-pbEbook-modal.component';
+import {SelectItem} from 'primeng/components/common/selectitem';
+import {DataView} from 'primeng/dataview';
+import {Table} from '@node_modules/primeng/components/table/table';
 
 @Component({
   selector: 'app-shop-ebook',
@@ -25,9 +26,9 @@ import {ViewPbEbookModalComponent} from "@app/main/ebook/pbEbooks/view-pbEbook-m
 export class ShopEbookComponent extends AppComponentBase {
     @ViewChild('createOrEditPbEbookModal', {static: true}) createOrEditPbEbookModal: CreateOrEditPbEbookModalComponent;
     @ViewChild('viewPbEbookModalComponent', {static: true}) viewPbEbookModal: ViewPbEbookModalComponent;
-    @ViewChild('dataTable', {static: true}) dataTable: Table;
+    @ViewChild('dataTable', {static: true}) dataTable: DataView;
     @ViewChild('paginator', {static: true}) paginator: Paginator;
-
+    sortOptions: SelectItem[];
     advancedFiltersAreShown = false;
     filterText = '';
     ebookNameFilter = '';
@@ -66,7 +67,7 @@ export class ShopEbookComponent extends AppComponentBase {
     pbSubjectEducationSubjectNameFilter = '';
     pbTypeEbookTypeNameFilter = '';
     pbTypeFileTypeFileNameFilter = '';
-
+    sortField:string;
 
     constructor(
         injector: Injector,
@@ -77,6 +78,29 @@ export class ShopEbookComponent extends AppComponentBase {
         private _fileDownloadService: FileDownloadService
     ) {
         super(injector);
+    }
+    ngOnInit() {
+        this.sortOptions = [
+            {label: 'Lượt xem', value: 'EbookView'},
+            {label: 'Lượt thích', value: 'EbookLike'},
+            {label: 'Mới nhất', value: '!EbookDateStart'}
+        ];
+    }
+    onSortChange(event) {
+        let value = event.value;
+        if (value.indexOf('!') === 2) {
+            this.sortField = value.substring(1, value.length);
+        }
+        else {
+            this.sortField = value;
+        }
+    }
+    getSorting(table: DataView): string {
+        let sorting;
+        if (table.sortField) {
+            sorting = table.sortField+ ' DESC';
+        }
+        return sorting;
     }
 
     getPbEbooks(event?: LazyLoadEvent) {
@@ -115,7 +139,7 @@ export class ShopEbookComponent extends AppComponentBase {
             this.pbSubjectEducationSubjectNameFilter,
             this.pbTypeEbookTypeNameFilter,
             this.pbTypeFileTypeFileNameFilter,
-            this.primengTableHelper.getSorting(this.dataTable),
+            this.getSorting(this.dataTable),
             this.primengTableHelper.getSkipCount(this.paginator, event),
             this.primengTableHelper.getMaxResultCount(this.paginator, event)
         ).subscribe(result => {
