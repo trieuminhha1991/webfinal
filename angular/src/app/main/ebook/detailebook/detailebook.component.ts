@@ -30,7 +30,7 @@ export class DetailebookComponent extends AppComponentBase {
         this.item.pbEbook = new PbEbookDto();
     }
     ngOnInit() {
-        const itemId = +this.route.snapshot.params['id'];
+        const itemId = this.route.snapshot.params['id'];
         this.item= this._pbEbooksServiceProxy.getPbEbookForView(itemId)[0];
     }
 
