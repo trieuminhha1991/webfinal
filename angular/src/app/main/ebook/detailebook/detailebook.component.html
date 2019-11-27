@@ -1,1 +1,69 @@
-<p>detailebook works!</p>
+<div [@routerTransition]>
+    <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+        <div [class]="containerClass + ' kt-grid__item kt-grid__item--fluid'">
+            <div class="kt-portlet kt-portlet--mobile">
+                <div class="kt-portlet__body">
+                    <div class="ui-g">
+                        <div class="ui-g-10 ui-g">
+                            <div class="ui-g-4">
+                                {{item.EbookCover}}
+                            </div>
+                            <div class="ui-g-6">
+                                <p-scrollPanel [style]="{width: '100%', height: '500px'}">
+                                    <div style="padding:1em;line-height:1.5">
+                                        {{item.Discription}}
+                                    </div>
+                                </p-scrollPanel>
+                            </div>
+                            <div class="ui-g-12">
+                                <p-carousel [value]="cars" [numVisible]="4" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+                                    <p-header>
+                                        <h3>Basic</h3>
+                                    </p-header>
+                                    <ng-template let-car pTemplate="item">
+                                        <div class="car-details">
+                                            <div class="p-grid p-nogutter">
+                                                <div class="p-col-12">
+                                                    <img src="assets/showcase/images/demo/car/{{car.brand}}.png" />
+                                                </div>
+                                                <div class="p-col-12 car-data">
+                                                    <div class="car-title">{{car.brand}}</div>
+                                                    <div class="car-subtitle">{{car.year}} | {{car.color}}</div>
+
+                                                    <div class="car-buttons">
+                                                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-search"></button>
+                                                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-star"></button>
+                                                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </p-carousel>
+                            </div>
+                        </div>
+                        <div class="ui-g-2">
+                            <p-tabView>
+                                <p-tabPanel header="Tài liệu hot" leftIcon="pi pi-calendar">
+
+                                </p-tabPanel>
+                            </p-tabView>
+                            <p-tabView>
+                                <p-tabPanel header="Tài liệu mới" leftIcon="pi pi-calendar">
+
+                                </p-tabPanel>
+                            </p-tabView>
+                            <p-tabView>
+                                <p-tabPanel header="Tải liệu mua nhiều" leftIcon="pi pi-calendar">
+
+                                </p-tabPanel>
+                            </p-tabView>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

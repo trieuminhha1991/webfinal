@@ -6,19 +6,19 @@
                     <div class="row">
                         <div class="col-md-10 col-sm-12">
                             <p-sidebar [(visible)]="advancedFiltersAreShown" position="left">
-                                <div class="row">
+                                <div class="ui-g">
                                     <p-scrollPanel [style]="{width: '100%',height: '700px'}" styleClass="custombar2">
                                         <div class="col-md-10">
                                             <div class="kt-separator kt-separator--border-dashed"></div>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="ui-md-10">
                                             <div class="form-group">
                                                 <label for="EbookNameFilter">Từ trong tài liệu</label>
                                                 <input type="text" class="form-control" id="EbookNameFilter"
                                                        name="ebookNameFilter" [(ngModel)]="ebookNameFilter">
                                             </div>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="ui-md-10">
                                             <label for="ProFilterSelect">Thương mại</label>
                                             <select class="form-control" name="ProFilter" id="ProFilterSelect"
                                                     [(ngModel)]="proFilter">
@@ -27,23 +27,27 @@
                                                 <option value="1">{{l("Pro")}}</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="ui-md-10">
                                             <div class="form-group">
                                                 <label for="MinBookPageFilter">{{l("MinMax")}} {{l("BookPage")}}</label>
                                                 <div class="input-group">
-                                                    <input type="number" class="form-control" id="MinBookPageFilter" [(ngModel)]="minBookPageFilter" placeholder="{{l('MinValue')}}" name="minBookPageFilter" />
-                                                    <input type="number" class="form-control" [(ngModel)]="maxBookPageFilter" placeholder="{{l('MaxValue')}}" name="maxBookPageFilter" />
+                                                    <input type="number" class="form-control" id="MinBookPageFilter"
+                                                           [(ngModel)]="minBookPageFilter"
+                                                           placeholder="{{l('MinValue')}}" name="minBookPageFilter"/>
+                                                    <input type="number" class="form-control"
+                                                           [(ngModel)]="maxBookPageFilter"
+                                                           placeholder="{{l('MaxValue')}}" name="maxBookPageFilter"/>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="ui-md-10">
                                             <div class="form-group">
                                                 <label for="UserNameFilter">Tác giả</label>
                                                 <input type="text" class="form-control" id="UserNameFilter"
                                                        name="userNameFilter" [(ngModel)]="userNameFilter">
                                             </div>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="ui-md-10">
                                             <div class="form-group">
                                                 <label for="PbClassClassNameFilter">Lớp</label>
                                                 <input type="text" class="form-control" id="PbClassClassNameFilter"
@@ -51,13 +55,15 @@
                                                        [(ngModel)]="pbClassClassNameFilter">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="ui-md-10">
                                             <div class="form-group">
-                                                <label for="PbRankRankNameFilter">({{l("PbRank")}}) {{l("RankName")}}</label>
-                                                <input type="text" class="form-control" id="PbRankRankNameFilter" name="pbRankRankNameFilter" [(ngModel)]="pbRankRankNameFilter">
+                                                <label for="PbRankRankNameFilter">({{l("PbRank")}}
+                                                    ) {{l("RankName")}}</label>
+                                                <input type="text" class="form-control" id="PbRankRankNameFilter"
+                                                       name="pbRankRankNameFilter" [(ngModel)]="pbRankRankNameFilter">
                                             </div>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="ui-md-10">
                                             <div class="form-group">
                                                 <label for="PbTypeEbookTypeNameFilter">Thể loại</label>
                                                 <input type="text" class="form-control" id="PbTypeEbookTypeNameFilter"
@@ -65,7 +71,7 @@
                                                        [(ngModel)]="pbTypeEbookTypeNameFilter">
                                             </div>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="ui-md-10">
                                             <div class="form-group">
                                                 <label for="PbTypeFileTypeFileNameFilter">Loại tài liệu</label>
                                                 <input type="text" class="form-control"
@@ -77,8 +83,8 @@
                                     </p-scrollPanel>
                                 </div>
                             </p-sidebar>
-                            <div class="row">
-                                <div class="col-md-3">
+                            <div class="ui-g">
+                                <div class="ui-g-3">
                                     <p-card styleClass="ui-card-shadow">
                                         <p-header>
                                             <img src="Card" src="">
@@ -89,7 +95,7 @@
                                         </p-footer>
                                     </p-card>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="ui-g-9">
                                     <p-tabView>
                                         <p-tabPanel header="Mô tả" leftIcon="pi pi-calendar">
 
@@ -108,7 +114,7 @@
                                         </p-tabPanel>
                                     </p-tabView>
                                 </div>
-                                <div class="primeng-dataview-container col-12"
+                                <div class="primeng-dataview-container ui-g-12"
                                      [busyIf]="primengTableHelper.isLoading">
                                     <p-dataView #dataTable
                                                 (onLazyLoad)="getPbEbooks($event)"
@@ -124,7 +130,8 @@
                                                     <div class="ui-g-12 ui-md-4">
                                                         <button
                                                             (click)="advancedFiltersAreShown=!advancedFiltersAreShown"
-                                                            class="btn btn-primary"><i class="fa fa-file-excel"></i> Tìm kiếm nâng cao
+                                                            class="btn btn-primary"><i class="fa fa-file-excel"></i> Tìm
+                                                            kiếm nâng cao
                                                         </button>
                                                     </div>
                                                     <div class="ui-g-6 ui-md-4 filter-container">
@@ -133,8 +140,9 @@
                                                                    class="form-control m-input"
                                                                    [placeholder]="l('SearchWithThreeDot')" type="text"/>
                                                             <span class="input-group-btn">
-                                                                <button (click)="getPbEbooks()" class="btn btn-primary" type="submit"><i
-                                                                class="flaticon-search-1"></i></button>
+                                                                <button (click)="getPbEbooks()" class="btn btn-primary"
+                                                                        type="submit"><i
+                                                                    class="flaticon-search-1"></i></button>
                                                             </span></div>
                                                     </div>
                                                     <div class="ui-g-6 ui-md-4" style="text-align:right">
@@ -147,25 +155,30 @@
                                             </div>
                                         </p-header>
                                         <ng-template let-book pTemplate="gridItem">
-                                            <div style="padding:.5em" class="ui-g-12 ui-md-6">
-                                                <p-card styleClass="ui-card-shadow">
-                                                    <p-header>
-                                                        <img src="Card" src="">
-                                                    </p-header>
-                                                    <p-footer>
-                                                        <p-splitButton label="Hành động" icon="pi pi-file"
-                                                                       [model]="items"></p-splitButton>
-                                                    </p-footer>
-                                                </p-card>
-                                                <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
-                                                    <img src="assets/showcase/images/demo/car/{{car.brand}}.png"
-                                                         width="60">
-                                                    <div class="car-detail">{{car.year}} - {{car.color}}</div>
-                                                    <hr class="ui-widget-content" style="border-top:0">
-                                                    <button pButton type="button" icon="pi pi-search"
-                                                            (click)="selectCar($event, car)"
-                                                            style="margin-top:0"></button>
-                                                </p-panel>
+                                            <div style="padding:.5em" class="ui-g">
+                                                <div class="ui-g-12 ui-md-6 ui-g">
+                                                    <div class="ui-md-12 ui-g-12">
+                                                        <b>{{book.EbookName}}</b>
+                                                    </div>
+                                                    <div class="ui-g-12 ui-md-6">
+                                                        <p-card styleClass="ui-card-shadow">
+                                                            <p-header>
+                                                                <img src="Card" src="{{book.EbookCover}}">
+                                                            </p-header>
+                                                            <p-footer>
+                                                                <p-splitButton label="Hành động" icon="pi pi-file"
+                                                                               [model]="items"></p-splitButton>
+                                                            </p-footer>
+                                                        </p-card>
+                                                    </div>
+                                                    <div class="ui-g-12 ui-md-6 ui-g">
+                                                        <div class="ui-g-12">Loại File: <b>{{book.PbTypeFileTypeFileName}}</b></div>
+                                                        <div class="ui-g-12">Số trang: <b>{{book.BookPage}}</b></div>
+                                                        <div class="ui-g-12">Lượt tải: <b>{{book.EbookView}}</b></div>
+                                                        <div class="ui-g-12">Đánh giá: <b>{{book.PbRankRankName}}</b></div>
+                                                        <div class="ui-g-12">Ngày đăng: <b>{{book.EbookDateStart}}</b></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </ng-template>
                                     </p-dataView>
@@ -186,19 +199,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 ui-g-12">
                             <p-tabView>
-                                <p-tabPanel header="Xem nhiều" leftIcon="pi pi-calendar">
+                                <p-tabPanel header="Tài liệu hot" leftIcon="pi pi-calendar">
 
                                 </p-tabPanel>
                             </p-tabView>
                             <p-tabView>
-                                <p-tabPanel header="Tải nhiều" leftIcon="pi pi-calendar">
+                                <p-tabPanel header="Tài liệu mới" leftIcon="pi pi-calendar">
 
                                 </p-tabPanel>
                             </p-tabView>
                             <p-tabView>
-                                <p-tabPanel header="Mới nhất" leftIcon="pi pi-calendar">
+                                <p-tabPanel header="Tải liệu mua nhiều" leftIcon="pi pi-calendar">
 
                                 </p-tabPanel>
                             </p-tabView>
