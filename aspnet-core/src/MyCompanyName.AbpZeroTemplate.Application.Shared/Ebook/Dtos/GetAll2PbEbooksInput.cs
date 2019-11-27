@@ -31,8 +31,6 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook.Dtos
     {
 
         public string PbClassClassNameFilter { get; set; }
-
-
         public string PbTypeEbookTypeNameFilter { get; set; }
 
     }

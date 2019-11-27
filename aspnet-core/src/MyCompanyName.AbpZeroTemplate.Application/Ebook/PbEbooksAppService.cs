@@ -259,6 +259,8 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
                                EbookName = o.EbookName,
                                Link = o.Link,
                                PbRankRankName = s4 == null ? "" : s4.RankName.ToString(),
+                               EbookCover=o.EbookCover,
+                               BookPage=o.BookPage,
                            };
 
             var totalCount = await filteredPbEbooks.CountAsync();

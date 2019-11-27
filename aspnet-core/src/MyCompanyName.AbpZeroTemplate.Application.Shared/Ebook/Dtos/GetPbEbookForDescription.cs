@@ -36,6 +36,8 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook.Dtos
         public string EbookName { get; set; }
         public string Link { get; set; }
         public string PbRankRankName { get; set; }
+        public string EbookCover { get; set; }
+        public long? BookPage { get; set; }
     }
 }
 }
