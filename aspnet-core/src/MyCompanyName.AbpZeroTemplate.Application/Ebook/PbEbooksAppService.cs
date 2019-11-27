@@ -237,6 +237,37 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
                 await pbEbooks.ToListAsync()
             );
         }
+        public async Task<PagedResultDto<GetPbEbookSame>> GetEbookSame(GetAllPbEbooksSameInput input)
+        {
+
+            var filteredPbEbooks = _pbEbookRepository.GetAll()
+                        .Include(e => e.PbClassFk)
+                        .Include(e => e.PbTypeEbookFk)
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.PbClassClassNameFilter), e => e.PbClassFk != null && e.PbClassFk.ClassName.ToLower() == input.PbClassClassNameFilter.ToLower().Trim())
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.PbTypeEbookTypeNameFilter), e => e.PbTypeEbookFk != null && e.PbTypeEbookFk.TypeName.ToLower() == input.PbTypeEbookTypeNameFilter.ToLower().Trim());
+            var pagedAndFilteredPbEbooks = filteredPbEbooks
+                .OrderBy(input.Sorting ?? "id asc")
+                .PageBy(input);
+
+            var pbEbooks = from o in pagedAndFilteredPbEbooks
+                           join o4 in _lookup_pbRankRepository.GetAll() on o.PbRankId equals o4.Id into j4
+                           from s4 in j4.DefaultIfEmpty()
+
+                           select new GetPbEbookSame()
+                           {
+                               Id = o.Id,
+                               EbookName = o.EbookName,
+                               Link = o.Link,
+                               PbRankRankName = s4 == null ? "" : s4.RankName.ToString(),
+                           };
+
+            var totalCount = await filteredPbEbooks.CountAsync();
+
+            return new PagedResultDto<GetPbEbookSame>(
+                totalCount,
+                await pbEbooks.ToListAsync()
+            );
+        }
         public async Task<GetPbEbookForViewDto> GetPbEbookForView(int id)
          {
             var pbEbook = await _pbEbookRepository.GetAsync(id);
