@@ -14,8 +14,7 @@ import {MenuItem} from 'primeng/components/common/menuitem';
 import {CreateOrEditPbEbookModalComponent} from '@app/main/ebook/pbEbooks/create-or-edit-pbEbook-modal.component';
 import {ViewPbEbookModalComponent} from '@app/main/ebook/pbEbooks/view-pbEbook-modal.component';
 import {SelectItem} from 'primeng/components/common/selectitem';
-import {DataView} from 'primeng/dataview';
-import {Table} from '@node_modules/primeng/components/table/table';
+import { DataView } from 'primeng/dataview';
 
 @Component({
   selector: 'app-shop-ebook',

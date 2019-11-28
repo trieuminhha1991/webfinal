@@ -6516,6 +6516,162 @@ export class PbEbooksServiceProxy {
     }
 
     /**
+     * @param filter (optional) 
+     * @param ebookNameFilter (optional) 
+     * @param proFilter (optional) 
+     * @param maxBookPageFilter (optional) 
+     * @param minBookPageFilter (optional) 
+     * @param userNameFilter (optional) 
+     * @param pbClassClassNameFilter (optional) 
+     * @param pbRankRankNameFilter (optional) 
+     * @param pbTypeEbookTypeNameFilter (optional) 
+     * @param pbTypeFileTypeFileNameFilter (optional) 
+     * @param sorting (optional) 
+     * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
+     * @return Success
+     */
+    getDesciption(filter: string | null | undefined, ebookNameFilter: string | null | undefined, proFilter: number | null | undefined, maxBookPageFilter: number | null | undefined, minBookPageFilter: number | null | undefined, userNameFilter: string | null | undefined, pbClassClassNameFilter: string | null | undefined, pbRankRankNameFilter: string | null | undefined, pbTypeEbookTypeNameFilter: string | null | undefined, pbTypeFileTypeFileNameFilter: string | null | undefined, sorting: string | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfGetPbEbookForDescription> {
+        let url_ = this.baseUrl + "/api/services/app/PbEbooks/GetDesciption?";
+        if (filter !== undefined)
+            url_ += "Filter=" + encodeURIComponent("" + filter) + "&"; 
+        if (ebookNameFilter !== undefined)
+            url_ += "EbookNameFilter=" + encodeURIComponent("" + ebookNameFilter) + "&"; 
+        if (proFilter !== undefined)
+            url_ += "ProFilter=" + encodeURIComponent("" + proFilter) + "&"; 
+        if (maxBookPageFilter !== undefined)
+            url_ += "MaxBookPageFilter=" + encodeURIComponent("" + maxBookPageFilter) + "&"; 
+        if (minBookPageFilter !== undefined)
+            url_ += "MinBookPageFilter=" + encodeURIComponent("" + minBookPageFilter) + "&"; 
+        if (userNameFilter !== undefined)
+            url_ += "UserNameFilter=" + encodeURIComponent("" + userNameFilter) + "&"; 
+        if (pbClassClassNameFilter !== undefined)
+            url_ += "PbClassClassNameFilter=" + encodeURIComponent("" + pbClassClassNameFilter) + "&"; 
+        if (pbRankRankNameFilter !== undefined)
+            url_ += "PbRankRankNameFilter=" + encodeURIComponent("" + pbRankRankNameFilter) + "&"; 
+        if (pbTypeEbookTypeNameFilter !== undefined)
+            url_ += "PbTypeEbookTypeNameFilter=" + encodeURIComponent("" + pbTypeEbookTypeNameFilter) + "&"; 
+        if (pbTypeFileTypeFileNameFilter !== undefined)
+            url_ += "PbTypeFileTypeFileNameFilter=" + encodeURIComponent("" + pbTypeFileTypeFileNameFilter) + "&"; 
+        if (sorting !== undefined)
+            url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetDesciption(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetDesciption(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfGetPbEbookForDescription>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfGetPbEbookForDescription>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetDesciption(response: HttpResponseBase): Observable<PagedResultDtoOfGetPbEbookForDescription> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = PagedResultDtoOfGetPbEbookForDescription.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PagedResultDtoOfGetPbEbookForDescription>(<any>null);
+    }
+
+    /**
+     * @param pbClassClassNameFilter (optional) 
+     * @param pbTypeEbookTypeNameFilter (optional) 
+     * @param sorting (optional) 
+     * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
+     * @return Success
+     */
+    getEbookSame(pbClassClassNameFilter: string | null | undefined, pbTypeEbookTypeNameFilter: string | null | undefined, sorting: string | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfGetPbEbookSame> {
+        let url_ = this.baseUrl + "/api/services/app/PbEbooks/GetEbookSame?";
+        if (pbClassClassNameFilter !== undefined)
+            url_ += "PbClassClassNameFilter=" + encodeURIComponent("" + pbClassClassNameFilter) + "&"; 
+        if (pbTypeEbookTypeNameFilter !== undefined)
+            url_ += "PbTypeEbookTypeNameFilter=" + encodeURIComponent("" + pbTypeEbookTypeNameFilter) + "&"; 
+        if (sorting !== undefined)
+            url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetEbookSame(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetEbookSame(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfGetPbEbookSame>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfGetPbEbookSame>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetEbookSame(response: HttpResponseBase): Observable<PagedResultDtoOfGetPbEbookSame> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = PagedResultDtoOfGetPbEbookSame.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PagedResultDtoOfGetPbEbookSame>(<any>null);
+    }
+
+    /**
      * @param id (optional) 
      * @return Success
      */
@@ -22579,6 +22735,254 @@ export interface IPbEbookDto {
     pbSubjectEducationId: number | undefined;
     pbTypeEbookId: number | undefined;
     pbTypeFileId: number | undefined;
+    id: number | undefined;
+}
+
+export class PagedResultDtoOfGetPbEbookForDescription implements IPagedResultDtoOfGetPbEbookForDescription {
+    totalCount!: number | undefined;
+    items!: GetPbEbookForDescription[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfGetPbEbookForDescription) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (Array.isArray(data["items"])) {
+                this.items = [] as any;
+                for (let item of data["items"])
+                    this.items!.push(GetPbEbookForDescription.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfGetPbEbookForDescription {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfGetPbEbookForDescription();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (Array.isArray(this.items)) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+export interface IPagedResultDtoOfGetPbEbookForDescription {
+    totalCount: number | undefined;
+    items: GetPbEbookForDescription[] | undefined;
+}
+
+export class GetPbEbookForDescription implements IGetPbEbookForDescription {
+    ebookName!: string | undefined;
+    link!: string | undefined;
+    ebookDateStart!: moment.Moment | undefined;
+    pro!: boolean | undefined;
+    ebookPrice!: number | undefined;
+    ebookView!: number | undefined;
+    ebookLike!: number | undefined;
+    ebookDislike!: number | undefined;
+    ebookCover!: string | undefined;
+    bookPage!: number | undefined;
+    userName!: string | undefined;
+    pbClassClassName!: string | undefined;
+    pbRankRankName!: string | undefined;
+    pbTypeEbookTypeName!: string | undefined;
+    pbTypeFileTypeFileName!: string | undefined;
+    id!: number | undefined;
+
+    constructor(data?: IGetPbEbookForDescription) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.ebookName = data["ebookName"];
+            this.link = data["link"];
+            this.ebookDateStart = data["ebookDateStart"] ? moment(data["ebookDateStart"].toString()) : <any>undefined;
+            this.pro = data["pro"];
+            this.ebookPrice = data["ebookPrice"];
+            this.ebookView = data["ebookView"];
+            this.ebookLike = data["ebookLike"];
+            this.ebookDislike = data["ebookDislike"];
+            this.ebookCover = data["ebookCover"];
+            this.bookPage = data["bookPage"];
+            this.userName = data["userName"];
+            this.pbClassClassName = data["pbClassClassName"];
+            this.pbRankRankName = data["pbRankRankName"];
+            this.pbTypeEbookTypeName = data["pbTypeEbookTypeName"];
+            this.pbTypeFileTypeFileName = data["pbTypeFileTypeFileName"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): GetPbEbookForDescription {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetPbEbookForDescription();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["ebookName"] = this.ebookName;
+        data["link"] = this.link;
+        data["ebookDateStart"] = this.ebookDateStart ? this.ebookDateStart.toISOString() : <any>undefined;
+        data["pro"] = this.pro;
+        data["ebookPrice"] = this.ebookPrice;
+        data["ebookView"] = this.ebookView;
+        data["ebookLike"] = this.ebookLike;
+        data["ebookDislike"] = this.ebookDislike;
+        data["ebookCover"] = this.ebookCover;
+        data["bookPage"] = this.bookPage;
+        data["userName"] = this.userName;
+        data["pbClassClassName"] = this.pbClassClassName;
+        data["pbRankRankName"] = this.pbRankRankName;
+        data["pbTypeEbookTypeName"] = this.pbTypeEbookTypeName;
+        data["pbTypeFileTypeFileName"] = this.pbTypeFileTypeFileName;
+        data["id"] = this.id;
+        return data; 
+    }
+}
+
+export interface IGetPbEbookForDescription {
+    ebookName: string | undefined;
+    link: string | undefined;
+    ebookDateStart: moment.Moment | undefined;
+    pro: boolean | undefined;
+    ebookPrice: number | undefined;
+    ebookView: number | undefined;
+    ebookLike: number | undefined;
+    ebookDislike: number | undefined;
+    ebookCover: string | undefined;
+    bookPage: number | undefined;
+    userName: string | undefined;
+    pbClassClassName: string | undefined;
+    pbRankRankName: string | undefined;
+    pbTypeEbookTypeName: string | undefined;
+    pbTypeFileTypeFileName: string | undefined;
+    id: number | undefined;
+}
+
+export class PagedResultDtoOfGetPbEbookSame implements IPagedResultDtoOfGetPbEbookSame {
+    totalCount!: number | undefined;
+    items!: GetPbEbookSame[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfGetPbEbookSame) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (Array.isArray(data["items"])) {
+                this.items = [] as any;
+                for (let item of data["items"])
+                    this.items!.push(GetPbEbookSame.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfGetPbEbookSame {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfGetPbEbookSame();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (Array.isArray(this.items)) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+export interface IPagedResultDtoOfGetPbEbookSame {
+    totalCount: number | undefined;
+    items: GetPbEbookSame[] | undefined;
+}
+
+export class GetPbEbookSame implements IGetPbEbookSame {
+    ebookName!: string | undefined;
+    link!: string | undefined;
+    pbRankRankName!: string | undefined;
+    ebookCover!: string | undefined;
+    bookPage!: number | undefined;
+    id!: number | undefined;
+
+    constructor(data?: IGetPbEbookSame) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.ebookName = data["ebookName"];
+            this.link = data["link"];
+            this.pbRankRankName = data["pbRankRankName"];
+            this.ebookCover = data["ebookCover"];
+            this.bookPage = data["bookPage"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): GetPbEbookSame {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetPbEbookSame();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["ebookName"] = this.ebookName;
+        data["link"] = this.link;
+        data["pbRankRankName"] = this.pbRankRankName;
+        data["ebookCover"] = this.ebookCover;
+        data["bookPage"] = this.bookPage;
+        data["id"] = this.id;
+        return data; 
+    }
+}
+
+export interface IGetPbEbookSame {
+    ebookName: string | undefined;
+    link: string | undefined;
+    pbRankRankName: string | undefined;
+    ebookCover: string | undefined;
+    bookPage: number | undefined;
     id: number | undefined;
 }
 

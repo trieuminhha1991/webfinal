@@ -62,6 +62,8 @@ import {TabViewModule} from 'primeng/tabview';
 import {ShopEbookComponent} from './ebook/shop-ebook/shop-ebook.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import { DetailebookComponent } from './ebook/detailebook/detailebook.component';
+import { DataView } from 'primeng/dataview';
+import { CarouselModule } from 'primeng/carousel';
 
 NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
 
@@ -73,7 +75,7 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
         EditorModule,
         InputMaskModule,
         TableModule,
-        SidebarModule, ScrollPanelModule, CardModule, TabViewModule, SplitButtonModule,
+        SidebarModule, ScrollPanelModule, CardModule, TabViewModule, SplitButtonModule, CarouselModule,
         CommonModule,
         FormsModule,
         ModalModule,
@@ -89,6 +91,7 @@ NgxBootstrapDatePickerConfigService.registerNgxBootstrapDatePickerLocales();
         PopoverModule.forRoot()
     ],
     declarations: [
+        DataView,
         PbPriceUsersComponent,
         ViewPbPriceUserModalComponent, CreateOrEditPbPriceUserModalComponent,
         PbPriceUserUserLookupTableModalComponent,

@@ -9,6 +9,7 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook
 {
     public interface IPbEbooksAppService : IApplicationService 
     {
+        Task<PagedResultDto<GetPbEbookSame>> GetEbookSame(GetAllPbEbooksSameInput input);
         Task<PagedResultDto<GetPbEbookForViewDto>> GetAll(GetAllPbEbooksInput input);
         Task<PagedResultDto<GetPbEbookForDescription>> GetDesciption(GetAll2PbEbooksInput input);
         Task<GetPbEbookForViewDto> GetPbEbookForView(int id);

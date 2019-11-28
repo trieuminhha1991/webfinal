@@ -40,4 +40,3 @@ namespace MyCompanyName.AbpZeroTemplate.Ebook.Dtos
         public long? BookPage { get; set; }
     }
 }
-}

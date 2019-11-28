@@ -154,16 +154,16 @@
                                                 </div>
                                             </div>
                                         </p-header>
-                                        <ng-template let-book pTemplate="gridItem">
+                                        <ng-template let-book="$implicit" pTemplate="listItem">
                                             <div style="padding:.5em" class="ui-g">
                                                 <div class="ui-g-12 ui-md-6 ui-g">
                                                     <div class="ui-md-12 ui-g-12">
-                                                        <b>{{book.EbookName}}</b>
+                                                        <b>{{book.pbEbook.ebookName}}</b>
                                                     </div>
                                                     <div class="ui-g-12 ui-md-6">
                                                         <p-card styleClass="ui-card-shadow">
                                                             <p-header>
-                                                                <img src="Card" src="{{book.EbookCover}}">
+                                                                <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px; width: 80px"/>
                                                             </p-header>
                                                             <p-footer>
                                                                 <p-splitButton label="Hành động" icon="pi pi-file"
@@ -172,11 +172,34 @@
                                                         </p-card>
                                                     </div>
                                                     <div class="ui-g-12 ui-md-6 ui-g">
-                                                        <div class="ui-g-12">Loại File: <b>{{book.PbTypeFileTypeFileName}}</b></div>
-                                                        <div class="ui-g-12">Số trang: <b>{{book.BookPage}}</b></div>
-                                                        <div class="ui-g-12">Lượt tải: <b>{{book.EbookView}}</b></div>
-                                                        <div class="ui-g-12">Đánh giá: <b>{{book.PbRankRankName}}</b></div>
-                                                        <div class="ui-g-12">Ngày đăng: <b>{{book.EbookDateStart}}</b></div>
+                                                        <div class="ui-g-12">Loại File: <b>{{book.pbTypeFileTypeFileName}}</b></div>
+                                                        <div class="ui-g-12">Số trang: <b>{{book.pbEbook.pookPage}}</b></div>
+                                                        <div class="ui-g-12">Lượt tải: <b>{{book.pbEbook.pbookView}}</b></div>
+                                                        <div class="ui-g-12">Đánh giá: <b>{{book.pbRankRankName}}</b></div>
+                                                        <div class="ui-g-12">Ngày đăng: <b>{{book.pbEbook.ebookDateStart}}</b></div>
+                                                    </div>
+                                                </div>
+                                                <div class="ui-g-12 ui-md-6 ui-g">
+                                                    <div class="ui-md-12 ui-g-12">
+                                                        <b>{{book.pbEbook.ebookName}}</b>
+                                                    </div>
+                                                    <div class="ui-g-12 ui-md-6">
+                                                        <p-card styleClass="ui-card-shadow">
+                                                            <p-header>
+                                                                <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px; width: 80px"/>
+                                                            </p-header>
+                                                            <p-footer>
+                                                                <p-splitButton label="Hành động" icon="pi pi-file"
+                                                                               [model]="items"></p-splitButton>
+                                                            </p-footer>
+                                                        </p-card>
+                                                    </div>
+                                                    <div class="ui-g-12 ui-md-6 ui-g">
+                                                        <div class="ui-g-12">Loại File: <b>{{book.pbTypeFileTypeFileName}}</b></div>
+                                                        <div class="ui-g-12">Số trang: <b>{{book.pbEbook.pookPage}}</b></div>
+                                                        <div class="ui-g-12">Lượt tải: <b>{{book.pbEbook.pbookView}}</b></div>
+                                                        <div class="ui-g-12">Đánh giá: <b>{{book.pbRankRankName}}</b></div>
+                                                        <div class="ui-g-12">Ngày đăng: <b>{{book.pbEbook.ebookDateStart}}</b></div>
                                                     </div>
                                                 </div>
                                             </div>
