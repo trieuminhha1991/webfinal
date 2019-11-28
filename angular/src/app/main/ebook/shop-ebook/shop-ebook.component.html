@@ -98,17 +98,17 @@
                                             <div class="ui-helper-clearfix">
                                                 <div class="ui-g">
                                                     <div class="ui-g-12 ui-md-4">
-                                                        <button
-                                                            (click)="advancedFiltersAreShown=!advancedFiltersAreShown"
-                                                            class="btn btn-primary"><i class="fa fa-file-excel"></i> Tìm
+                                                        <button (click)="advancedFiltersAreShown=!advancedFiltersAreShown"
+                                                                class="btn btn-primary">
+                                                            <i class="fa fa-file-excel"></i> Tìm
                                                             kiếm nâng cao
                                                         </button>
                                                     </div>
-                                                    <div class="ui-g-6 ui-md-4">
+                                                    <div class="ui-g-6 ui-md-4 ui-g">
                                                             <input [(ngModel)]="filterText" name="filterText" autoFocus
-                                                                   class="form-control m-input"
+                                                                   class="form-control m-input ui-g-9"
                                                                    [placeholder]="l('SearchWithThreeDot')" type="text" style="width:200px"/>
-                                                             <button (click)="getPbEbooks()" class="btn btn-primary"
+                                                             <button (click)="getPbEbooks()" class="btn btn-primary ui-g-2"
                                                                         type="submit"><i class="flaticon-search-1"></i></button>
                                                     </div>
                                                     <div class="ui-g-6 ui-md-4" style="text-align:right">
