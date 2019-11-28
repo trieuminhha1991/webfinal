@@ -84,9 +84,9 @@
                                 </div>
                             </p-sidebar>
                             <div class="ui-g">
-                                <div class="primeng-dataview-container ui-g-12"
-                                     [busyIf]="primengTableHelper.isLoading">
+                                <div [busyIf]="primengTableHelper.isLoading">
                                     <p-dataView #dataTable
+                                                layout="grid"
                                                 (onLazyLoad)="getPbEbooks($event)"
                                                 [value]="primengTableHelper.records"
                                                 [paginator]="false"
@@ -104,13 +104,12 @@
                                                             kiếm nâng cao
                                                         </button>
                                                     </div>
-                                                    <div class="ui-g-6 ui-md-4 filter-container">
+                                                    <div class="ui-g-6 ui-md-4">
                                                             <input [(ngModel)]="filterText" name="filterText" autoFocus
                                                                    class="form-control m-input"
                                                                    [placeholder]="l('SearchWithThreeDot')" type="text" style="width:200px"/>
                                                              <button (click)="getPbEbooks()" class="btn btn-primary"
-                                                                        type="submit"><i
-                                                                    class="flaticon-search-1"></i></button>
+                                                                        type="submit"><i class="flaticon-search-1"></i></button>
                                                     </div>
                                                     <div class="ui-g-6 ui-md-4" style="text-align:right">
                                                         <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey"
@@ -121,53 +120,30 @@
                                                 </div>
                                             </div>
                                         </p-header>
-                                        <ng-template let-book="$implicit" pTemplate="listItem">
-                                            <div style="padding:.5em" class="ui-g">
-                                                <div class="ui-g-12 ui-md-6 ui-g">
-                                                    <div class="ui-md-12 ui-g-12">
-                                                        <b>{{book.pbEbook.ebookName}}</b>
-                                                    </div>
-                                                    <div class="ui-g-12 ui-md-6">
-                                                        <p-card styleClass="ui-card-shadow">
-                                                            <p-header>
-                                                                <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px"/>
-                                                            </p-header>
-                                                            <p-footer>
-                                                                <p-splitButton label="Hành động" icon="pi pi-file"
-                                                                               [model]="items"></p-splitButton>
-                                                            </p-footer>
-                                                        </p-card>
-                                                    </div>
-                                                    <div class="ui-g-12 ui-md-6 ui-g">
-                                                        <div class="ui-g-12">Loại File: <b>{{book.pbTypeFileTypeFileName}}</b></div>
-                                                        <div class="ui-g-12">Số trang: <b>{{book.pbEbook.pookPage}}</b></div>
-                                                        <div class="ui-g-12">Lượt tải: <b>{{book.pbEbook.pbookView}}</b></div>
-                                                        <div class="ui-g-12">Đánh giá: <b>{{book.pbRankRankName}}</b></div>
-                                                        <div class="ui-g-12">Ngày đăng: <b>{{book.pbEbook.ebookDateStart}}</b></div>
-                                                    </div>
+                                        <ng-template let-book="$implicit" pTemplate="gridItem">
+                                            <div class="ui-g-12 ui-md-4 ui-g">
+                                                <div class="ui-md-12 ui-g-12">
+                                                    <b>{{book.pbEbook.ebookName}}</b>
                                                 </div>
-                                                <div class="ui-g-12 ui-md-6 ui-g">
-                                                    <div class="ui-md-12 ui-g-12">
-                                                        <b>{{book.pbEbook.ebookName}}</b>
+                                                <div class="ui-g-12 ui-md-6">
+                                                    <p-card styleClass="ui-card-shadow">
+                                                        <p-header>
+                                                            <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px" />
+                                                        </p-header>
+                                                        <p-footer>
+                                                            <p-splitButton label="Thao tác" icon="pi pi-list" styleClass="ui-button-warning"
+                                                                           [model]="items"></p-splitButton>
+                                                        </p-footer>
+                                                    </p-card>
+                                                </div>
+                                                <div class="ui-g-12 ui-md-6">
+                                                    <div class="ui-g-12">Loại File: <b>{{book.pbTypeFileTypeFileName}}</b></div>
+                                                    <div class="ui-g-12">Số trang: <b>{{book.pbEbook.ebookPage}}</b></div>
+                                                    <div class="ui-g-12">Lượt tải: <b>{{book.pbEbook.ebookView}}</b></div>
+                                                    <div class="ui-g-12">Đánh giá: <b>{{book.pbRankRankName}}</b>
+                                                        <p-rating [(ngModel)]="book.pbRankRankName[0]" [cancel]="false"></p-rating>
                                                     </div>
-                                                    <div class="ui-g-12 ui-md-6">
-                                                        <p-card styleClass="ui-card-shadow">
-                                                            <p-header>
-                                                                <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px"/>
-                                                            </p-header>
-                                                            <p-footer>
-                                                                <p-splitButton label="Hành động" icon="pi pi-file"
-                                                                               [model]="items"></p-splitButton>
-                                                            </p-footer>
-                                                        </p-card>
-                                                    </div>
-                                                    <div class="ui-g-12 ui-md-6 ui-g">
-                                                        <div class="ui-g-12">Loại File: <b>{{book.pbTypeFileTypeFileName}}</b></div>
-                                                        <div class="ui-g-12">Số trang: <b>{{book.pbEbook.pookPage}}</b></div>
-                                                        <div class="ui-g-12">Lượt tải: <b>{{book.pbEbook.pbookView}}</b></div>
-                                                        <div class="ui-g-12">Đánh giá: <b>{{book.pbRankRankName}}</b></div>
-                                                        <div class="ui-g-12">Ngày đăng: <b>{{book.pbEbook.ebookDateStart}}</b></div>
-                                                    </div>
+                                                    <div class="ui-g-12">Ngày đăng: <b>{{book.pbEbook.ebookDateStart}}</b></div>
                                                 </div>
                                             </div>
                                         </ng-template>

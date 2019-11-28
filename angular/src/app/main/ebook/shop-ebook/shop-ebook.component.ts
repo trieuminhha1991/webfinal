@@ -68,6 +68,7 @@ export class ShopEbookComponent extends AppComponentBase {
     pbTypeFileTypeFileNameFilter = '';
     sortField:string;
     items: MenuItem[];
+    val: number = 3;
     constructor(
         injector: Injector,
         private _pbEbooksServiceProxy: PbEbooksServiceProxy,
