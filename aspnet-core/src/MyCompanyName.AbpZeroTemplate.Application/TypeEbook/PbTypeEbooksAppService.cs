@@ -61,8 +61,14 @@ namespace MyCompanyName.AbpZeroTemplate.TypeEbook
                 await pbTypeEbooks.ToListAsync()
             );
          }
-		 
-		 public async Task<GetPbTypeEbookForViewDto> GetPbTypeEbookForView(int id)
+        public async Task<List<string>> GetAllTypeEbook()
+        {
+            var filteredPbTypeEbooks = _pbTypeEbookRepository.GetAll();
+            var pbTypeEbooks = (from o in filteredPbTypeEbooks
+                               select o.TypeName).ToList();
+            return pbTypeEbooks;
+        }
+        public async Task<GetPbTypeEbookForViewDto> GetPbTypeEbookForView(int id)
          {
             var pbTypeEbook = await _pbTypeEbookRepository.GetAsync(id);
 

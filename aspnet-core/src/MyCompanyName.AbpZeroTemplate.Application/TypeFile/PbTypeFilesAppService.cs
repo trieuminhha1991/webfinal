@@ -61,8 +61,14 @@ namespace MyCompanyName.AbpZeroTemplate.TypeFile
                 await pbTypeFiles.ToListAsync()
             );
          }
-		 
-		 public async Task<GetPbTypeFileForViewDto> GetPbTypeFileForView(int id)
+        public async Task<List<string>> GetAllTypeFile()
+        {
+            var filteredPbTypeEbooks = _pbTypeFileRepository.GetAll();
+            var pbTypeEbooks = (from o in filteredPbTypeEbooks
+                                select o.TypeFileName).ToList();
+            return pbTypeEbooks;
+        }
+        public async Task<GetPbTypeFileForViewDto> GetPbTypeFileForView(int id)
          {
             var pbTypeFile = await _pbTypeFileRepository.GetAsync(id);
 
