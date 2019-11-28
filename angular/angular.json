@@ -39,10 +39,10 @@
               "node_modules/cookieconsent/build/cookieconsent.min.css",
               "src/assets/FreezeUI/freeze-ui.min.css",
 
-              "src/assets/primeng/file-upload/css/primeng.file-upload.css",
-              "src/assets/primeng/autocomplete/css/primeng.autocomplete.css",
-              "src/assets/primeng/tree/css/primeng.tree.css",
-              "src/assets/primeng/context-menu/css/primeng.context-menu.css",
+              //"src/assets/primeng/file-upload/css/primeng.file-upload.css",
+              //"src/assets/primeng/autocomplete/css/primeng.autocomplete.css",
+              //"src/assets/primeng/tree/css/primeng.tree.css",
+              //"src/assets/primeng/context-menu/css/primeng.context-menu.css",
 
               "src/assets/fonts/fonts-poppins.css",
               "src/assets/fonts/fonts-roboto.css",

@@ -84,36 +84,6 @@
                                 </div>
                             </p-sidebar>
                             <div class="ui-g">
-                                <div class="ui-g-3">
-                                    <p-card styleClass="ui-card-shadow">
-                                        <p-header>
-                                            <img src="Card" src="">
-                                        </p-header>
-                                        <p-footer>
-                                            <p-splitButton label="Hành động" icon="pi pi-file"
-                                                           [model]="items"></p-splitButton>
-                                        </p-footer>
-                                    </p-card>
-                                </div>
-                                <div class="ui-g-9">
-                                    <p-tabView>
-                                        <p-tabPanel header="Mô tả" leftIcon="pi pi-calendar">
-
-                                        </p-tabPanel>
-                                        <p-tabPanel header="Thuộc tính" leftIcon="pi pi-calendar">
-
-                                        </p-tabPanel>
-                                        <p-tabPanel header="Lượt xem" leftIcon="pi pi-calendar">
-
-                                        </p-tabPanel>
-                                        <p-tabPanel header="Giá" leftIcon="pi pi-calendar">
-
-                                        </p-tabPanel>
-                                        <p-tabPanel header="Review" leftIcon="pi pi-calendar">
-
-                                        </p-tabPanel>
-                                    </p-tabView>
-                                </div>
                                 <div class="primeng-dataview-container ui-g-12"
                                      [busyIf]="primengTableHelper.isLoading">
                                     <p-dataView #dataTable
@@ -135,15 +105,12 @@
                                                         </button>
                                                     </div>
                                                     <div class="ui-g-6 ui-md-4 filter-container">
-                                                        <div style="position:relative">
                                                             <input [(ngModel)]="filterText" name="filterText" autoFocus
                                                                    class="form-control m-input"
-                                                                   [placeholder]="l('SearchWithThreeDot')" type="text"/>
-                                                            <span class="input-group-btn">
-                                                                <button (click)="getPbEbooks()" class="btn btn-primary"
+                                                                   [placeholder]="l('SearchWithThreeDot')" type="text" style="width:200px"/>
+                                                             <button (click)="getPbEbooks()" class="btn btn-primary"
                                                                         type="submit"><i
                                                                     class="flaticon-search-1"></i></button>
-                                                            </span></div>
                                                     </div>
                                                     <div class="ui-g-6 ui-md-4" style="text-align:right">
                                                         <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey"
@@ -163,7 +130,7 @@
                                                     <div class="ui-g-12 ui-md-6">
                                                         <p-card styleClass="ui-card-shadow">
                                                             <p-header>
-                                                                <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px; width: 80px"/>
+                                                                <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px"/>
                                                             </p-header>
                                                             <p-footer>
                                                                 <p-splitButton label="Hành động" icon="pi pi-file"
@@ -186,7 +153,7 @@
                                                     <div class="ui-g-12 ui-md-6">
                                                         <p-card styleClass="ui-card-shadow">
                                                             <p-header>
-                                                                <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px; width: 80px"/>
+                                                                <img src="https://c.imge.to/2019/11/28/vZmFMA.md.jpg" alt="vZmFMA.jpg" border="0" style="height:120px"/>
                                                             </p-header>
                                                             <p-footer>
                                                                 <p-splitButton label="Hành động" icon="pi pi-file"
