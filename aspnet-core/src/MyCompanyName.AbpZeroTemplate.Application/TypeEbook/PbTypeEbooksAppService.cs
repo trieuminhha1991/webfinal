@@ -144,6 +144,9 @@ namespace MyCompanyName.AbpZeroTemplate.TypeEbook
             return _pbTypeEbooksExcelExporter.ExportToFile(pbTypeEbookListDtos);
          }
 
-
+        public Task<List<string>> GetAllEbook()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
